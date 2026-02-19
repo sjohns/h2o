@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packing Slips</title>
+    <style>
+         /* Packing slip table styling */
+         table {
+             width: 100%;
+             border-collapse: collapse;
+         }
+
+         th, td {
+             border: 1px solid black;
+             padding: 5px;
+         }
+
+         th {
+             text-align: center;
+         }
+
+         td {
+             text-align: right;
+         }
+
+         td.left {
+             text-align: left;
+         }
+
+         tr:nth-child(even) {
+             background-color: #f2f2f2;
+         }
+
+         tr:hover {
+             background-color: #ddd;
+         }
+     </style>
+</head>
+<body>
+    <h3>Existing Packing Slips</h3>
+    <!-- New packing slips will be appended here -->
+    <table id="orderTableDetail">
+                <thead>
+                    <tr>
+                        <th>Packing Slip</th>
+                    </tr>
+                </thead>
+                <tbody id="orderTableDetailTbody"><tr><th>SKU</th><th>Bundles</th><th>Sticks</th></tr><tr><td>1 1/2" PVC PIPE SCH 80 - PLAIN ENDED</td><td></td><td>4320</td></tr></tbody>
+            </table><table id="orderTableDetail">
+                <thead>
+                    <tr>
+                        <th>Packing Slip</th>
+                    </tr>
+                </thead>
+                <tbody id="orderTableDetailTbody"><tr><th>SKU</th><th>Bundles</th><th>Sticks</th></tr><tr><td>2" PVC PIPE SCH 80 - PLAIN ENDED</td><td></td><td>2520</td></tr></tbody>
+            </table><table id="orderTableDetail">
+                <thead>
+                    <tr>
+                        <th>Packing Slip</th>
+                    </tr>
+                </thead>
+                <tbody id="orderTableDetailTbody"><tr><th>SKU</th><th>Bundles</th><th>Sticks</th></tr><tr><td>3" SDR21 PVC PIPE IPS - GASKETED</td><td></td><td>1200</td></tr></tbody>
+            </table><table id="orderTableDetail">
+                <thead>
+                    <tr>
+                        <th>Packing Slip</th>
+                    </tr>
+                </thead>
+                <tbody id="orderTableDetailTbody"><tr><th>SKU</th><th>sku<br>Id</th><th>product<br>Type<br>Id</th><th>display<br>Order</th><th>popularity<br>Score</th><th>eagle<br>Sticks<br>Per<br>Bundle</th><th>eagle<br>Bundles<br>Per<br>Truck<br>Load</th><th>eagle<br>Sticks<br>Per<br>Truckload</th><th>length</th><th>calculated<br>Sticks<br>Per<br>Bundle</th><th>size</th><th>calculated<br>Bundles<br>Per<br>Truckload</th><th>calculated<br>Bundle<br>Size</th><th>total<br>Sticks</th><th>number<br>Of<br>Bundles</th><th>Total<br>Sticks</th></tr><tr><td class="left">10" PVC PIPE SCH 40 - BELL ENDED</td><td class="left">skuId_12</td><td class="left">productTypeId_1</td><td>12</td><td>6</td><td>12</td><td>12</td><td>144</td><td>20'</td><td>12</td><td>10</td><td>12</td><td>1</td><td>108</td><td>9</td><td>108</td></tr><tr><td class="left">4" PVC PIPE SCH 40 - BELL ENDED</td><td class="left">skuId_9</td><td class="left">productTypeId_1</td><td>9</td><td>4</td><td>57</td><td>12</td><td>684</td><td>20'</td><td>57</td><td>4</td><td>12</td><td>1</td><td>171</td><td>3</td><td>171</td></tr></tbody>
+            </table><table id="orderTableDetail">
+                <thead>
+                    <tr>
+                        <th>Packing Slip</th>
+                    </tr>
+                </thead>
+                <tbody id="orderTableDetailTbody"><tr><th>SKU</th><th>sku<br>Id</th><th>product<br>Type<br>Id</th><th>display<br>Order</th><th>popularity<br>Score</th><th>eagle<br>Sticks<br>Per<br>Bundle</th><th>eagle<br>Bundles<br>Per<br>Truck<br>Load</th><th>eagle<br>Sticks<br>Per<br>Truckload</th><th>length</th><th>calculated<br>Sticks<br>Per<br>Bundle</th><th>size</th><th>calculated<br>Bundles<br>Per<br>Truckload</th><th>calculated<br>Bundle<br>Size</th><th>total<br>Sticks</th><th>number<br>Of<br>Bundles</th><th>Total<br>Sticks</th></tr><tr><td class="left">2" PVC PIPE SCH 40 - BELL ENDED</td><td class="left">skuId_6</td><td class="left">productTypeId_1</td><td>6</td><td>1</td><td>105</td><td>24</td><td>2,520</td><td>20'</td><td>105</td><td>2</td><td>24</td><td>1</td><td>420</td><td>4</td><td>420</td></tr><tr><td class="left">10" PVC PIPE SCH 40 - BELL ENDED</td><td class="left">skuId_12</td><td class="left">productTypeId_1</td><td>12</td><td>6</td><td>12</td><td>12</td><td>144</td><td>20'</td><td>12</td><td>10</td><td>12</td><td>2</td><td>96</td><td>8</td><td>96</td></tr><tr><td class="left">4" PVC PIPE SCH 40 - BELL ENDED</td><td class="left">skuId_9</td><td class="left">productTypeId_1</td><td>9</td><td>4</td><td>57</td><td>12</td><td>684</td><td>20'</td><td>57</td><td>4</td><td>12</td><td>2</td><td>114</td><td>2</td><td>114</td></tr></tbody>
+            </table><table id="orderTableDetail">
+                <thead>
+                    <tr>
+                        <th>Packing Slip</th>
+                    </tr>
+                </thead>
+                <tbody id="orderTableDetailTbody"><tr><th>SKU</th><th>sku<br>Id</th><th>product<br>Type<br>Id</th><th>display<br>Order</th><th>popularity<br>Score</th><th>eagle<br>Sticks<br>Per<br>Bundle</th><th>eagle<br>Bundles<br>Per<br>Truck<br>Load</th><th>eagle<br>Sticks<br>Per<br>Truckload</th><th>length</th><th>calculated<br>Sticks<br>Per<br>Bundle</th><th>size</th><th>calculated<br>Bundles<br>Per<br>Truckload</th><th>calculated<br>Bundle<br>Size</th><th>total<br>Sticks</th><th>number<br>Of<br>Bundles</th><th>Total<br>Sticks</th></tr><tr><td class="left">3/4" PVC PIPE SCH 40 - BELL ENDED</td><td class="left">skuId_2</td><td class="left">productTypeId_1</td><td>2</td><td>5</td><td>400</td><td>24</td><td>9,600</td><td>20'</td><td>400</td><td>3</td><td>24</td><td>1</td><td>400</td><td>1</td><td>400</td></tr><tr><td class="left">2" PVC PIPE SCH 40 - BELL ENDED</td><td class="left">skuId_6</td><td class="left">productTypeId_1</td><td>6</td><td>1</td><td>105</td><td>24</td><td>2,520</td><td>20'</td><td>105</td><td>2</td><td>24</td><td>1</td><td>945</td><td>9</td><td>945</td></tr><tr><td class="left">2 1/2" PVC PIPE SCH 40 - BELL ENDED</td><td class="left">skuId_7</td><td class="left">productTypeId_1</td><td>7</td><td>2</td><td>73</td><td>24</td><td>1,752</td><td>20'</td><td>73</td><td>2</td><td>24</td><td>1</td><td>438</td><td>6</td><td>438</td></tr><tr><td class="left">10" PVC PIPE SCH 40 - BELL ENDED</td><td class="left">skuId_12</td><td class="left">productTypeId_1</td><td>12</td><td>6</td><td>12</td><td>12</td><td>144</td><td>20'</td><td>12</td><td>10</td><td>12</td><td>2</td><td>12</td><td>1</td><td>12</td></tr><tr><td class="left">4" PVC PIPE SCH 40 - BELL ENDED</td><td class="left">skuId_9</td><td class="left">productTypeId_1</td><td>9</td><td>4</td><td>57</td><td>12</td><td>684</td><td>20'</td><td>57</td><td>4</td><td>12</td><td>2</td><td>171</td><td>3</td><td>171</td></tr></tbody>
+            </table><table id="orderTableDetail">
+                <thead>
+                    <tr>
+                        <th>Packing Slip</th>
+                    </tr>
+                </thead>
+                <tbody id="orderTableDetailTbody"><tr><th>SKU</th><th>sku<br>Id</th><th>product<br>Type<br>Id</th><th>display<br>Order</th><th>popularity<br>Score</th><th>eagle<br>Sticks<br>Per<br>Bundle</th><th>eagle<br>Bundles<br>Per<br>Truck<br>Load</th><th>eagle<br>Sticks<br>Per<br>Truckload</th><th>length</th><th>calculated<br>Sticks<br>Per<br>Bundle</th><th>size</th><th>calculated<br>Bundles<br>Per<br>Truckload</th><th>calculated<br>Bundle<br>Size</th><th>total<br>Sticks</th><th>number<br>Of<br>Bundles</th><th>Total<br>Sticks</th></tr><tr><td class="left">1 1/2" PVC PIPE SCH 40 - BELL ENDED</td><td class="left">skuId_5</td><td class="left">productTypeId_1</td><td>5</td><td>2</td><td>180</td><td>24</td><td>4,320</td><td>20'</td><td>180</td><td>1</td><td>24</td><td>1</td><td>720</td><td>4</td><td>720</td></tr><tr><td class="left">6" PVC PIPE SCH 40 - BELL ENDED</td><td class="left">skuId_10</td><td class="left">productTypeId_1</td><td>10</td><td>6</td><td>26</td><td>12</td><td>312</td><td>20'</td><td>26</td><td>6</td><td>12</td><td>2</td><td>260</td><td>10</td><td>260</td></tr></tbody>
+            </table><table id="orderTableDetail">
+                <thead>
+                    <tr>
+                        <th>Packing Slip</th>
+                    </tr>
+                </thead>
+                <tbody id="orderTableDetailTbody"><tr><th>SKU</th><th>sku<br>Id</th><th>product<br>Type<br>Id</th><th>display<br>Order</th><th>popularity<br>Score</th><th>eagle<br>Sticks<br>Per<br>Bundle</th><th>eagle<br>Bundles<br>Per<br>Truck<br>Load</th><th>eagle<br>Sticks<br>Per<br>Truckload</th><th>length</th><th>calculated<br>Sticks<br>Per<br>Bundle</th><th>size</th><th>calculated<br>Bundles<br>Per<br>Truckload</th><th>calculated<br>Bundle<br>Size</th><th>total<br>Sticks</th><th>number<br>Of<br>Bundles</th><th>Total<br>Sticks</th></tr><tr><td class="left">1 1/2" PVC PIPE SCH 40 - BELL ENDED</td><td class="left">skuId_5</td><td class="left">productTypeId_1</td><td>5</td><td>2</td><td>180</td><td>24</td><td>4,320</td><td>20'</td><td>180</td><td>1</td><td>24</td><td>1</td><td>900</td><td>5</td><td>900</td></tr><tr><td class="left">6" PVC PIPE SCH 40 - BELL ENDED</td><td class="left">skuId_10</td><td class="left">productTypeId_1</td><td>10</td><td>6</td><td>26</td><td>12</td><td>312</td><td>20'</td><td>26</td><td>6</td><td>12</td><td>2</td><td>234</td><td>9</td><td>234</td></tr><tr><td class="left">1 1/4" PVC PIPE SCH 80 - PLAIN ENDED</td><td class="left">skuId_17</td><td class="left">productTypeId_2</td><td>17</td><td>7</td><td>220</td><td>24</td><td>5,280</td><td>20'</td><td>220</td><td>1</td><td>24</td><td>1</td><td>220</td><td>1</td><td>220</td></tr></tbody>
+            </table><table id="orderTableDetail">
+                <thead>
+                    <tr>
+                        <th>Packing Slip</th>
+                    </tr>
+                </thead>
+                <tbody id="orderTableDetailTbody"><tr><th>SKU</th><th>sku<br>Id</th><th>product<br>Type<br>Id</th><th>display<br>Order</th><th>popularity<br>Score</th><th>eagle<br>Sticks<br>Per<br>Bundle</th><th>eagle<br>Bundles<br>Per<br>Truck<br>Load</th><th>eagle<br>Sticks<br>Per<br>Truckload</th><th>length</th><th>calculated<br>Sticks<br>Per<br>Bundle</th><th>size</th><th>calculated<br>Bundles<br>Per<br>Truckload</th><th>calculated<br>Bundle<br>Size</th><th>total<br>Sticks</th><th>number<br>Of<br>Bundles</th><th>Total<br>Sticks</th></tr><tr><td class="left">1 1/2" PVC PIPE SCH 40 - BELL ENDED</td><td class="left">skuId_5</td><td class="left">productTypeId_1</td><td>5</td><td>2</td><td>180</td><td>24</td><td>4,320</td><td>20'</td><td>180</td><td>1</td><td>24</td><td>7</td><td>720</td><td>4</td><td>720</td></tr><tr><td class="left">6" PVC PIPE SCH 40 - BELL ENDED</td><td class="left">skuId_10</td><td class="left">productTypeId_1</td><td>10</td><td>6</td><td>26</td><td>12</td><td>312</td><td>20'</td><td>26</td><td>6</td><td>12</td><td>14</td><td>156</td><td>6</td><td>156</td></tr><tr><td class="left">1 1/4" PVC PIPE SCH 80 - PLAIN ENDED</td><td class="left">skuId_17</td><td class="left">productTypeId_2</td><td>17</td><td>7</td><td>220</td><td>24</td><td>5,280</td><td>20'</td><td>220</td><td>1</td><td>24</td><td>7</td><td>220</td><td>1</td><td>220</td></tr><tr><td class="left">2" PVC PIPE SCH 80 - PLAIN ENDED</td><td class="left">skuId_19</td><td class="left">productTypeId_2</td><td>19</td><td>7</td><td>105</td><td>24</td><td>2,520</td><td>20'</td><td>105</td><td>2</td><td>24</td><td>7</td><td>315</td><td>3</td><td>315</td></tr><tr><td class="left">2 1/2" SDR26 PVC PIPE IPS - GASKETED</td><td class="left">skuId_31</td><td class="left">productTypeId_3</td><td>31</td><td>7</td><td>73</td><td>28</td><td>2,044</td><td>20'</td><td>73</td><td>2</td><td>28</td><td>6</td><td>292</td><td>4</td><td>292</td></tr></tbody>
+            </table><table id="orderTableDetail">
+                <thead>
+                    <tr>
+                        <th>Packing Slip</th>
+                    </tr>
+                </thead>
+                <tbody id="orderTableDetailTbody"><tr><th>SKU</th><th>sku<br>Id</th><th>product<br>Type<br>Id</th><th>display<br>Order</th><th>popularity<br>Score</th><th>eagle<br>Sticks<br>Per<br>Bundle</th><th>eagle<br>Bundles<br>Per<br>Truck<br>Load</th><th>eagle<br>Sticks<br>Per<br>Truckload</th><th>length</th><th>calculated<br>Sticks<br>Per<br>Bundle</th><th>size</th><th>calculated<br>Bundles<br>Per<br>Truckload</th><th>calculated<br>Bundle<br>Size</th><th>total<br>Sticks</th><th>number<br>Of<br>Bundles</th><th>Total<br>Sticks</th></tr><tr><td class="left">6" PVC PIPE SCH 40 - BELL ENDED</td><td class="left">skuId_10</td><td class="left">productTypeId_1</td><td>10</td><td>6</td><td>26</td><td>12</td><td>312</td><td>20'</td><td>26</td><td>6</td><td>12</td><td>1</td><td>182</td><td>7</td><td>182</td></tr><tr><td class="left">4" PVC PIPE SCH 40 - BELL ENDED</td><td class="left">skuId_9</td><td class="left">productTypeId_1</td><td>9</td><td>4</td><td>57</td><td>12</td><td>684</td><td>20'</td><td>57</td><td>4</td><td>12</td><td>1</td><td>285</td><td>5</td><td>285</td></tr></tbody>
+            </table><table id="orderTableDetail">
+                <thead>
+                    <tr>
+                        <th>Packing Slip</th>
+                    </tr>
+                </thead>
+                <tbody id="orderTableDetailTbody"><tr><th>SKU</th><th>sku<br>Id</th><th>product<br>Type<br>Id</th><th>display<br>Order</th><th>popularity<br>Score</th><th>eagle<br>Sticks<br>Per<br>Bundle</th><th>eagle<br>Bundles<br>Per<br>Truck<br>Load</th><th>eagle<br>Sticks<br>Per<br>Truckload</th><th>length</th><th>calculated<br>Sticks<br>Per<br>Bundle</th><th>size</th><th>calculated<br>Bundles<br>Per<br>Truckload</th><th>calculated<br>Bundle<br>Size</th><th>total<br>Sticks</th><th>number<br>Of<br>Bundles</th><th>Total<br>Sticks</th></tr><tr><td class="left">2" PVC PIPE SCH 40 - BELL ENDED</td><td class="left">skuId_6</td><td class="left">productTypeId_1</td><td>6</td><td>1</td><td>105</td><td>24</td><td>2,520</td><td>20'</td><td>105</td><td>2</td><td>24</td><td>1</td><td>945</td><td>9</td><td>945</td></tr><tr><td class="left">6" PVC PIPE SCH 40 - BELL ENDED</td><td class="left">skuId_10</td><td class="left">productTypeId_1</td><td>10</td><td>6</td><td>26</td><td>12</td><td>312</td><td>20'</td><td>26</td><td>6</td><td>12</td><td>2</td><td>52</td><td>2</td><td>52</td></tr><tr><td class="left">10" PVC PIPE SCH 40 - BELL ENDED</td><td class="left">skuId_12</td><td class="left">productTypeId_1</td><td>12</td><td>6</td><td>12</td><td>12</td><td>144</td><td>20'</td><td>12</td><td>10</td><td>12</td><td>2</td><td>12</td><td>1</td><td>12</td></tr><tr><td class="left">4" PVC PIPE SCH 40 - BELL ENDED</td><td class="left">skuId_9</td><td class="left">productTypeId_1</td><td>9</td><td>4</td><td>57</td><td>12</td><td>684</td><td>20'</td><td>57</td><td>4</td><td>12</td><td>2</td><td>228</td><td>4</td><td>228</td></tr><tr><td class="left">1 1/4" PVC PIPE SCH 80 - PLAIN ENDED</td><td class="left">skuId_17</td><td class="left">productTypeId_2</td><td>17</td><td>7</td><td>220</td><td>24</td><td>5,280</td><td>20'</td><td>220</td><td>1</td><td>24</td><td>1</td><td>220</td><td>1</td><td>220</td></tr></tbody>
+            </table><table id="orderTableDetail">
+                <thead>
+                    <tr>
+                        <th>Packing Slip</th>
+                    </tr>
+                </thead>
+                <tbody id="orderTableDetailTbody"><tr><th>SKU</th><th>sku<br>Id</th><th>product<br>Type<br>Id</th><th>display<br>Order</th><th>popularity<br>Score</th><th>eagle<br>Sticks<br>Per<br>Bundle</th><th>eagle<br>Bundles<br>Per<br>Truck<br>Load</th><th>eagle<br>Sticks<br>Per<br>Truckload</th><th>length</th><th>calculated<br>Sticks<br>Per<br>Bundle</th><th>size</th><th>calculated<br>Bundles<br>Per<br>Truckload</th><th>calculated<br>Bundle<br>Size</th><th>total<br>Sticks</th><th>number<br>Of<br>Bundles</th><th>Total<br>Sticks</th></tr><tr><td class="left">1 1/4" SDR26 PVC PIPE IPS - BELL ENDED</td><td class="left">skuId_28</td><td class="left">productTypeId_3</td><td>28</td><td>4</td><td>220</td><td>24</td><td>5,280</td><td>20'</td><td>220</td><td>1</td><td>24</td><td>3</td><td>440</td><td>2</td><td>440</td></tr><tr><td class="left">10" SDR26 PVC PIPE IPS - GASKETED</td><td class="left">skuId_36</td><td class="left">productTypeId_3</td><td>36</td><td>7</td><td>16</td><td>4</td><td>144</td><td>20'</td><td>16</td><td>10</td><td>9</td><td>8</td><td>128</td><td>8</td><td>128</td></tr></tbody>
+            </table><table id="orderTableDetail">
+                <thead>
+                    <tr>
+                        <th>Packing Slip</th>
+                    </tr>
+                </thead>
+                <tbody id="orderTableDetailTbody"><tr><th>SKU</th><th>sku<br>Id</th><th>product<br>Type<br>Id</th><th>display<br>Order</th><th>popularity<br>Score</th><th>eagle<br>Sticks<br>Per<br>Bundle</th><th>eagle<br>Bundles<br>Per<br>Truck<br>Load</th><th>eagle<br>Sticks<br>Per<br>Truckload</th><th>length</th><th>calculated<br>Sticks<br>Per<br>Bundle</th><th>size</th><th>calculated<br>Bundles<br>Per<br>Truckload</th><th>calculated<br>Bundle<br>Size</th><th>total<br>Sticks</th><th>number<br>Of<br>Bundles</th><th>Total<br>Sticks</th></tr><tr><td class="left">4" PVC PIPE SCH 40 - BELL ENDED</td><td class="left">skuId_9</td><td class="left">productTypeId_1</td><td>9</td><td>4</td><td>57</td><td>12</td><td>684</td><td>20'</td><td>57</td><td>4</td><td>12</td><td>3</td><td>285</td><td>5</td><td>285</td></tr><tr><td class="left">10" SDR26 PVC PIPE IPS - GASKETED</td><td class="left">skuId_36</td><td class="left">productTypeId_3</td><td>36</td><td>7</td><td>16</td><td>4</td><td>144</td><td>20'</td><td>16</td><td>10</td><td>9</td><td>4</td><td>80</td><td>5</td><td>80</td></tr></tbody>
+            </table><table id="orderTableDetail">
+                <thead>
+                    <tr>
+                        <th>Packing Slip</th>
+                    </tr>
+                </thead>
+                <tbody id="orderTableDetailTbody"><tr><th>SKU</th><th>sku<br>Id</th><th>product<br>Type<br>Id</th><th>display<br>Order</th><th>popularity<br>Score</th><th>eagle<br>Sticks<br>Per<br>Bundle</th><th>eagle<br>Bundles<br>Per<br>Truck<br>Load</th><th>eagle<br>Sticks<br>Per<br>Truckload</th><th>length</th><th>calculated<br>Sticks<br>Per<br>Bundle</th><th>size</th><th>calculated<br>Bundles<br>Per<br>Truckload</th><th>calculated<br>Bundle<br>Size</th><th>total<br>Sticks</th><th>number<br>Of<br>Bundles</th><th>Total<br>Sticks</th></tr><tr><td class="left">6" PVC PIPE SCH 40 - BELL ENDED</td><td class="left">skuId_10</td><td class="left">productTypeId_1</td><td>10</td><td>6</td><td>26</td><td>12</td><td>312</td><td>20'</td><td>26</td><td>6</td><td>12</td><td>2</td><td>286</td><td>11</td><td>286</td></tr><tr><td class="left">3/4" SDR26 PVC PIPE IPS - BELL ENDED</td><td class="left">skuId_26</td><td class="left">productTypeId_3</td><td>26</td><td>4</td><td>400</td><td>24</td><td>9,600</td><td>20'</td><td>400</td><td>3</td><td>24</td><td>1</td><td>800</td><td>2</td><td>800</td></tr></tbody>
+            </table><table id="orderTableDetail">
+                <thead>
+                    <tr>
+                        <th>Packing Slip</th>
+                    </tr>
+                </thead>
+                <tbody id="orderTableDetailTbody"><tr><th>SKU</th><th>sku<br>Id</th><th>product<br>Type<br>Id</th><th>display<br>Order</th><th>popularity<br>Score</th><th>eagle<br>Sticks<br>Per<br>Bundle</th><th>eagle<br>Bundles<br>Per<br>Truck<br>Load</th><th>eagle<br>Sticks<br>Per<br>Truckload</th><th>length</th><th>calculated<br>Sticks<br>Per<br>Bundle</th><th>size</th><th>calculated<br>Bundles<br>Per<br>Truckload</th><th>calculated<br>Bundle<br>Size</th><th>total<br>Sticks</th><th>number<br>Of<br>Bundles</th><th>Total<br>Sticks</th></tr><tr><td class="left">6" PVC PIPE SCH 40 - BELL ENDED</td><td class="left">skuId_10</td><td class="left">productTypeId_1</td><td>10</td><td>6</td><td>26</td><td>12</td><td>312</td><td>20'</td><td>26</td><td>6</td><td>12</td><td>20</td><td>26</td><td>1</td><td>26</td></tr><tr><td class="left">4" PVC PIPE SCH 40 - BELL ENDED</td><td class="left">skuId_9</td><td class="left">productTypeId_1</td><td>9</td><td>4</td><td>57</td><td>12</td><td>684</td><td>20'</td><td>57</td><td>4</td><td>12</td><td>20</td><td>399</td><td>7</td><td>399</td></tr><tr><td class="left">1" PVC PIPE SCH 80 - PLAIN ENDED</td><td class="left">skuId_16</td><td class="left">productTypeId_2</td><td>16</td><td>7</td><td>280</td><td>20</td><td>5,600</td><td>20'</td><td>280</td><td>1</td><td>20</td><td>12</td><td>560</td><td>2</td><td>560</td></tr><tr><td class="left">1" SDR26 PVC PIPE IPS - BELL ENDED</td><td class="left">skuId_27</td><td class="left">productTypeId_3</td><td>27</td><td>4</td><td>280</td><td>20</td><td>5,600</td><td>20'</td><td>280</td><td>1</td><td>20</td><td>12</td><td>840</td><td>3</td><td>840</td></tr><tr><td class="left">1 1/2" SDR26 PVC PIPE IPS - GASKETED</td><td class="left">skuId_29</td><td class="left">productTypeId_3</td><td>29</td><td>7</td><td>270</td><td>16</td><td>4,320</td><td>20'</td><td>270</td><td>1</td><td>16</td><td>15</td><td>270</td><td>1</td><td>270</td></tr></tbody>
+            </table><table id="orderTableDetail">
+                <thead>
+                    <tr>
+                        <th>Packing Slip</th>
+                    </tr>
+                </thead>
+                <tbody id="orderTableDetailTbody"><tr><th>SKU</th><th>sku<br>Id</th><th>product<br>Type<br>Id</th><th>display<br>Order</th><th>popularity<br>Score</th><th>eagle<br>Sticks<br>Per<br>Bundle</th><th>eagle<br>Bundles<br>Per<br>Truck<br>Load</th><th>eagle<br>Sticks<br>Per<br>Truckload</th><th>length</th><th>calculated<br>Sticks<br>Per<br>Bundle</th><th>size</th><th>calculated<br>Bundles<br>Per<br>Truckload</th><th>calculated<br>Bundle<br>Size</th><th>total<br>Sticks</th><th>number<br>Of<br>Bundles</th><th>Total<br>Sticks</th></tr><tr><td class="left">3/4" PVC PIPE SCH 40 - BELL ENDED</td><td class="left">skuId_2</td><td class="left">productTypeId_1</td><td>2</td><td>5</td><td>400</td><td>24</td><td>9,600</td><td>20'</td><td>400</td><td>3</td><td>24</td><td>5</td><td>400</td><td>1</td><td>400</td></tr><tr><td class="left">1 1/2" PVC PIPE SCH 40 - BELL ENDED</td><td class="left">skuId_5</td><td class="left">productTypeId_1</td><td>5</td><td>2</td><td>180</td><td>24</td><td>4,320</td><td>20'</td><td>180</td><td>1</td><td>24</td><td>5</td><td>900</td><td>5</td><td>900</td></tr><tr><td class="left">10" PVC PIPE SCH 40 - BELL ENDED</td><td class="left">skuId_12</td><td class="left">productTypeId_1</td><td>12</td><td>6</td><td>12</td><td>12</td><td>144</td><td>20'</td><td>12</td><td>10</td><td>12</td><td>10</td><td>84</td><td>7</td><td>84</td></tr><tr><td class="left">1 1/4" PVC PIPE SCH 80 - PLAIN ENDED</td><td class="left">skuId_17</td><td class="left">productTypeId_2</td><td>17</td><td>7</td><td>220</td><td>24</td><td>5,280</td><td>20'</td><td>220</td><td>1</td><td>24</td><td>5</td><td>220</td><td>1</td><td>220</td></tr><tr><td class="left">1" SDR26 PVC PIPE IPS - BELL ENDED</td><td class="left">skuId_27</td><td class="left">productTypeId_3</td><td>27</td><td>4</td><td>280</td><td>20</td><td>5,600</td><td>20'</td><td>280</td><td>1</td><td>20</td><td>6</td><td>560</td><td>2</td><td>560</td></tr></tbody>
+            </table>
+</body>
+</html>
+    

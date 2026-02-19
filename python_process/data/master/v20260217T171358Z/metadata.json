@@ -1,0 +1,10 @@
+{
+  "version": "v20260217T171358Z",
+  "imported_at": "2026-02-17T17:13:58.798251+00:00",
+  "source": "/home/stephen/Desktop/h2o/H2O/html/load_packing_data.js",
+  "rows": {
+    "product_types": 6,
+    "skus": 84,
+    "bundles": 84
+  }
+}

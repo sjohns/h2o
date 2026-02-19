@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Data Loading</title>
+    <style>
+        /* Packing slip table styling */
+        #orderTableDetail {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #orderTableDetail th, #orderTableDetail td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        #orderTableDetail th {
+            text-align: center;
+        }
+
+        #orderTableDetail td {
+            text-align: right;
+        }
+
+        #orderTableDetail td.left {
+            text-align: left;
+        }
+
+        #orderTableDetail tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #orderTableDetail tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+
+    <!-- Overview of the system:
+    This HTML file sets up a web page that dynamically loads and processes packing data to manage orders.
+    It includes several JavaScript files, each with specific responsibilities, working together to provide a 
+    comprehensive order management and packing slip generation system.
+
+    Explanation of the JavaScript Files:
+    1. **lcm_functions.js**: 
+       - Contains utility functions for calculating the Greatest Common Divisor (GCD) and Least Common Multiple (LCM) for SKU calculations.
+       - These calculations are critical for determining optimal bundle sizes for various SKUs.
+
+    2. **load_packing_data.js**: 
+       - Responsible for loading JSON data related to packing from the server.
+       - It fetches and parses the data, making it available for further processing.
+
+    3. **process_packing_data.js**: 
+       - Processes the loaded packing data by organizing it, performing necessary calculations, and preparing it for display.
+       - This script ensures that the data is in a usable format for the rest of the system.
+
+    4. **calculate_ratios.js**: 
+       - Contains functions to calculate important ratios used in the packing process, ensuring the correct proportions of items are packed.
+       - These ratios are essential for optimizing the use of space in truckloads.
+
+    5. **branch_and_bound_engine.js**: 
+       - Implements the Branch and Bound algorithm, an optimization technique used to find the best solution among all possible combinations.
+       - This engine is key to determining the most efficient packing strategy.
+
+    6. **select_skus.js**: 
+       - Manages the display and selection of SKUs (Stock Keeping Units) for packing.
+       - It provides the user interface elements for selecting SKUs and handles the interactions related to SKU selection.
+
+    7. **order_table.js**: 
+       - Manages the creation and display of the order table, which lists the items to be packed.
+       - It also handles the generation of packing slip details, summarizing the order in a structured format.
+
+    8. **event_listener.js**: 
+       - Sets up various event listeners to handle user interactions, such as button clicks and form submissions.
+       - These event listeners ensure that user actions trigger the appropriate responses in the system.
+
+    9. **Finalization Process**: 
+       - The `finalizeOrder` button in `order_table.js` triggers the finalization of the order, completing the packing process and preparing the packing slip.
+
+    **Additional Notes**:
+    1. `process_packing_data.js` - This data is mostly static and rarely changes, but when it does, the system can accommodate those changes.
+    2. The files `lcm_functions.js`, `calculate_ratios.js`, and `branch_and_bound_engine.js` can be combined into one function once testing is completed and verified. This is optional based on your preference.
+    3. There may still be some jQuery code in the system, though most has been removed. Verification is needed.
+    4. The primary user interface files are `order_table.js` and `select_skus.js`. `select_skus.js` is mainly used for selecting products, and it interacts with `branch_and_bound_engine.js`.
+    5. `order_table.js` and `branch_and_bound_engine.js` interact closely. Data flows between them as `branch_and_bound_engine.js` sends data to `order_table.js`, which in turn modifies calculations in `branch_and_bound_engine.js`.
+    6. Previous terms like 'sizes', 'sizesId', and 'size' have been replaced with 'skus', 'sku', and 'skuId' for consistency.
+    7. An unhandled situation occurs when a user makes an impossible selection, which currently triggers an alert. Further handling of this scenario is open for discussion.
+    8. There may be additional details or clarifications needed. Please reach out for further discussion or feedback.
+    9. Several `console.log` statements exist throughout the code. These can be commented out if no longer needed.
+    -->
+
+    <!-- Including necessary JavaScript files -->
+    <!-- <script src="jquery-3.7.1.min.js"></script> -->
+    <script src="lcm_functions.js"></script>
+    <script src="load_packing_data.js"></script>
+    <script src="process_packing_data.js"></script>
+    <script src="calculate_ratios.js"></script>
+    <script src="branch_and_bound_engine.js"></script>
+	<script src="select_skus.js"></script>
+    <script src="order_table.js"></script>
+    <script src="event_listener.js"></script>
+</head>
+<body>
+<div id="selectSkus"></div>
+    <div id="orderTable">
+        <div id="orderTableContainer">
+            <h1 id="orderTableHeading">Create Order</h1>
+            <table id="orderTable">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Correct Amount</th>
+                        <th>Increase</th>
+                        <th>Decrease</th>
+                    </tr>
+                </thead>
+                <tbody id="orderTableTbody">
+                    <!-- Rows will be dynamically added here -->
+                </tbody>
+            </table>
+            <button id="finalizeOrder" type="button">Finalize Order</button>
+            
+            <!-- Detail Table -->
+            <h2>Packing Slip Details</h2>
+            <table id="orderTableDetail">
+                <thead>
+                    <tr>
+                        <th>Packing Slip</th>
+                    </tr>
+                </thead>
+                <tbody id="orderTableDetailTbody">
+                    <!-- Rows will be inserted here by JavaScript -->
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</body>
+</html>

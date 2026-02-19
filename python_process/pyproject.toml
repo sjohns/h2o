@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "python-process"
+version = "0.1.0"
+description = "FastAPI + DuckDB cloud process for H2O pipe loading calculations"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.111",
+  "uvicorn[standard]>=0.30",
+  "duckdb>=1.0",
+  "pydantic>=2.7",
+  "python-multipart>=0.0.9",
+  "python-dotenv>=1.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["cloud_app/tests"]
+python_files = ["test_*.py"]
+addopts = "-q"
+
