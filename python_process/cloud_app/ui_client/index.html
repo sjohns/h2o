@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Data Loading</title>
+    <style>
+        #orderTableDetail {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #orderTableDetail th, #orderTableDetail td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        #orderTableDetail th {
+            text-align: center;
+        }
+
+        #orderTableDetail td {
+            text-align: right;
+        }
+
+        #orderTableDetail td.left {
+            text-align: left;
+        }
+
+        #orderTableDetail tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #orderTableDetail tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+
+    <script src="/client-ui-assets/lcm_functions.js"></script>
+    <script src="/client-ui-assets/load_packing_data.js"></script>
+    <script src="/client-ui-assets/process_packing_data.js"></script>
+    <script src="/client-ui-assets/calculate_ratios.js"></script>
+    <script src="/client-ui-assets/branch_and_bound_engine.js"></script>
+    <script src="/client-ui-assets/select_skus.js"></script>
+    <script src="/client-ui-assets/order_table.js"></script>
+    <script src="/client-ui-assets/event_listener.js"></script>
+</head>
+<body>
+<div id="selectSkus"></div>
+    <div id="orderTable">
+        <div id="orderTableContainer">
+            <h1 id="orderTableHeading">Create Order</h1>
+            <table id="orderTable">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Correct Amount</th>
+                        <th>Increase</th>
+                        <th>Decrease</th>
+                    </tr>
+                </thead>
+                <tbody id="orderTableTbody"></tbody>
+            </table>
+            <button id="finalizeOrder" type="button">Finalize Order</button>
+
+            <h2>Packing Slip Details</h2>
+            <table id="orderTableDetail">
+                <thead>
+                    <tr>
+                        <th>Packing Slip</th>
+                    </tr>
+                </thead>
+                <tbody id="orderTableDetailTbody"></tbody>
+            </table>
+
+        </div>
+    </div>
+</body>
+</html>

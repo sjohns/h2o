@@ -30,6 +30,7 @@ The script is designed to be flexible, allowing the input and output file names 
 import json
 import datetime
 from collections import defaultdict
+from pathlib import Path
 
 # import pandas as pd
 # import numpy as np
@@ -40,6 +41,7 @@ from typing import Optional, List
 # Define file names for input and output
 input_file_name = 'H2O New PRICE LIST & LOADING CHART 2024.csv'
 output_js_file_name = 'load_packing_data.js'
+output_api_json_file_name = '../api/data/packing_data.json'
 
 
 def clean_string(s: str) -> str:
@@ -207,12 +209,17 @@ for _, row in df_with_sku_id.iterrows():
     # Convert the product types dictionary to a list and assign to packing data
     packing_data["productTypes"] = list(productTypes_dict.values())
 
-    # Convert the packing data to JSON
-    json_data = json.dumps(packing_data, indent=4)
+# Convert the packing data to JSON
+json_data = json.dumps(packing_data, indent=4)
 
-    # Create JavaScript code from the JSON data
-    js_code = f"const packingData = {json_data};"
+# Create JavaScript code from the JSON data
+js_code = f"const packingData = {json_data};"
 
-    # Write the JavaScript code to a .js file
-    with open(output_js_file_name, 'w') as js_file:
-        js_file.write(js_code)
+# Write the JavaScript code to a .js file
+with open(output_js_file_name, 'w') as js_file:
+    js_file.write(js_code)
+
+# Write deterministic API snapshot JSON (used by H2O/api)
+api_json_path = Path(output_api_json_file_name)
+api_json_path.parent.mkdir(parents=True, exist_ok=True)
+api_json_path.write_text(json_data, encoding='utf-8')

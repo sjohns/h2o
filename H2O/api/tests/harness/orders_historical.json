@@ -1,0 +1,448 @@
+[
+  {
+    "order_id": "case_a",
+    "items": [
+      {
+        "sku_id": "skuId_2",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_3",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_5",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "order_id": "case_b",
+    "items": [
+      {
+        "sku_id": "skuId_32",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_33",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_52",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_53",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_54",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "order_id": "case_c",
+    "items": [
+      {
+        "sku_id": "skuId_68",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_69",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_70",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_71",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_72",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "order_id": "case_d",
+    "items": [
+      {
+        "sku_id": "skuId_10",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_26",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "order_id": "case_e",
+    "items": [
+      {
+        "sku_id": "skuId_50",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_55",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_63",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "order_id": "case_f",
+    "items": [
+      {
+        "sku_id": "skuId_2",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_3",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "order_id": "case_g",
+    "items": [
+      {
+        "sku_id": "skuId_18",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "order_id": "case_h",
+    "items": [
+      {
+        "sku_id": "skuId_19",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "order_id": "case_i",
+    "items": [
+      {
+        "sku_id": "skuId_44",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "order_id": "case_j",
+    "items": [
+      {
+        "sku_id": "skuId_9",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_12",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "order_id": "case_k",
+    "items": [
+      {
+        "sku_id": "skuId_9",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_12",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_6",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "order_id": "case_l",
+    "items": [
+      {
+        "sku_id": "skuId_9",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_12",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_6",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_7",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_2",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "order_id": "case_m",
+    "items": [
+      {
+        "sku_id": "skuId_10",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_5",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "order_id": "case_n",
+    "items": [
+      {
+        "sku_id": "skuId_10",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_5",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_17",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "order_id": "case_o",
+    "items": [
+      {
+        "sku_id": "skuId_10",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_5",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_17",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_19",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_31",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "order_id": "case_p",
+    "items": [
+      {
+        "sku_id": "skuId_10",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_9",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "order_id": "case_q",
+    "items": [
+      {
+        "sku_id": "skuId_9",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_12",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_6",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_10",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_17",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "order_id": "case_r",
+    "items": [
+      {
+        "sku_id": "skuId_36",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_28",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "order_id": "case_s",
+    "items": [
+      {
+        "sku_id": "skuId_9",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_36",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "order_id": "case_t",
+    "items": [
+      {
+        "sku_id": "skuId_9",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_10",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_16",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_29",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_27",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "order_id": "case_u",
+    "items": [
+      {
+        "sku_id": "skuId_12",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_5",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_17",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_2",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_27",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "order_id": "case_v",
+    "items": [
+      {
+        "sku_id": "skuId_53",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_54",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "order_id": "case_w",
+    "items": [
+      {
+        "sku_id": "skuId_62",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_63",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_64",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "order_id": "case_x",
+    "items": [
+      {
+        "sku_id": "skuId_41",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_42",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_43",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "order_id": "case_y",
+    "items": [
+      {
+        "sku_id": "skuId_14",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_15",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_16",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_17",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "order_id": "case_z",
+    "items": [
+      {
+        "sku_id": "skuId_1",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_8",
+        "quantity": 1
+      },
+      {
+        "sku_id": "skuId_10",
+        "quantity": 1
+      }
+    ]
+  }
+]

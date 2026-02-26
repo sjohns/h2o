@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>H2O Client UI</title>
+    <style>
+        :root {
+            --bg: #f7f8f4;
+            --panel: #ffffff;
+            --ink: #1c231c;
+            --accent: #1f5f46;
+            --border: #d9dfd3;
+        }
+        body { margin: 0; font-family: "Georgia", "Times New Roman", serif; background: linear-gradient(140deg, #ebf1e7, var(--bg)); color: var(--ink); }
+        .wrap { max-width: 1200px; margin: 20px auto; padding: 0 16px; }
+        .panel { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 14px; margin-bottom: 14px; }
+        h1, h2 { margin: 0 0 10px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #bfc8b5; padding: 6px; }
+        th { text-align: left; background: #eff4ea; }
+        td.right { text-align: right; }
+        .controls { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+        button { background: var(--accent); color: #fff; border: 0; border-radius: 6px; padding: 8px 12px; cursor: pointer; }
+        input[type="number"] { width: 100px; }
+        .status { white-space: pre-wrap; font-family: "Courier New", monospace; font-size: 13px; }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <h1>Create Order</h1>
+
+    <div class="panel">
+        <div class="controls">
+            <button id="loadSkusButton" type="button">Load SKUs</button>
+            <label>Truck Fill Ratio
+                <input id="truckFillRatio" type="number" min="0.1" max="1" step="0.01" value="1.0">
+            </label>
+            <button id="createOrderButton" type="button">Create Order</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>SKU ID</th>
+                    <th>Description</th>
+                    <th>Size</th>
+                    <th class="right">Popularity</th>
+                </tr>
+            </thead>
+            <tbody id="skuSelectionTbody"></tbody>
+        </table>
+    </div>
+
+    <div class="panel">
+        <h2>Order Table</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Correct Amount</th>
+                    <th>Increase</th>
+                    <th>Decrease</th>
+                </tr>
+            </thead>
+            <tbody id="orderTableTbody"></tbody>
+        </table>
+        <button id="finalizeOrder" type="button">Finalize Order</button>
+    </div>
+
+    <div class="panel">
+        <h2>Packing Slip Details</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>SKU</th>
+                    <th class="right">Bundles</th>
+                    <th class="right">Sticks</th>
+                </tr>
+            </thead>
+            <tbody id="packingSlipTbody"></tbody>
+        </table>
+    </div>
+
+    <div class="panel">
+        <h2>Status</h2>
+        <div id="statusOutput" class="status"></div>
+    </div>
+</div>
+
+<script>
+let allSkus = [];
+let skusById = {};
+let selectedSkuIds = [];
+let currentSolution = [];
+let fixedBundles = {};
+let minBundles = {};
+let maxBundles = {};
+
+const skuSelectionTbody = document.getElementById("skuSelectionTbody");
+const orderTableTbody = document.getElementById("orderTableTbody");
+const packingSlipTbody = document.getElementById("packingSlipTbody");
+const statusOutput = document.getElementById("statusOutput");
+
+function setStatus(value) {
+    statusOutput.textContent = typeof value === "string" ? value : JSON.stringify(value, null, 2);
+}
+
+function getTruckFillRatio() {
+    return Number(document.getElementById("truckFillRatio").value);
+}
+
+function resetConstraints() {
+    fixedBundles = {};
+    minBundles = {};
+    maxBundles = {};
+}
+
+function renderSelectionTable() {
+    skuSelectionTbody.innerHTML = "";
+    allSkus.forEach((sku) => {
+        const row = document.createElement("tr");
+        const checked = selectedSkuIds.includes(sku.sku_id) ? "checked" : "";
+        row.innerHTML = `
+            <td><input type="checkbox" name="selectSku" value="${sku.sku_id}" ${checked}></td>
+            <td>${sku.sku_id}</td>
+            <td>${sku.sku}</td>
+            <td>${sku.size}</td>
+            <td class="right">${sku.popularity_score}</td>
+        `;
+        skuSelectionTbody.appendChild(row);
+    });
+}
+
+function collectSelectedSkuIds() {
+    return Array.from(document.querySelectorAll("input[name='selectSku']:checked")).map((node) => node.value);
+}
+
+function solutionBundlesMap() {
+    const bundleMap = {};
+    currentSolution.forEach((entry) => {
+        bundleMap[entry.sku_id] = Number(entry.number_of_bundles);
+    });
+    return bundleMap;
+}
+
+async function calculateCurrentOrder() {
+    const payload = {
+        selected_sku_ids: selectedSkuIds,
+        truck_fill_ratio: getTruckFillRatio(),
+        fixed_bundles: fixedBundles,
+        min_bundles: minBundles,
+        max_bundles: maxBundles
+    };
+
+    const response = await fetch("/api/calculate", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(payload)
+    });
+    const result = await response.json();
+    if (!response.ok) {
+        throw new Error(JSON.stringify(result));
+    }
+
+    currentSolution = result.solution || [];
+    renderOrderTable(result);
+    return result;
+}
+
+function renderOrderTable(resultPayload) {
+    const bundlesMap = solutionBundlesMap();
+    orderTableTbody.innerHTML = "";
+    selectedSkuIds.forEach((skuId) => {
+        const sku = skusById[skuId];
+        const bundleCount = Number(bundlesMap[skuId] || 0);
+        const totalSticks = bundleCount * Number(sku.calculated_sticks_per_bundle || 0);
+
+        const row = document.createElement("tr");
+        row.setAttribute("data-sku-id", skuId);
+        row.innerHTML = `
+            <td>${sku.sku}, ${bundleCount} bundles, ${totalSticks} sticks</td>
+            <td><input type="checkbox" class="correct-toggle" data-sku-id="${skuId}" ${fixedBundles[skuId] !== undefined ? "checked" : ""}></td>
+            <td><button type="button" class="increase-button" data-sku-id="${skuId}">Increase Amount</button></td>
+            <td><button type="button" class="decrease-button" data-sku-id="${skuId}">Decrease Amount</button></td>
+        `;
+        orderTableTbody.appendChild(row);
+    });
+
+    setStatus({
+        version: resultPayload.version,
+        lcm: resultPayload.lcm,
+        total_truck_size: resultPayload.total_truck_size,
+        total_sticks: resultPayload.total_sticks
+    });
+}
+
+function renderPackingSlip() {
+    packingSlipTbody.innerHTML = "";
+    const bundlesMap = solutionBundlesMap();
+    selectedSkuIds.forEach((skuId) => {
+        const sku = skusById[skuId];
+        const bundleCount = Number(bundlesMap[skuId] || 0);
+        const totalSticks = bundleCount * Number(sku.calculated_sticks_per_bundle || 0);
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${sku.sku}</td>
+            <td class="right">${bundleCount}</td>
+            <td class="right">${totalSticks}</td>
+        `;
+        packingSlipTbody.appendChild(row);
+    });
+}
+
+async function applyAction(skuId, actionName) {
+    const bundlesMap = solutionBundlesMap();
+    const currentBundles = Number(bundlesMap[skuId] || 0);
+
+    if (actionName === "increase") {
+        minBundles[skuId] = currentBundles + 1;
+        delete fixedBundles[skuId];
+    } else if (actionName === "decrease") {
+        maxBundles[skuId] = Math.max(1, currentBundles - 1);
+        delete fixedBundles[skuId];
+    } else if (actionName === "correctAmount") {
+        fixedBundles[skuId] = currentBundles;
+        delete minBundles[skuId];
+        delete maxBundles[skuId];
+    } else if (actionName === "notCorrectAmount") {
+        delete fixedBundles[skuId];
+    }
+
+    const result = await calculateCurrentOrder();
+    renderPackingSlip();
+    return result;
+}
+
+document.getElementById("loadSkusButton").addEventListener("click", async () => {
+    const response = await fetch("/api/skus");
+    const payload = await response.json();
+    allSkus = payload.skus || [];
+    skusById = {};
+    allSkus.forEach((sku) => {
+        skusById[sku.sku_id] = sku;
+    });
+    renderSelectionTable();
+    setStatus(`Loaded ${allSkus.length} SKUs from version ${payload.version}`);
+});
+
+document.getElementById("createOrderButton").addEventListener("click", async () => {
+    selectedSkuIds = collectSelectedSkuIds();
+    if (selectedSkuIds.length < 1) {
+        alert("Please select at least one SKU before creating an order.");
+        return;
+    }
+
+    resetConstraints();
+    try {
+        await calculateCurrentOrder();
+        renderPackingSlip();
+    } catch (error) {
+        setStatus(`Create order failed: ${error.message}`);
+    }
+});
+
+orderTableTbody.addEventListener("click", async (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) {
+        return;
+    }
+    const skuId = target.getAttribute("data-sku-id");
+    if (!skuId) {
+        return;
+    }
+
+    try {
+        if (target.classList.contains("increase-button")) {
+            await applyAction(skuId, "increase");
+        }
+        if (target.classList.contains("decrease-button")) {
+            await applyAction(skuId, "decrease");
+        }
+    } catch (error) {
+        setStatus(`Update failed: ${error.message}`);
+    }
+});
+
+orderTableTbody.addEventListener("change", async (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLInputElement)) {
+        return;
+    }
+    if (!target.classList.contains("correct-toggle")) {
+        return;
+    }
+    const skuId = target.getAttribute("data-sku-id");
+    if (!skuId) {
+        return;
+    }
+    try {
+        await applyAction(skuId, target.checked ? "correctAmount" : "notCorrectAmount");
+    } catch (error) {
+        setStatus(`Toggle failed: ${error.message}`);
+    }
+});
+
+document.getElementById("finalizeOrder").addEventListener("click", () => {
+    renderPackingSlip();
+    setStatus("Order finalized. Packing slip updated.");
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>H2O Admin UI</title>
+    <style>
+        :root {
+            --bg: #f4f6ef;
+            --panel: #ffffff;
+            --ink: #1f2a21;
+            --accent: #1f6f4a;
+            --border: #d6ddce;
+        }
+        body { margin: 0; font-family: "Georgia", "Times New Roman", serif; background: linear-gradient(120deg, #e7efe4, var(--bg)); color: var(--ink); }
+        .wrap { max-width: 1200px; margin: 24px auto; padding: 0 16px; }
+        h1 { margin: 0 0 12px; }
+        .panel { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-bottom: 16px; }
+        label { display: block; margin-top: 8px; font-size: 14px; }
+        input, select { width: 100%; box-sizing: border-box; padding: 8px; margin-top: 4px; border: 1px solid #c6cfbc; border-radius: 6px; }
+        button { margin-top: 12px; background: var(--accent); color: white; border: 0; padding: 9px 14px; border-radius: 6px; cursor: pointer; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .status { white-space: pre-wrap; font-family: "Courier New", monospace; font-size: 13px; }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <h1>H2O Admin</h1>
+    <div class="panel">
+        <label>Admin ID
+            <input id="adminId" type="text" placeholder="admin">
+        </label>
+        <label>Admin Password
+            <input id="adminPassword" type="password" placeholder="H2O_ADMIN_PASSWORD">
+        </label>
+        <button id="loadDatasetButton">Load Current Dataset</button>
+        <button id="loadStorageStatusButton">Load Storage Status</button>
+        <div id="datasetStatus" class="status"></div>
+    </div>
+
+    <div class="panel">
+        <h2>Import CSV</h2>
+        <label>CSV File
+            <input id="csvUploadInput" type="file" accept=".csv,text/csv">
+        </label>
+        <button id="importCsvButton">Upload CSV and Download Review CSV</button>
+    </div>
+
+    <div class="panel">
+        <h2>Version Retention</h2>
+        <label>Keep Latest Versions
+            <input id="retentionKeepLatest" type="number" min="1" value="10">
+        </label>
+        <label>
+            <input id="retentionDryRun" type="checkbox" checked>
+            Dry Run
+        </label>
+        <button id="runRetentionButton">Run Retention</button>
+    </div>
+
+    <div class="grid">
+        <div class="panel">
+            <h2>Update Product Type</h2>
+            <label>Product Type ID
+                <input id="productTypeId" type="text" placeholder="productTypeId_1">
+            </label>
+            <label>Product Type Name
+                <input id="productTypeName" type="text" placeholder="SCH 40 PVC ...">
+            </label>
+            <button id="updateProductTypeButton">Update Product Type</button>
+        </div>
+
+        <div class="panel">
+            <h2>Update SKU</h2>
+            <label>SKU ID
+                <input id="skuId" type="text" placeholder="skuId_1">
+            </label>
+            <label>Product Type ID
+                <input id="skuProductTypeId" type="text" placeholder="productTypeId_1">
+            </label>
+            <label>SKU Description
+                <input id="skuDescription" type="text" placeholder="1/2\" PVC PIPE ...">
+            </label>
+            <label>Size
+                <input id="skuSize" type="text" placeholder="1/2\"">
+            </label>
+            <label>Display Order
+                <input id="skuDisplayOrder" type="number" min="1" placeholder="1">
+            </label>
+            <label>Popularity Score
+                <input id="skuPopularityScore" type="number" min="1" placeholder="5">
+            </label>
+            <label>Eagle Sticks Per Truckload
+                <input id="skuSticksPerTruckload" type="number" min="1" placeholder="12960">
+            </label>
+            <label>Bundles Per Truckload
+                <input id="skuBundlesPerTruckload" type="number" min="1" placeholder="36">
+            </label>
+            <button id="updateSkuButton">Update SKU</button>
+        </div>
+    </div>
+
+    <div class="panel">
+        <h2>Status</h2>
+        <div id="operationStatus" class="status"></div>
+    </div>
+</div>
+
+<script>
+const adminPasswordInput = document.getElementById("adminPassword");
+const datasetStatus = document.getElementById("datasetStatus");
+const operationStatus = document.getElementById("operationStatus");
+
+function getAdminPassword() {
+    return adminPasswordInput.value;
+}
+
+function getAdminId() {
+    return document.getElementById("adminId").value;
+}
+
+function setStatus(element, value) {
+    element.textContent = typeof value === "string" ? value : JSON.stringify(value, null, 2);
+}
+
+document.getElementById("loadDatasetButton").addEventListener("click", async () => {
+    const password = getAdminPassword();
+    const response = await fetch("/admin/dataset", {
+        headers: {"x-admin-id": getAdminId(), "x-admin-password": password}
+    });
+    const payload = await response.json();
+    setStatus(datasetStatus, payload);
+});
+
+document.getElementById("loadStorageStatusButton").addEventListener("click", async () => {
+    const response = await fetch("/admin/storage/status", {
+        headers: {"x-admin-id": getAdminId(), "x-admin-password": getAdminPassword()}
+    });
+    const payload = await response.json();
+    setStatus(datasetStatus, payload);
+});
+
+document.getElementById("updateProductTypeButton").addEventListener("click", async () => {
+    const payload = {
+        admin_id: getAdminId(),
+        admin_password: getAdminPassword(),
+        product_type: document.getElementById("productTypeName").value
+    };
+    const productTypeId = document.getElementById("productTypeId").value;
+    const response = await fetch(`/admin/product-type/${encodeURIComponent(productTypeId)}`, {
+        method: "PATCH",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(payload)
+    });
+    const json = await response.json();
+    setStatus(operationStatus, json);
+});
+
+document.getElementById("updateSkuButton").addEventListener("click", async () => {
+    const maybeNumber = (value) => value === "" ? undefined : Number(value);
+    const payload = {
+        admin_id: getAdminId(),
+        admin_password: getAdminPassword(),
+        product_type_id: document.getElementById("skuProductTypeId").value || undefined,
+        sku: document.getElementById("skuDescription").value || undefined,
+        size: document.getElementById("skuSize").value || undefined,
+        display_order: maybeNumber(document.getElementById("skuDisplayOrder").value),
+        popularity_score: maybeNumber(document.getElementById("skuPopularityScore").value),
+        eagle_sticks_per_truckload: maybeNumber(document.getElementById("skuSticksPerTruckload").value),
+        bundles_per_truckload: maybeNumber(document.getElementById("skuBundlesPerTruckload").value)
+    };
+    const skuId = document.getElementById("skuId").value;
+    const response = await fetch(`/admin/sku/${encodeURIComponent(skuId)}`, {
+        method: "PATCH",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(payload)
+    });
+    const json = await response.json();
+    setStatus(operationStatus, json);
+});
+
+document.getElementById("runRetentionButton").addEventListener("click", async () => {
+    const payload = {
+        admin_id: getAdminId(),
+        admin_password: getAdminPassword(),
+        keep_latest: Number(document.getElementById("retentionKeepLatest").value),
+        dry_run: document.getElementById("retentionDryRun").checked
+    };
+    const response = await fetch("/admin/storage/retention", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(payload)
+    });
+    const json = await response.json();
+    setStatus(operationStatus, json);
+});
+
+document.getElementById("importCsvButton").addEventListener("click", async () => {
+    const fileInput = document.getElementById("csvUploadInput");
+    if (!fileInput.files || fileInput.files.length === 0) {
+        setStatus(operationStatus, "Select a CSV file first.");
+        return;
+    }
+    const formData = new FormData();
+    formData.append("file", fileInput.files[0]);
+
+    const response = await fetch("/admin/import/csv", {
+        method: "POST",
+        headers: {
+            "x-admin-id": getAdminId(),
+            "x-admin-password": getAdminPassword()
+        },
+        body: formData
+    });
+
+    if (!response.ok) {
+        const error = await response.json();
+        setStatus(operationStatus, error);
+        return;
+    }
+
+    const blob = await response.blob();
+    const contentDisposition = response.headers.get("content-disposition") || "";
+    const fallbackName = "review.csv";
+    const filenameMatch = contentDisposition.match(/filename="?([^";]+)"?/i);
+    const filename = filenameMatch ? filenameMatch[1] : fallbackName;
+
+    const downloadUrl = window.URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = downloadUrl;
+    anchor.download = filename;
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+    window.URL.revokeObjectURL(downloadUrl);
+
+    setStatus(operationStatus, {
+        message: "CSV imported and review CSV downloaded.",
+        version: response.headers.get("x-h2o-version"),
+        product_types: response.headers.get("x-h2o-product-type-count"),
+        skus: response.headers.get("x-h2o-sku-count")
+    });
+});
+</script>
+</body>
+</html>

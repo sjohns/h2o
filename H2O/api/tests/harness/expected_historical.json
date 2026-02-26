@@ -1,0 +1,2044 @@
+{
+  "case_a": {
+    "skus": {
+      "skuId_2": {
+        "skuId": "skuId_2",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 2,
+        "popularityScore": 5,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "3/4\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "400",
+        "eagleBundlesPerTruckLoad": "24",
+        "eagleSticksPerTruckload": 9600,
+        "length": "20'",
+        "calculatedSticksPerBundle": 400,
+        "size": "3/4\"",
+        "calculatedBundlesPerTruckload": 24,
+        "calculatedBundleSize": 5,
+        "totalSticks": 1600
+      },
+      "skuId_3": {
+        "skuId": "skuId_3",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 3,
+        "popularityScore": 5,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "1\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "280",
+        "eagleBundlesPerTruckLoad": "20",
+        "eagleSticksPerTruckload": 5600,
+        "length": "20'",
+        "calculatedSticksPerBundle": 280,
+        "size": "1\"",
+        "calculatedBundlesPerTruckload": 20,
+        "calculatedBundleSize": 6,
+        "totalSticks": 1960
+      },
+      "skuId_5": {
+        "skuId": "skuId_5",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 5,
+        "popularityScore": 2,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "1 1/2\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "180",
+        "eagleBundlesPerTruckLoad": "24",
+        "eagleSticksPerTruckload": 4320,
+        "length": "20'",
+        "calculatedSticksPerBundle": 180,
+        "size": "1 1/2\"",
+        "calculatedBundlesPerTruckload": 24,
+        "calculatedBundleSize": 5,
+        "totalSticks": 1980
+      }
+    },
+    "solution": [
+      {
+        "skuId": "skuId_2",
+        "numberOfBundles": 4,
+        "totalSticks": 1600
+      },
+      {
+        "skuId": "skuId_3",
+        "numberOfBundles": 7,
+        "totalSticks": 1960
+      },
+      {
+        "skuId": "skuId_5",
+        "numberOfBundles": 11,
+        "totalSticks": 1980
+      }
+    ],
+    "lcmValue": 120,
+    "minTruckSize": 114,
+    "maxTruckSize": 117,
+    "totalSize": 117,
+    "totalSticks": 5540,
+    "differenceSum": 10697
+  },
+  "case_b": {
+    "skus": {
+      "skuId_32": {
+        "skuId": "skuId_32",
+        "productTypeId": "productTypeId_3",
+        "displayOrder": 32,
+        "popularityScore": 7,
+        "productType": "SDR 26 CL160 (Irrigation) Thin Wall (NSF)",
+        "SKU": "3\" SDR26 PVC PIPE IPS - GASKETED",
+        "eagleSticksPerBundle": "75",
+        "eagleBundlesPerTruckLoad": "16",
+        "eagleSticksPerTruckload": 1200,
+        "length": "20'",
+        "calculatedSticksPerBundle": 75,
+        "size": "3\"",
+        "calculatedBundlesPerTruckload": 16,
+        "calculatedBundleSize": 21,
+        "totalSticks": 75
+      },
+      "skuId_33": {
+        "skuId": "skuId_33",
+        "productTypeId": "productTypeId_3",
+        "displayOrder": 33,
+        "popularityScore": 7,
+        "productType": "SDR 26 CL160 (Irrigation) Thin Wall (NSF)",
+        "SKU": "4\" SDR26 PVC PIPE IPS - GASKETED",
+        "eagleSticksPerBundle": "76",
+        "eagleBundlesPerTruckLoad": "12",
+        "eagleSticksPerTruckload": 912,
+        "length": "20'",
+        "calculatedSticksPerBundle": 76,
+        "size": "4\"",
+        "calculatedBundlesPerTruckload": 12,
+        "calculatedBundleSize": 28,
+        "totalSticks": 76
+      },
+      "skuId_52": {
+        "skuId": "skuId_52",
+        "productTypeId": "productTypeId_5",
+        "displayOrder": 52,
+        "popularityScore": 4,
+        "productType": "C900 Blue Waterline Pipe (NSF)",
+        "SKU": "8\" DR14 PVC PIPE C900 - GASKETED",
+        "eagleSticksPerBundle": "15",
+        "eagleBundlesPerTruckLoad": "12",
+        "eagleSticksPerTruckload": 180,
+        "length": "20'",
+        "calculatedSticksPerBundle": 15,
+        "size": "8\"",
+        "calculatedBundlesPerTruckload": 12,
+        "calculatedBundleSize": 28,
+        "totalSticks": 45
+      },
+      "skuId_53": {
+        "skuId": "skuId_53",
+        "productTypeId": "productTypeId_5",
+        "displayOrder": 53,
+        "popularityScore": 8,
+        "productType": "C900 Blue Waterline Pipe (NSF)",
+        "SKU": "10\" DR14 PVC PIPE C900 - GASKETED",
+        "eagleSticksPerBundle": "16",
+        "eagleBundlesPerTruckLoad": "8",
+        "eagleSticksPerTruckload": 128,
+        "length": "20'",
+        "calculatedSticksPerBundle": 16,
+        "size": "10\"",
+        "calculatedBundlesPerTruckload": 8,
+        "calculatedBundleSize": 42,
+        "totalSticks": 32
+      },
+      "skuId_54": {
+        "skuId": "skuId_54",
+        "productTypeId": "productTypeId_5",
+        "displayOrder": 54,
+        "popularityScore": 8,
+        "productType": "C900 Blue Waterline Pipe (NSF)",
+        "SKU": "12\" DR14 PVC PIPE C900 - GASKETED",
+        "eagleSticksPerBundle": "4 / 6",
+        "eagleBundlesPerTruckLoad": "6 / 6",
+        "eagleSticksPerTruckload": 84,
+        "length": "20'",
+        "calculatedSticksPerBundle": 4,
+        "size": "12\"",
+        "calculatedBundlesPerTruckload": 21,
+        "calculatedBundleSize": 16,
+        "totalSticks": 28
+      }
+    },
+    "solution": [
+      {
+        "skuId": "skuId_32",
+        "numberOfBundles": 1,
+        "totalSticks": 75
+      },
+      {
+        "skuId": "skuId_33",
+        "numberOfBundles": 1,
+        "totalSticks": 76
+      },
+      {
+        "skuId": "skuId_52",
+        "numberOfBundles": 3,
+        "totalSticks": 45
+      },
+      {
+        "skuId": "skuId_53",
+        "numberOfBundles": 2,
+        "totalSticks": 32
+      },
+      {
+        "skuId": "skuId_54",
+        "numberOfBundles": 7,
+        "totalSticks": 28
+      }
+    ],
+    "lcmValue": 336,
+    "minTruckSize": 319,
+    "maxTruckSize": 329,
+    "totalSize": 329,
+    "totalSticks": 256,
+    "differenceSum": 34817
+  },
+  "case_c": {
+    "skus": {
+      "skuId_68": {
+        "skuId": "skuId_68",
+        "productTypeId": "productTypeId_5",
+        "displayOrder": 68,
+        "popularityScore": 9,
+        "productType": "C900 Blue Waterline Pipe (NSF)",
+        "SKU": "10\" DR25 PVC PIPE C900 - GASKETED",
+        "eagleSticksPerBundle": "16",
+        "eagleBundlesPerTruckLoad": "8",
+        "eagleSticksPerTruckload": 128,
+        "length": "20'",
+        "calculatedSticksPerBundle": 16,
+        "size": "10\"",
+        "calculatedBundlesPerTruckload": 8,
+        "calculatedBundleSize": 15,
+        "totalSticks": 32
+      },
+      "skuId_69": {
+        "skuId": "skuId_69",
+        "productTypeId": "productTypeId_5",
+        "displayOrder": 69,
+        "popularityScore": 9,
+        "productType": "C900 Blue Waterline Pipe (NSF)",
+        "SKU": "12\" DR25 PVC PIPE C900 - GASKETED",
+        "eagleSticksPerBundle": "6 / 8 / 9 / 12",
+        "eagleBundlesPerTruckLoad": "4 / 4 / 2 / 2",
+        "eagleSticksPerTruckload": 98,
+        "length": "20'",
+        "calculatedSticksPerBundle": 8,
+        "size": "12\"",
+        "calculatedBundlesPerTruckload": 12,
+        "calculatedBundleSize": 10,
+        "totalSticks": 24
+      },
+      "skuId_70": {
+        "skuId": "skuId_70",
+        "productTypeId": "productTypeId_5",
+        "displayOrder": 70,
+        "popularityScore": 9,
+        "productType": "C900 Blue Waterline Pipe (NSF)",
+        "SKU": "14\" DR25 PVC PIPE C900 - GASKETED",
+        "eagleSticksPerBundle": "9",
+        "eagleBundlesPerTruckLoad": "8",
+        "eagleSticksPerTruckload": 72,
+        "length": "20'",
+        "calculatedSticksPerBundle": 9,
+        "size": "14\"",
+        "calculatedBundlesPerTruckload": 8,
+        "calculatedBundleSize": 15,
+        "totalSticks": 18
+      },
+      "skuId_71": {
+        "skuId": "skuId_71",
+        "productTypeId": "productTypeId_5",
+        "displayOrder": 71,
+        "popularityScore": 9,
+        "productType": "C900 Blue Waterline Pipe (NSF)",
+        "SKU": "16\" DR25 PVC PIPE C900 - GASKETED",
+        "eagleSticksPerBundle": "4 / 6 / 6 / 9",
+        "eagleBundlesPerTruckLoad": "2 / 2 / 2 / 2",
+        "eagleSticksPerTruckload": 50,
+        "length": "20'",
+        "calculatedSticksPerBundle": 6,
+        "size": "16\"",
+        "calculatedBundlesPerTruckload": 8,
+        "calculatedBundleSize": 15,
+        "totalSticks": 6
+      },
+      "skuId_72": {
+        "skuId": "skuId_72",
+        "productTypeId": "productTypeId_5",
+        "displayOrder": 72,
+        "popularityScore": 9,
+        "productType": "C900 Blue Waterline Pipe (NSF)",
+        "SKU": "18\" DR25 PVC PIPE C900 - GASKETED",
+        "eagleSticksPerBundle": "4 / 6",
+        "eagleBundlesPerTruckLoad": "4 / 4",
+        "eagleSticksPerTruckload": 40,
+        "length": "20'",
+        "calculatedSticksPerBundle": 4,
+        "size": "18\"",
+        "calculatedBundlesPerTruckload": 10,
+        "calculatedBundleSize": 12,
+        "totalSticks": 4
+      }
+    },
+    "solution": [
+      {
+        "skuId": "skuId_68",
+        "numberOfBundles": 2,
+        "totalSticks": 32
+      },
+      {
+        "skuId": "skuId_69",
+        "numberOfBundles": 3,
+        "totalSticks": 24
+      },
+      {
+        "skuId": "skuId_70",
+        "numberOfBundles": 2,
+        "totalSticks": 18
+      },
+      {
+        "skuId": "skuId_71",
+        "numberOfBundles": 1,
+        "totalSticks": 6
+      },
+      {
+        "skuId": "skuId_72",
+        "numberOfBundles": 1,
+        "totalSticks": 4
+      }
+    ],
+    "lcmValue": 120,
+    "minTruckSize": 114,
+    "maxTruckSize": 117,
+    "totalSize": 117,
+    "totalSticks": 84,
+    "differenceSum": 359999
+  },
+  "case_d": {
+    "skus": {
+      "skuId_10": {
+        "skuId": "skuId_10",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 10,
+        "popularityScore": 6,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "6\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "26",
+        "eagleBundlesPerTruckLoad": "12",
+        "eagleSticksPerTruckload": 312,
+        "length": "20'",
+        "calculatedSticksPerBundle": 26,
+        "size": "6\"",
+        "calculatedBundlesPerTruckload": 12,
+        "calculatedBundleSize": 2,
+        "totalSticks": 286
+      },
+      "skuId_26": {
+        "skuId": "skuId_26",
+        "productTypeId": "productTypeId_3",
+        "displayOrder": 26,
+        "popularityScore": 4,
+        "productType": "SDR 26 CL160 (Irrigation) Thin Wall (NSF)",
+        "SKU": "3/4\" SDR26 PVC PIPE IPS - BELL ENDED",
+        "eagleSticksPerBundle": "400",
+        "eagleBundlesPerTruckLoad": "24",
+        "eagleSticksPerTruckload": 9600,
+        "length": "20'",
+        "calculatedSticksPerBundle": 400,
+        "size": "3/4\"",
+        "calculatedBundlesPerTruckload": 24,
+        "calculatedBundleSize": 1,
+        "totalSticks": 800
+      }
+    },
+    "solution": [
+      {
+        "skuId": "skuId_10",
+        "numberOfBundles": 11,
+        "totalSticks": 286
+      },
+      {
+        "skuId": "skuId_26",
+        "numberOfBundles": 2,
+        "totalSticks": 800
+      }
+    ],
+    "lcmValue": 24,
+    "minTruckSize": 24,
+    "maxTruckSize": 24,
+    "totalSize": 24,
+    "totalSticks": 1086,
+    "differenceSum": 13665
+  },
+  "case_e": {
+    "skus": {
+      "skuId_50": {
+        "skuId": "skuId_50",
+        "productTypeId": "productTypeId_5",
+        "displayOrder": 50,
+        "popularityScore": 4,
+        "productType": "C900 Blue Waterline Pipe (NSF)",
+        "SKU": "4\" DR14 PVC PIPE C900 - GASKETED",
+        "eagleSticksPerBundle": "60",
+        "eagleBundlesPerTruckLoad": "12",
+        "eagleSticksPerTruckload": 720,
+        "length": "20'",
+        "calculatedSticksPerBundle": 60,
+        "size": "4\"",
+        "calculatedBundlesPerTruckload": 12,
+        "calculatedBundleSize": 2,
+        "totalSticks": 60
+      },
+      "skuId_55": {
+        "skuId": "skuId_55",
+        "productTypeId": "productTypeId_5",
+        "displayOrder": 55,
+        "popularityScore": 4,
+        "productType": "C900 Blue Waterline Pipe (NSF)",
+        "SKU": "4\" DR18 PVC PIPE C900 - GASKETED",
+        "eagleSticksPerBundle": "60",
+        "eagleBundlesPerTruckLoad": "12",
+        "eagleSticksPerTruckload": 720,
+        "length": "20'",
+        "calculatedSticksPerBundle": 60,
+        "size": "4\"",
+        "calculatedBundlesPerTruckload": 12,
+        "calculatedBundleSize": 2,
+        "totalSticks": 180
+      },
+      "skuId_63": {
+        "skuId": "skuId_63",
+        "productTypeId": "productTypeId_5",
+        "displayOrder": 63,
+        "popularityScore": 9,
+        "productType": "C900 Blue Waterline Pipe (NSF)",
+        "SKU": "20\" DR18 PVC PIPE C900 - GASKETED",
+        "eagleSticksPerBundle": "4",
+        "eagleBundlesPerTruckLoad": "8",
+        "eagleSticksPerTruckload": 32,
+        "length": "20'",
+        "calculatedSticksPerBundle": 4,
+        "size": "20\"",
+        "calculatedBundlesPerTruckload": 8,
+        "calculatedBundleSize": 3,
+        "totalSticks": 20
+      }
+    },
+    "solution": [
+      {
+        "skuId": "skuId_50",
+        "numberOfBundles": 1,
+        "totalSticks": 60
+      },
+      {
+        "skuId": "skuId_55",
+        "numberOfBundles": 3,
+        "totalSticks": 180
+      },
+      {
+        "skuId": "skuId_63",
+        "numberOfBundles": 5,
+        "totalSticks": 20
+      }
+    ],
+    "lcmValue": 24,
+    "minTruckSize": 22,
+    "maxTruckSize": 23,
+    "totalSize": 23,
+    "totalSticks": 260,
+    "differenceSum": 39231
+  },
+  "case_f": {
+    "skus": {
+      "skuId_2": {
+        "skuId": "skuId_2",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 2,
+        "popularityScore": 5,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "3/4\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "400",
+        "eagleBundlesPerTruckLoad": "24",
+        "eagleSticksPerTruckload": 9600,
+        "length": "20'",
+        "calculatedSticksPerBundle": 400,
+        "size": "3/4\"",
+        "calculatedBundlesPerTruckload": 24,
+        "calculatedBundleSize": 5,
+        "totalSticks": 8400
+      },
+      "skuId_3": {
+        "skuId": "skuId_3",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 3,
+        "popularityScore": 5,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "1\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "280",
+        "eagleBundlesPerTruckLoad": "20",
+        "eagleSticksPerTruckload": 5600,
+        "length": "20'",
+        "calculatedSticksPerBundle": 280,
+        "size": "1\"",
+        "calculatedBundlesPerTruckload": 20,
+        "calculatedBundleSize": 6,
+        "totalSticks": 560
+      }
+    },
+    "solution": [
+      {
+        "skuId": "skuId_2",
+        "numberOfBundles": 21,
+        "totalSticks": 8400
+      },
+      {
+        "skuId": "skuId_3",
+        "numberOfBundles": 2,
+        "totalSticks": 560
+      }
+    ],
+    "lcmValue": 120,
+    "minTruckSize": 114,
+    "maxTruckSize": 117,
+    "totalSize": 117,
+    "totalSticks": 8960,
+    "differenceSum": 50000
+  },
+  "case_g": {
+    "skus": {
+      "skuId_18": {
+        "skuId": "skuId_18",
+        "productTypeId": "productTypeId_2",
+        "displayOrder": 18,
+        "popularityScore": 7,
+        "productType": "SCH 80 PVC (No NSF) Gray Pipe",
+        "SKU": "1 1/2\" PVC PIPE SCH 80 - PLAIN ENDED",
+        "eagleSticksPerBundle": "180",
+        "eagleBundlesPerTruckLoad": "24",
+        "eagleSticksPerTruckload": 4320,
+        "length": "20'",
+        "calculatedSticksPerBundle": 180,
+        "size": "1 1/2\"",
+        "calculatedBundlesPerTruckload": 24,
+        "calculatedBundleSize": 1,
+        "totalSticks": 4320
+      }
+    },
+    "solution": [
+      {
+        "skuId": "skuId_18",
+        "numberOfBundles": 24
+      }
+    ],
+    "lcmValue": 24,
+    "minTruckSize": 24,
+    "maxTruckSize": 24,
+    "totalSize": 24,
+    "totalSticks": 4320,
+    "differenceSum": 0
+  },
+  "case_h": {
+    "skus": {
+      "skuId_19": {
+        "skuId": "skuId_19",
+        "productTypeId": "productTypeId_2",
+        "displayOrder": 19,
+        "popularityScore": 7,
+        "productType": "SCH 80 PVC (No NSF) Gray Pipe",
+        "SKU": "2\" PVC PIPE SCH 80 - PLAIN ENDED",
+        "eagleSticksPerBundle": "105",
+        "eagleBundlesPerTruckLoad": "24",
+        "eagleSticksPerTruckload": 2520,
+        "length": "20'",
+        "calculatedSticksPerBundle": 105,
+        "size": "2\"",
+        "calculatedBundlesPerTruckload": 24,
+        "calculatedBundleSize": 1,
+        "totalSticks": 2520
+      }
+    },
+    "solution": [
+      {
+        "skuId": "skuId_19",
+        "numberOfBundles": 24
+      }
+    ],
+    "lcmValue": 24,
+    "minTruckSize": 24,
+    "maxTruckSize": 24,
+    "totalSize": 24,
+    "totalSticks": 2520,
+    "differenceSum": 0
+  },
+  "case_i": {
+    "skus": {
+      "skuId_44": {
+        "skuId": "skuId_44",
+        "productTypeId": "productTypeId_4",
+        "displayOrder": 44,
+        "popularityScore": 7,
+        "productType": "SDR 21 CL200 (Irrigation) Thin Wall (NSF)",
+        "SKU": "3\" SDR21 PVC PIPE IPS - GASKETED",
+        "eagleSticksPerBundle": "75",
+        "eagleBundlesPerTruckLoad": "16",
+        "eagleSticksPerTruckload": 1200,
+        "length": "20'",
+        "calculatedSticksPerBundle": 75,
+        "size": "3\"",
+        "calculatedBundlesPerTruckload": 16,
+        "calculatedBundleSize": 1,
+        "totalSticks": 1200
+      }
+    },
+    "solution": [
+      {
+        "skuId": "skuId_44",
+        "numberOfBundles": 16
+      }
+    ],
+    "lcmValue": 16,
+    "minTruckSize": 16,
+    "maxTruckSize": 16,
+    "totalSize": 16,
+    "totalSticks": 1200,
+    "differenceSum": 0
+  },
+  "case_j": {
+    "skus": {
+      "skuId_12": {
+        "skuId": "skuId_12",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 12,
+        "popularityScore": 6,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "10\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "12",
+        "eagleBundlesPerTruckLoad": "12",
+        "eagleSticksPerTruckload": 144,
+        "length": "20'",
+        "calculatedSticksPerBundle": 12,
+        "size": "10\"",
+        "calculatedBundlesPerTruckload": 12,
+        "calculatedBundleSize": 1,
+        "totalSticks": 108
+      },
+      "skuId_9": {
+        "skuId": "skuId_9",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 9,
+        "popularityScore": 4,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "4\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "57",
+        "eagleBundlesPerTruckLoad": "12",
+        "eagleSticksPerTruckload": 684,
+        "length": "20'",
+        "calculatedSticksPerBundle": 57,
+        "size": "4\"",
+        "calculatedBundlesPerTruckload": 12,
+        "calculatedBundleSize": 1,
+        "totalSticks": 171
+      }
+    },
+    "solution": [
+      {
+        "skuId": "skuId_12",
+        "numberOfBundles": 9,
+        "totalSticks": 108
+      },
+      {
+        "skuId": "skuId_9",
+        "numberOfBundles": 3,
+        "totalSticks": 171
+      }
+    ],
+    "lcmValue": 12,
+    "minTruckSize": 12,
+    "maxTruckSize": 12,
+    "totalSize": 12,
+    "totalSticks": 279,
+    "differenceSum": 1290
+  },
+  "case_k": {
+    "skus": {
+      "skuId_6": {
+        "skuId": "skuId_6",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 6,
+        "popularityScore": 1,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "2\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "105",
+        "eagleBundlesPerTruckLoad": "24",
+        "eagleSticksPerTruckload": 2520,
+        "length": "20'",
+        "calculatedSticksPerBundle": 105,
+        "size": "2\"",
+        "calculatedBundlesPerTruckload": 24,
+        "calculatedBundleSize": 1,
+        "totalSticks": 420
+      },
+      "skuId_12": {
+        "skuId": "skuId_12",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 12,
+        "popularityScore": 6,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "10\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "12",
+        "eagleBundlesPerTruckLoad": "12",
+        "eagleSticksPerTruckload": 144,
+        "length": "20'",
+        "calculatedSticksPerBundle": 12,
+        "size": "10\"",
+        "calculatedBundlesPerTruckload": 12,
+        "calculatedBundleSize": 2,
+        "totalSticks": 96
+      },
+      "skuId_9": {
+        "skuId": "skuId_9",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 9,
+        "popularityScore": 4,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "4\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "57",
+        "eagleBundlesPerTruckLoad": "12",
+        "eagleSticksPerTruckload": 684,
+        "length": "20'",
+        "calculatedSticksPerBundle": 57,
+        "size": "4\"",
+        "calculatedBundlesPerTruckload": 12,
+        "calculatedBundleSize": 2,
+        "totalSticks": 114
+      }
+    },
+    "solution": [
+      {
+        "skuId": "skuId_6",
+        "numberOfBundles": 4,
+        "totalSticks": 420
+      },
+      {
+        "skuId": "skuId_12",
+        "numberOfBundles": 8,
+        "totalSticks": 96
+      },
+      {
+        "skuId": "skuId_9",
+        "numberOfBundles": 2,
+        "totalSticks": 114
+      }
+    ],
+    "lcmValue": 24,
+    "minTruckSize": 24,
+    "maxTruckSize": 24,
+    "totalSize": 24,
+    "totalSticks": 630,
+    "differenceSum": 2655
+  },
+  "case_l": {
+    "skus": {
+      "skuId_2": {
+        "skuId": "skuId_2",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 2,
+        "popularityScore": 5,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "3/4\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "400",
+        "eagleBundlesPerTruckLoad": "24",
+        "eagleSticksPerTruckload": 9600,
+        "length": "20'",
+        "calculatedSticksPerBundle": 400,
+        "size": "3/4\"",
+        "calculatedBundlesPerTruckload": 24,
+        "calculatedBundleSize": 1,
+        "totalSticks": 400
+      },
+      "skuId_6": {
+        "skuId": "skuId_6",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 6,
+        "popularityScore": 1,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "2\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "105",
+        "eagleBundlesPerTruckLoad": "24",
+        "eagleSticksPerTruckload": 2520,
+        "length": "20'",
+        "calculatedSticksPerBundle": 105,
+        "size": "2\"",
+        "calculatedBundlesPerTruckload": 24,
+        "calculatedBundleSize": 1,
+        "totalSticks": 945
+      },
+      "skuId_7": {
+        "skuId": "skuId_7",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 7,
+        "popularityScore": 2,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "2 1/2\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "73",
+        "eagleBundlesPerTruckLoad": "24",
+        "eagleSticksPerTruckload": 1752,
+        "length": "20'",
+        "calculatedSticksPerBundle": 73,
+        "size": "2 1/2\"",
+        "calculatedBundlesPerTruckload": 24,
+        "calculatedBundleSize": 1,
+        "totalSticks": 438
+      },
+      "skuId_12": {
+        "skuId": "skuId_12",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 12,
+        "popularityScore": 6,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "10\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "12",
+        "eagleBundlesPerTruckLoad": "12",
+        "eagleSticksPerTruckload": 144,
+        "length": "20'",
+        "calculatedSticksPerBundle": 12,
+        "size": "10\"",
+        "calculatedBundlesPerTruckload": 12,
+        "calculatedBundleSize": 2,
+        "totalSticks": 12
+      },
+      "skuId_9": {
+        "skuId": "skuId_9",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 9,
+        "popularityScore": 4,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "4\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "57",
+        "eagleBundlesPerTruckLoad": "12",
+        "eagleSticksPerTruckload": 684,
+        "length": "20'",
+        "calculatedSticksPerBundle": 57,
+        "size": "4\"",
+        "calculatedBundlesPerTruckload": 12,
+        "calculatedBundleSize": 2,
+        "totalSticks": 171
+      }
+    },
+    "solution": [
+      {
+        "skuId": "skuId_2",
+        "numberOfBundles": 1,
+        "totalSticks": 400
+      },
+      {
+        "skuId": "skuId_6",
+        "numberOfBundles": 9,
+        "totalSticks": 945
+      },
+      {
+        "skuId": "skuId_7",
+        "numberOfBundles": 6,
+        "totalSticks": 438
+      },
+      {
+        "skuId": "skuId_12",
+        "numberOfBundles": 1,
+        "totalSticks": 12
+      },
+      {
+        "skuId": "skuId_9",
+        "numberOfBundles": 3,
+        "totalSticks": 171
+      }
+    ],
+    "lcmValue": 24,
+    "minTruckSize": 24,
+    "maxTruckSize": 24,
+    "totalSize": 24,
+    "totalSticks": 1966,
+    "differenceSum": 11403
+  },
+  "case_m": {
+    "skus": {
+      "skuId_5": {
+        "skuId": "skuId_5",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 5,
+        "popularityScore": 2,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "1 1/2\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "180",
+        "eagleBundlesPerTruckLoad": "24",
+        "eagleSticksPerTruckload": 4320,
+        "length": "20'",
+        "calculatedSticksPerBundle": 180,
+        "size": "1 1/2\"",
+        "calculatedBundlesPerTruckload": 24,
+        "calculatedBundleSize": 1,
+        "totalSticks": 720
+      },
+      "skuId_10": {
+        "skuId": "skuId_10",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 10,
+        "popularityScore": 6,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "6\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "26",
+        "eagleBundlesPerTruckLoad": "12",
+        "eagleSticksPerTruckload": 312,
+        "length": "20'",
+        "calculatedSticksPerBundle": 26,
+        "size": "6\"",
+        "calculatedBundlesPerTruckload": 12,
+        "calculatedBundleSize": 2,
+        "totalSticks": 260
+      }
+    },
+    "solution": [
+      {
+        "skuId": "skuId_5",
+        "numberOfBundles": 4,
+        "totalSticks": 720
+      },
+      {
+        "skuId": "skuId_10",
+        "numberOfBundles": 10,
+        "totalSticks": 260
+      }
+    ],
+    "lcmValue": 24,
+    "minTruckSize": 24,
+    "maxTruckSize": 24,
+    "totalSize": 24,
+    "totalSticks": 980,
+    "differenceSum": 1224
+  },
+  "case_n": {
+    "skus": {
+      "skuId_5": {
+        "skuId": "skuId_5",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 5,
+        "popularityScore": 2,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "1 1/2\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "180",
+        "eagleBundlesPerTruckLoad": "24",
+        "eagleSticksPerTruckload": 4320,
+        "length": "20'",
+        "calculatedSticksPerBundle": 180,
+        "size": "1 1/2\"",
+        "calculatedBundlesPerTruckload": 24,
+        "calculatedBundleSize": 1,
+        "totalSticks": 900
+      },
+      "skuId_10": {
+        "skuId": "skuId_10",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 10,
+        "popularityScore": 6,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "6\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "26",
+        "eagleBundlesPerTruckLoad": "12",
+        "eagleSticksPerTruckload": 312,
+        "length": "20'",
+        "calculatedSticksPerBundle": 26,
+        "size": "6\"",
+        "calculatedBundlesPerTruckload": 12,
+        "calculatedBundleSize": 2,
+        "totalSticks": 234
+      },
+      "skuId_17": {
+        "skuId": "skuId_17",
+        "productTypeId": "productTypeId_2",
+        "displayOrder": 17,
+        "popularityScore": 7,
+        "productType": "SCH 80 PVC (No NSF) Gray Pipe",
+        "SKU": "1 1/4\" PVC PIPE SCH 80 - PLAIN ENDED",
+        "eagleSticksPerBundle": "220",
+        "eagleBundlesPerTruckLoad": "24",
+        "eagleSticksPerTruckload": 5280,
+        "length": "20'",
+        "calculatedSticksPerBundle": 220,
+        "size": "1 1/4\"",
+        "calculatedBundlesPerTruckload": 24,
+        "calculatedBundleSize": 1,
+        "totalSticks": 220
+      }
+    },
+    "solution": [
+      {
+        "skuId": "skuId_5",
+        "numberOfBundles": 5,
+        "totalSticks": 900
+      },
+      {
+        "skuId": "skuId_10",
+        "numberOfBundles": 9,
+        "totalSticks": 234
+      },
+      {
+        "skuId": "skuId_17",
+        "numberOfBundles": 1,
+        "totalSticks": 220
+      }
+    ],
+    "lcmValue": 24,
+    "minTruckSize": 24,
+    "maxTruckSize": 24,
+    "totalSize": 24,
+    "totalSticks": 1354,
+    "differenceSum": 3904
+  },
+  "case_o": {
+    "skus": {
+      "skuId_5": {
+        "skuId": "skuId_5",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 5,
+        "popularityScore": 2,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "1 1/2\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "180",
+        "eagleBundlesPerTruckLoad": "24",
+        "eagleSticksPerTruckload": 4320,
+        "length": "20'",
+        "calculatedSticksPerBundle": 180,
+        "size": "1 1/2\"",
+        "calculatedBundlesPerTruckload": 24,
+        "calculatedBundleSize": 7,
+        "totalSticks": 720
+      },
+      "skuId_10": {
+        "skuId": "skuId_10",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 10,
+        "popularityScore": 6,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "6\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "26",
+        "eagleBundlesPerTruckLoad": "12",
+        "eagleSticksPerTruckload": 312,
+        "length": "20'",
+        "calculatedSticksPerBundle": 26,
+        "size": "6\"",
+        "calculatedBundlesPerTruckload": 12,
+        "calculatedBundleSize": 14,
+        "totalSticks": 156
+      },
+      "skuId_17": {
+        "skuId": "skuId_17",
+        "productTypeId": "productTypeId_2",
+        "displayOrder": 17,
+        "popularityScore": 7,
+        "productType": "SCH 80 PVC (No NSF) Gray Pipe",
+        "SKU": "1 1/4\" PVC PIPE SCH 80 - PLAIN ENDED",
+        "eagleSticksPerBundle": "220",
+        "eagleBundlesPerTruckLoad": "24",
+        "eagleSticksPerTruckload": 5280,
+        "length": "20'",
+        "calculatedSticksPerBundle": 220,
+        "size": "1 1/4\"",
+        "calculatedBundlesPerTruckload": 24,
+        "calculatedBundleSize": 7,
+        "totalSticks": 220
+      },
+      "skuId_19": {
+        "skuId": "skuId_19",
+        "productTypeId": "productTypeId_2",
+        "displayOrder": 19,
+        "popularityScore": 7,
+        "productType": "SCH 80 PVC (No NSF) Gray Pipe",
+        "SKU": "2\" PVC PIPE SCH 80 - PLAIN ENDED",
+        "eagleSticksPerBundle": "105",
+        "eagleBundlesPerTruckLoad": "24",
+        "eagleSticksPerTruckload": 2520,
+        "length": "20'",
+        "calculatedSticksPerBundle": 105,
+        "size": "2\"",
+        "calculatedBundlesPerTruckload": 24,
+        "calculatedBundleSize": 7,
+        "totalSticks": 315
+      },
+      "skuId_31": {
+        "skuId": "skuId_31",
+        "productTypeId": "productTypeId_3",
+        "displayOrder": 31,
+        "popularityScore": 7,
+        "productType": "SDR 26 CL160 (Irrigation) Thin Wall (NSF)",
+        "SKU": "2 1/2\" SDR26 PVC PIPE IPS - GASKETED",
+        "eagleSticksPerBundle": "73",
+        "eagleBundlesPerTruckLoad": "28",
+        "eagleSticksPerTruckload": 2044,
+        "length": "20'",
+        "calculatedSticksPerBundle": 73,
+        "size": "2 1/2\"",
+        "calculatedBundlesPerTruckload": 28,
+        "calculatedBundleSize": 6,
+        "totalSticks": 292
+      }
+    },
+    "solution": [
+      {
+        "skuId": "skuId_5",
+        "numberOfBundles": 4,
+        "totalSticks": 720
+      },
+      {
+        "skuId": "skuId_10",
+        "numberOfBundles": 6,
+        "totalSticks": 156
+      },
+      {
+        "skuId": "skuId_17",
+        "numberOfBundles": 1,
+        "totalSticks": 220
+      },
+      {
+        "skuId": "skuId_19",
+        "numberOfBundles": 3,
+        "totalSticks": 315
+      },
+      {
+        "skuId": "skuId_31",
+        "numberOfBundles": 4,
+        "totalSticks": 292
+      }
+    ],
+    "lcmValue": 168,
+    "minTruckSize": 159,
+    "maxTruckSize": 164,
+    "totalSize": 164,
+    "totalSticks": 1703,
+    "differenceSum": 15010
+  },
+  "case_p": {
+    "skus": {
+      "skuId_10": {
+        "skuId": "skuId_10",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 10,
+        "popularityScore": 6,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "6\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "26",
+        "eagleBundlesPerTruckLoad": "12",
+        "eagleSticksPerTruckload": 312,
+        "length": "20'",
+        "calculatedSticksPerBundle": 26,
+        "size": "6\"",
+        "calculatedBundlesPerTruckload": 12,
+        "calculatedBundleSize": 1,
+        "totalSticks": 182
+      },
+      "skuId_9": {
+        "skuId": "skuId_9",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 9,
+        "popularityScore": 4,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "4\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "57",
+        "eagleBundlesPerTruckLoad": "12",
+        "eagleSticksPerTruckload": 684,
+        "length": "20'",
+        "calculatedSticksPerBundle": 57,
+        "size": "4\"",
+        "calculatedBundlesPerTruckload": 12,
+        "calculatedBundleSize": 1,
+        "totalSticks": 285
+      }
+    },
+    "solution": [
+      {
+        "skuId": "skuId_10",
+        "numberOfBundles": 7,
+        "totalSticks": 182
+      },
+      {
+        "skuId": "skuId_9",
+        "numberOfBundles": 5,
+        "totalSticks": 285
+      }
+    ],
+    "lcmValue": 12,
+    "minTruckSize": 12,
+    "maxTruckSize": 12,
+    "totalSize": 12,
+    "totalSticks": 467,
+    "differenceSum": 1028
+  },
+  "case_q": {
+    "skus": {
+      "skuId_6": {
+        "skuId": "skuId_6",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 6,
+        "popularityScore": 1,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "2\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "105",
+        "eagleBundlesPerTruckLoad": "24",
+        "eagleSticksPerTruckload": 2520,
+        "length": "20'",
+        "calculatedSticksPerBundle": 105,
+        "size": "2\"",
+        "calculatedBundlesPerTruckload": 24,
+        "calculatedBundleSize": 1,
+        "totalSticks": 945
+      },
+      "skuId_10": {
+        "skuId": "skuId_10",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 10,
+        "popularityScore": 6,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "6\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "26",
+        "eagleBundlesPerTruckLoad": "12",
+        "eagleSticksPerTruckload": 312,
+        "length": "20'",
+        "calculatedSticksPerBundle": 26,
+        "size": "6\"",
+        "calculatedBundlesPerTruckload": 12,
+        "calculatedBundleSize": 2,
+        "totalSticks": 52
+      },
+      "skuId_12": {
+        "skuId": "skuId_12",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 12,
+        "popularityScore": 6,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "10\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "12",
+        "eagleBundlesPerTruckLoad": "12",
+        "eagleSticksPerTruckload": 144,
+        "length": "20'",
+        "calculatedSticksPerBundle": 12,
+        "size": "10\"",
+        "calculatedBundlesPerTruckload": 12,
+        "calculatedBundleSize": 2,
+        "totalSticks": 12
+      },
+      "skuId_9": {
+        "skuId": "skuId_9",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 9,
+        "popularityScore": 4,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "4\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "57",
+        "eagleBundlesPerTruckLoad": "12",
+        "eagleSticksPerTruckload": 684,
+        "length": "20'",
+        "calculatedSticksPerBundle": 57,
+        "size": "4\"",
+        "calculatedBundlesPerTruckload": 12,
+        "calculatedBundleSize": 2,
+        "totalSticks": 228
+      },
+      "skuId_17": {
+        "skuId": "skuId_17",
+        "productTypeId": "productTypeId_2",
+        "displayOrder": 17,
+        "popularityScore": 7,
+        "productType": "SCH 80 PVC (No NSF) Gray Pipe",
+        "SKU": "1 1/4\" PVC PIPE SCH 80 - PLAIN ENDED",
+        "eagleSticksPerBundle": "220",
+        "eagleBundlesPerTruckLoad": "24",
+        "eagleSticksPerTruckload": 5280,
+        "length": "20'",
+        "calculatedSticksPerBundle": 220,
+        "size": "1 1/4\"",
+        "calculatedBundlesPerTruckload": 24,
+        "calculatedBundleSize": 1,
+        "totalSticks": 220
+      }
+    },
+    "solution": [
+      {
+        "skuId": "skuId_6",
+        "numberOfBundles": 9,
+        "totalSticks": 945
+      },
+      {
+        "skuId": "skuId_10",
+        "numberOfBundles": 2,
+        "totalSticks": 52
+      },
+      {
+        "skuId": "skuId_12",
+        "numberOfBundles": 1,
+        "totalSticks": 12
+      },
+      {
+        "skuId": "skuId_9",
+        "numberOfBundles": 4,
+        "totalSticks": 228
+      },
+      {
+        "skuId": "skuId_17",
+        "numberOfBundles": 1,
+        "totalSticks": 220
+      }
+    ],
+    "lcmValue": 24,
+    "minTruckSize": 24,
+    "maxTruckSize": 24,
+    "totalSize": 24,
+    "totalSticks": 1457,
+    "differenceSum": 14573
+  },
+  "case_r": {
+    "skus": {
+      "skuId_28": {
+        "skuId": "skuId_28",
+        "productTypeId": "productTypeId_3",
+        "displayOrder": 28,
+        "popularityScore": 4,
+        "productType": "SDR 26 CL160 (Irrigation) Thin Wall (NSF)",
+        "SKU": "1 1/4\" SDR26 PVC PIPE IPS - BELL ENDED",
+        "eagleSticksPerBundle": "220",
+        "eagleBundlesPerTruckLoad": "24",
+        "eagleSticksPerTruckload": 5280,
+        "length": "20'",
+        "calculatedSticksPerBundle": 220,
+        "size": "1 1/4\"",
+        "calculatedBundlesPerTruckload": 24,
+        "calculatedBundleSize": 3,
+        "totalSticks": 440
+      },
+      "skuId_36": {
+        "skuId": "skuId_36",
+        "productTypeId": "productTypeId_3",
+        "displayOrder": 36,
+        "popularityScore": 7,
+        "productType": "SDR 26 CL160 (Irrigation) Thin Wall (NSF)",
+        "SKU": "10\" SDR26 PVC PIPE IPS - GASKETED",
+        "eagleSticksPerBundle": "16 / 20",
+        "eagleBundlesPerTruckLoad": "4 / 4",
+        "eagleSticksPerTruckload": 144,
+        "length": "20'",
+        "calculatedSticksPerBundle": 16,
+        "size": "10\"",
+        "calculatedBundlesPerTruckload": 9,
+        "calculatedBundleSize": 8,
+        "totalSticks": 128
+      }
+    },
+    "solution": [
+      {
+        "skuId": "skuId_28",
+        "numberOfBundles": 2,
+        "totalSticks": 440
+      },
+      {
+        "skuId": "skuId_36",
+        "numberOfBundles": 8,
+        "totalSticks": 128
+      }
+    ],
+    "lcmValue": 72,
+    "minTruckSize": 68,
+    "maxTruckSize": 70,
+    "totalSize": 70,
+    "totalSticks": 568,
+    "differenceSum": 15211
+  },
+  "case_s": {
+    "skus": {
+      "skuId_9": {
+        "skuId": "skuId_9",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 9,
+        "popularityScore": 4,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "4\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "57",
+        "eagleBundlesPerTruckLoad": "12",
+        "eagleSticksPerTruckload": 684,
+        "length": "20'",
+        "calculatedSticksPerBundle": 57,
+        "size": "4\"",
+        "calculatedBundlesPerTruckload": 12,
+        "calculatedBundleSize": 3,
+        "totalSticks": 285
+      },
+      "skuId_36": {
+        "skuId": "skuId_36",
+        "productTypeId": "productTypeId_3",
+        "displayOrder": 36,
+        "popularityScore": 7,
+        "productType": "SDR 26 CL160 (Irrigation) Thin Wall (NSF)",
+        "SKU": "10\" SDR26 PVC PIPE IPS - GASKETED",
+        "eagleSticksPerBundle": "16 / 20",
+        "eagleBundlesPerTruckLoad": "4 / 4",
+        "eagleSticksPerTruckload": 144,
+        "length": "20'",
+        "calculatedSticksPerBundle": 16,
+        "size": "10\"",
+        "calculatedBundlesPerTruckload": 9,
+        "calculatedBundleSize": 4,
+        "totalSticks": 80
+      }
+    },
+    "solution": [
+      {
+        "skuId": "skuId_9",
+        "numberOfBundles": 5,
+        "totalSticks": 285
+      },
+      {
+        "skuId": "skuId_36",
+        "numberOfBundles": 5,
+        "totalSticks": 80
+      }
+    ],
+    "lcmValue": 36,
+    "minTruckSize": 34,
+    "maxTruckSize": 35,
+    "totalSize": 35,
+    "totalSticks": 365,
+    "differenceSum": 15890
+  },
+  "case_t": {
+    "skus": {
+      "skuId_10": {
+        "skuId": "skuId_10",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 10,
+        "popularityScore": 6,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "6\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "26",
+        "eagleBundlesPerTruckLoad": "12",
+        "eagleSticksPerTruckload": 312,
+        "length": "20'",
+        "calculatedSticksPerBundle": 26,
+        "size": "6\"",
+        "calculatedBundlesPerTruckload": 12,
+        "calculatedBundleSize": 20,
+        "totalSticks": 26
+      },
+      "skuId_9": {
+        "skuId": "skuId_9",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 9,
+        "popularityScore": 4,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "4\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "57",
+        "eagleBundlesPerTruckLoad": "12",
+        "eagleSticksPerTruckload": 684,
+        "length": "20'",
+        "calculatedSticksPerBundle": 57,
+        "size": "4\"",
+        "calculatedBundlesPerTruckload": 12,
+        "calculatedBundleSize": 20,
+        "totalSticks": 399
+      },
+      "skuId_16": {
+        "skuId": "skuId_16",
+        "productTypeId": "productTypeId_2",
+        "displayOrder": 16,
+        "popularityScore": 7,
+        "productType": "SCH 80 PVC (No NSF) Gray Pipe",
+        "SKU": "1\" PVC PIPE SCH 80 - PLAIN ENDED",
+        "eagleSticksPerBundle": "280",
+        "eagleBundlesPerTruckLoad": "20",
+        "eagleSticksPerTruckload": 5600,
+        "length": "20'",
+        "calculatedSticksPerBundle": 280,
+        "size": "1\"",
+        "calculatedBundlesPerTruckload": 20,
+        "calculatedBundleSize": 12,
+        "totalSticks": 560
+      },
+      "skuId_27": {
+        "skuId": "skuId_27",
+        "productTypeId": "productTypeId_3",
+        "displayOrder": 27,
+        "popularityScore": 4,
+        "productType": "SDR 26 CL160 (Irrigation) Thin Wall (NSF)",
+        "SKU": "1\" SDR26 PVC PIPE IPS - BELL ENDED",
+        "eagleSticksPerBundle": "280",
+        "eagleBundlesPerTruckLoad": "20",
+        "eagleSticksPerTruckload": 5600,
+        "length": "20'",
+        "calculatedSticksPerBundle": 280,
+        "size": "1\"",
+        "calculatedBundlesPerTruckload": 20,
+        "calculatedBundleSize": 12,
+        "totalSticks": 840
+      },
+      "skuId_29": {
+        "skuId": "skuId_29",
+        "productTypeId": "productTypeId_3",
+        "displayOrder": 29,
+        "popularityScore": 7,
+        "productType": "SDR 26 CL160 (Irrigation) Thin Wall (NSF)",
+        "SKU": "1 1/2\" SDR26 PVC PIPE IPS - GASKETED",
+        "eagleSticksPerBundle": "270",
+        "eagleBundlesPerTruckLoad": "16",
+        "eagleSticksPerTruckload": 4320,
+        "length": "20'",
+        "calculatedSticksPerBundle": 270,
+        "size": "1 1/2\"",
+        "calculatedBundlesPerTruckload": 16,
+        "calculatedBundleSize": 15,
+        "totalSticks": 270
+      }
+    },
+    "solution": [
+      {
+        "skuId": "skuId_10",
+        "numberOfBundles": 1,
+        "totalSticks": 26
+      },
+      {
+        "skuId": "skuId_9",
+        "numberOfBundles": 7,
+        "totalSticks": 399
+      },
+      {
+        "skuId": "skuId_16",
+        "numberOfBundles": 2,
+        "totalSticks": 560
+      },
+      {
+        "skuId": "skuId_27",
+        "numberOfBundles": 3,
+        "totalSticks": 840
+      },
+      {
+        "skuId": "skuId_29",
+        "numberOfBundles": 1,
+        "totalSticks": 270
+      }
+    ],
+    "lcmValue": 240,
+    "minTruckSize": 228,
+    "maxTruckSize": 235,
+    "totalSize": 235,
+    "totalSticks": 2095,
+    "differenceSum": 38906
+  },
+  "case_u": {
+    "skus": {
+      "skuId_2": {
+        "skuId": "skuId_2",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 2,
+        "popularityScore": 5,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "3/4\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "400",
+        "eagleBundlesPerTruckLoad": "24",
+        "eagleSticksPerTruckload": 9600,
+        "length": "20'",
+        "calculatedSticksPerBundle": 400,
+        "size": "3/4\"",
+        "calculatedBundlesPerTruckload": 24,
+        "calculatedBundleSize": 5,
+        "totalSticks": 400
+      },
+      "skuId_5": {
+        "skuId": "skuId_5",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 5,
+        "popularityScore": 2,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "1 1/2\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "180",
+        "eagleBundlesPerTruckLoad": "24",
+        "eagleSticksPerTruckload": 4320,
+        "length": "20'",
+        "calculatedSticksPerBundle": 180,
+        "size": "1 1/2\"",
+        "calculatedBundlesPerTruckload": 24,
+        "calculatedBundleSize": 5,
+        "totalSticks": 900
+      },
+      "skuId_12": {
+        "skuId": "skuId_12",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 12,
+        "popularityScore": 6,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "10\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "12",
+        "eagleBundlesPerTruckLoad": "12",
+        "eagleSticksPerTruckload": 144,
+        "length": "20'",
+        "calculatedSticksPerBundle": 12,
+        "size": "10\"",
+        "calculatedBundlesPerTruckload": 12,
+        "calculatedBundleSize": 10,
+        "totalSticks": 84
+      },
+      "skuId_17": {
+        "skuId": "skuId_17",
+        "productTypeId": "productTypeId_2",
+        "displayOrder": 17,
+        "popularityScore": 7,
+        "productType": "SCH 80 PVC (No NSF) Gray Pipe",
+        "SKU": "1 1/4\" PVC PIPE SCH 80 - PLAIN ENDED",
+        "eagleSticksPerBundle": "220",
+        "eagleBundlesPerTruckLoad": "24",
+        "eagleSticksPerTruckload": 5280,
+        "length": "20'",
+        "calculatedSticksPerBundle": 220,
+        "size": "1 1/4\"",
+        "calculatedBundlesPerTruckload": 24,
+        "calculatedBundleSize": 5,
+        "totalSticks": 220
+      },
+      "skuId_27": {
+        "skuId": "skuId_27",
+        "productTypeId": "productTypeId_3",
+        "displayOrder": 27,
+        "popularityScore": 4,
+        "productType": "SDR 26 CL160 (Irrigation) Thin Wall (NSF)",
+        "SKU": "1\" SDR26 PVC PIPE IPS - BELL ENDED",
+        "eagleSticksPerBundle": "280",
+        "eagleBundlesPerTruckLoad": "20",
+        "eagleSticksPerTruckload": 5600,
+        "length": "20'",
+        "calculatedSticksPerBundle": 280,
+        "size": "1\"",
+        "calculatedBundlesPerTruckload": 20,
+        "calculatedBundleSize": 6,
+        "totalSticks": 560
+      }
+    },
+    "solution": [
+      {
+        "skuId": "skuId_2",
+        "numberOfBundles": 1,
+        "totalSticks": 400
+      },
+      {
+        "skuId": "skuId_5",
+        "numberOfBundles": 5,
+        "totalSticks": 900
+      },
+      {
+        "skuId": "skuId_12",
+        "numberOfBundles": 7,
+        "totalSticks": 84
+      },
+      {
+        "skuId": "skuId_17",
+        "numberOfBundles": 1,
+        "totalSticks": 220
+      },
+      {
+        "skuId": "skuId_27",
+        "numberOfBundles": 2,
+        "totalSticks": 560
+      }
+    ],
+    "lcmValue": 120,
+    "minTruckSize": 114,
+    "maxTruckSize": 117,
+    "totalSize": 117,
+    "totalSticks": 2164,
+    "differenceSum": 10526
+  },
+  "case_v": {
+    "skus": {
+      "skuId_53": {
+        "skuId": "skuId_53",
+        "productTypeId": "productTypeId_5",
+        "displayOrder": 53,
+        "popularityScore": 8,
+        "productType": "C900 Blue Waterline Pipe (NSF)",
+        "SKU": "10\" DR14 PVC PIPE C900 - GASKETED",
+        "eagleSticksPerBundle": "16",
+        "eagleBundlesPerTruckLoad": "8",
+        "eagleSticksPerTruckload": 128,
+        "length": "20'",
+        "calculatedSticksPerBundle": 16,
+        "size": "10\"",
+        "calculatedBundlesPerTruckload": 8,
+        "calculatedBundleSize": 21,
+        "totalSticks": 64
+      },
+      "skuId_54": {
+        "skuId": "skuId_54",
+        "productTypeId": "productTypeId_5",
+        "displayOrder": 54,
+        "popularityScore": 8,
+        "productType": "C900 Blue Waterline Pipe (NSF)",
+        "SKU": "12\" DR14 PVC PIPE C900 - GASKETED",
+        "eagleSticksPerBundle": "4 / 6",
+        "eagleBundlesPerTruckLoad": "6 / 6",
+        "eagleSticksPerTruckload": 84,
+        "length": "20'",
+        "calculatedSticksPerBundle": 4,
+        "size": "12\"",
+        "calculatedBundlesPerTruckload": 21,
+        "calculatedBundleSize": 8,
+        "totalSticks": 40
+      }
+    },
+    "solution": [
+      {
+        "skuId": "skuId_53",
+        "numberOfBundles": 4
+      },
+      {
+        "skuId": "skuId_54",
+        "numberOfBundles": 10
+      }
+    ],
+    "lcmValue": 168,
+    "minTruckSize": 159,
+    "maxTruckSize": 164,
+    "totalSize": 164,
+    "totalSticks": 104,
+    "differenceSum": 80000
+  },
+  "case_w": {
+    "skus": {
+      "skuId_62": {
+        "skuId": "skuId_62",
+        "productTypeId": "productTypeId_5",
+        "displayOrder": 62,
+        "popularityScore": 9,
+        "productType": "C900 Blue Waterline Pipe (NSF)",
+        "SKU": "18\" DR18 PVC PIPE C900 - GASKETED",
+        "eagleSticksPerBundle": "4 / 6",
+        "eagleBundlesPerTruckLoad": "4 / 4",
+        "eagleSticksPerTruckload": 40,
+        "length": "20'",
+        "calculatedSticksPerBundle": 4,
+        "size": "18\"",
+        "calculatedBundlesPerTruckload": 10,
+        "calculatedBundleSize": 12,
+        "totalSticks": 4
+      },
+      "skuId_63": {
+        "skuId": "skuId_63",
+        "productTypeId": "productTypeId_5",
+        "displayOrder": 63,
+        "popularityScore": 9,
+        "productType": "C900 Blue Waterline Pipe (NSF)",
+        "SKU": "20\" DR18 PVC PIPE C900 - GASKETED",
+        "eagleSticksPerBundle": "4",
+        "eagleBundlesPerTruckLoad": "8",
+        "eagleSticksPerTruckload": 32,
+        "length": "20'",
+        "calculatedSticksPerBundle": 4,
+        "size": "20\"",
+        "calculatedBundlesPerTruckload": 8,
+        "calculatedBundleSize": 15,
+        "totalSticks": 12
+      },
+      "skuId_64": {
+        "skuId": "skuId_64",
+        "productTypeId": "productTypeId_5",
+        "displayOrder": 64,
+        "popularityScore": 9,
+        "productType": "C900 Blue Waterline Pipe (NSF)",
+        "SKU": "24\" DR18 PVC PIPE C900 - GASKETED",
+        "eagleSticksPerBundle": "3",
+        "eagleBundlesPerTruckLoad": "6",
+        "eagleSticksPerTruckload": 18,
+        "length": "20'",
+        "calculatedSticksPerBundle": 3,
+        "size": "24\"",
+        "calculatedBundlesPerTruckload": 6,
+        "calculatedBundleSize": 20,
+        "totalSticks": 9
+      }
+    },
+    "solution": [
+      {
+        "skuId": "skuId_62",
+        "numberOfBundles": 1
+      },
+      {
+        "skuId": "skuId_63",
+        "numberOfBundles": 3
+      },
+      {
+        "skuId": "skuId_64",
+        "numberOfBundles": 3
+      }
+    ],
+    "lcmValue": 120,
+    "minTruckSize": 114,
+    "maxTruckSize": 117,
+    "totalSize": 117,
+    "totalSticks": 25,
+    "differenceSum": 180000
+  },
+  "case_x": {
+    "skus": {
+      "skuId_42": {
+        "skuId": "skuId_42",
+        "productTypeId": "productTypeId_4",
+        "displayOrder": 42,
+        "popularityScore": 7,
+        "productType": "SDR 21 CL200 (Irrigation) Thin Wall (NSF)",
+        "SKU": "2\" SDR21 PVC PIPE IPS - GASKETED",
+        "eagleSticksPerBundle": "185",
+        "eagleBundlesPerTruckLoad": "16",
+        "eagleSticksPerTruckload": 2960,
+        "length": "20'",
+        "calculatedSticksPerBundle": 185,
+        "size": "2\"",
+        "calculatedBundlesPerTruckload": 16,
+        "calculatedBundleSize": 7,
+        "totalSticks": 925
+      },
+      "skuId_43": {
+        "skuId": "skuId_43",
+        "productTypeId": "productTypeId_4",
+        "displayOrder": 43,
+        "popularityScore": 7,
+        "productType": "SDR 21 CL200 (Irrigation) Thin Wall (NSF)",
+        "SKU": "2 1/2\" SDR21 PVC PIPE IPS - GASKETED",
+        "eagleSticksPerBundle": "73",
+        "eagleBundlesPerTruckLoad": "28",
+        "eagleSticksPerTruckload": 2044,
+        "length": "20'",
+        "calculatedSticksPerBundle": 73,
+        "size": "2 1/2\"",
+        "calculatedBundlesPerTruckload": 28,
+        "calculatedBundleSize": 4,
+        "totalSticks": 584
+      },
+      "skuId_41": {
+        "skuId": "skuId_41",
+        "productTypeId": "productTypeId_4",
+        "displayOrder": 41,
+        "popularityScore": 7,
+        "productType": "SDR 21 CL200 (Irrigation) Thin Wall (NSF)",
+        "SKU": "1 1/2\" SDR21 PVC PIPE IPS - GASKETED",
+        "eagleSticksPerBundle": "270",
+        "eagleBundlesPerTruckLoad": "16",
+        "eagleSticksPerTruckload": 4320,
+        "length": "20'",
+        "calculatedSticksPerBundle": 270,
+        "size": "1 1/2\"",
+        "calculatedBundlesPerTruckload": 16,
+        "calculatedBundleSize": 7,
+        "totalSticks": 1620
+      }
+    },
+    "solution": [
+      {
+        "skuId": "skuId_42",
+        "numberOfBundles": 5,
+        "totalSticks": 925
+      },
+      {
+        "skuId": "skuId_43",
+        "numberOfBundles": 8,
+        "totalSticks": 584
+      },
+      {
+        "skuId": "skuId_41",
+        "numberOfBundles": 6,
+        "totalSticks": 1620
+      }
+    ],
+    "lcmValue": 112,
+    "minTruckSize": 106,
+    "maxTruckSize": 109,
+    "totalSize": 109,
+    "totalSticks": 3129,
+    "differenceSum": 139999
+  },
+  "case_y": {
+    "skus": {
+      "skuId_14": {
+        "skuId": "skuId_14",
+        "productTypeId": "productTypeId_2",
+        "displayOrder": 14,
+        "popularityScore": 7,
+        "productType": "SCH 80 PVC (No NSF) Gray Pipe",
+        "SKU": "1/2\" PVC PIPE SCH 80 - PLAIN ENDED",
+        "eagleSticksPerBundle": "360",
+        "eagleBundlesPerTruckLoad": "36",
+        "eagleSticksPerTruckload": 12960,
+        "length": "20'",
+        "calculatedSticksPerBundle": 360,
+        "size": "1/2\"",
+        "calculatedBundlesPerTruckload": 36,
+        "calculatedBundleSize": 10,
+        "totalSticks": 6840
+      },
+      "skuId_15": {
+        "skuId": "skuId_15",
+        "productTypeId": "productTypeId_2",
+        "displayOrder": 15,
+        "popularityScore": 7,
+        "productType": "SCH 80 PVC (No NSF) Gray Pipe",
+        "SKU": "3/4\" PVC PIPE SCH 80 - PLAIN ENDED",
+        "eagleSticksPerBundle": "400",
+        "eagleBundlesPerTruckLoad": "24",
+        "eagleSticksPerTruckload": 9600,
+        "length": "20'",
+        "calculatedSticksPerBundle": 400,
+        "size": "3/4\"",
+        "calculatedBundlesPerTruckload": 24,
+        "calculatedBundleSize": 15,
+        "totalSticks": 1200
+      },
+      "skuId_16": {
+        "skuId": "skuId_16",
+        "productTypeId": "productTypeId_2",
+        "displayOrder": 16,
+        "popularityScore": 7,
+        "productType": "SCH 80 PVC (No NSF) Gray Pipe",
+        "SKU": "1\" PVC PIPE SCH 80 - PLAIN ENDED",
+        "eagleSticksPerBundle": "280",
+        "eagleBundlesPerTruckLoad": "20",
+        "eagleSticksPerTruckload": 5600,
+        "length": "20'",
+        "calculatedSticksPerBundle": 280,
+        "size": "1\"",
+        "calculatedBundlesPerTruckload": 20,
+        "calculatedBundleSize": 18,
+        "totalSticks": 1120
+      },
+      "skuId_17": {
+        "skuId": "skuId_17",
+        "productTypeId": "productTypeId_2",
+        "displayOrder": 17,
+        "popularityScore": 7,
+        "productType": "SCH 80 PVC (No NSF) Gray Pipe",
+        "SKU": "1 1/4\" PVC PIPE SCH 80 - PLAIN ENDED",
+        "eagleSticksPerBundle": "220",
+        "eagleBundlesPerTruckLoad": "24",
+        "eagleSticksPerTruckload": 5280,
+        "length": "20'",
+        "calculatedSticksPerBundle": 220,
+        "size": "1 1/4\"",
+        "calculatedBundlesPerTruckload": 24,
+        "calculatedBundleSize": 15,
+        "totalSticks": 660
+      }
+    },
+    "solution": [
+      {
+        "skuId": "skuId_14",
+        "numberOfBundles": 19,
+        "totalSticks": 6840
+      },
+      {
+        "skuId": "skuId_15",
+        "numberOfBundles": 3,
+        "totalSticks": 1200
+      },
+      {
+        "skuId": "skuId_16",
+        "numberOfBundles": 4,
+        "totalSticks": 1120
+      },
+      {
+        "skuId": "skuId_17",
+        "numberOfBundles": 3,
+        "totalSticks": 660
+      }
+    ],
+    "lcmValue": 360,
+    "minTruckSize": 342,
+    "maxTruckSize": 352,
+    "totalSize": 352,
+    "totalSticks": 9820,
+    "differenceSum": 209999
+  },
+  "case_z": {
+    "skus": {
+      "skuId_1": {
+        "skuId": "skuId_1",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 1,
+        "popularityScore": 5,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "1/2\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "360",
+        "eagleBundlesPerTruckLoad": "36",
+        "eagleSticksPerTruckload": 12960,
+        "length": "20'",
+        "calculatedSticksPerBundle": 360,
+        "size": "1/2\"",
+        "calculatedBundlesPerTruckload": 36,
+        "calculatedBundleSize": 4,
+        "totalSticks": 1080
+      },
+      "skuId_8": {
+        "skuId": "skuId_8",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 8,
+        "popularityScore": 3,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "3\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "75",
+        "eagleBundlesPerTruckLoad": "16",
+        "eagleSticksPerTruckload": 1200,
+        "length": "20'",
+        "calculatedSticksPerBundle": 75,
+        "size": "3\"",
+        "calculatedBundlesPerTruckload": 16,
+        "calculatedBundleSize": 9,
+        "totalSticks": 975
+      },
+      "skuId_10": {
+        "skuId": "skuId_10",
+        "productTypeId": "productTypeId_1",
+        "displayOrder": 10,
+        "popularityScore": 6,
+        "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+        "SKU": "6\" PVC PIPE SCH 40 - BELL ENDED",
+        "eagleSticksPerBundle": "26",
+        "eagleBundlesPerTruckLoad": "12",
+        "eagleSticksPerTruckload": 312,
+        "length": "20'",
+        "calculatedSticksPerBundle": 26,
+        "size": "6\"",
+        "calculatedBundlesPerTruckload": 12,
+        "calculatedBundleSize": 12,
+        "totalSticks": 26
+      }
+    },
+    "solution": [
+      {
+        "skuId": "skuId_1",
+        "numberOfBundles": 3,
+        "totalSticks": 1080
+      },
+      {
+        "skuId": "skuId_8",
+        "numberOfBundles": 13,
+        "totalSticks": 975
+      },
+      {
+        "skuId": "skuId_10",
+        "numberOfBundles": 1,
+        "totalSticks": 26
+      }
+    ],
+    "lcmValue": 144,
+    "minTruckSize": 136,
+    "maxTruckSize": 141,
+    "totalSize": 141,
+    "totalSticks": 2081,
+    "differenceSum": 25429
+  }
+}

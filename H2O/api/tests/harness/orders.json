@@ -1,0 +1,92 @@
+[
+  {
+    "order_id": "case_001",
+    "items": [
+      {"sku_id": "skuId_1", "quantity": 1},
+      {"sku_id": "skuId_2", "quantity": 1}
+    ]
+  },
+  {
+    "order_id": "case_002",
+    "items": [
+      {"sku_id": "skuId_1", "quantity": 1},
+      {"sku_id": "skuId_2", "quantity": 1},
+      {"sku_id": "skuId_3", "quantity": 1}
+    ]
+  },
+  {
+    "order_id": "case_003",
+    "items": [
+      {"sku_id": "skuId_9", "quantity": 1},
+      {"sku_id": "skuId_12", "quantity": 1}
+    ]
+  },
+  {
+    "order_id": "case_004",
+    "items": [
+      {"sku_id": "skuId_50", "quantity": 1},
+      {"sku_id": "skuId_55", "quantity": 1}
+    ]
+  },
+  {
+    "order_id": "case_005",
+    "items": [
+      {"sku_id": "skuId_63", "quantity": 1},
+      {"sku_id": "skuId_71", "quantity": 1},
+      {"sku_id": "skuId_72", "quantity": 1}
+    ]
+  },
+  {
+    "order_id": "case_006",
+    "items": [
+      {"sku_id": "skuId_68", "quantity": 1},
+      {"sku_id": "skuId_69", "quantity": 1},
+      {"sku_id": "skuId_70", "quantity": 1}
+    ]
+  },
+  {
+    "order_id": "case_007",
+    "items": [
+      {"sku_id": "skuId_71", "quantity": 1},
+      {"sku_id": "skuId_72", "quantity": 1}
+    ]
+  },
+  {
+    "order_id": "case_008",
+    "items": [
+      {"sku_id": "skuId_2", "quantity": 1},
+      {"sku_id": "skuId_9", "quantity": 1},
+      {"sku_id": "skuId_12", "quantity": 1}
+    ]
+  },
+  {
+    "order_id": "case_009",
+    "items": [
+      {"sku_id": "skuId_3", "quantity": 1},
+      {"sku_id": "skuId_50", "quantity": 1},
+      {"sku_id": "skuId_63", "quantity": 1}
+    ]
+  },
+  {
+    "order_id": "case_010",
+    "items": [
+      {"sku_id": "skuId_68", "quantity": 1},
+      {"sku_id": "skuId_71", "quantity": 1}
+    ]
+  },
+  {
+    "order_id": "case_011",
+    "items": [
+      {"sku_id": "skuId_69", "quantity": 1},
+      {"sku_id": "skuId_72", "quantity": 1}
+    ]
+  },
+  {
+    "order_id": "case_012",
+    "items": [
+      {"sku_id": "skuId_1", "quantity": 1},
+      {"sku_id": "skuId_55", "quantity": 1},
+      {"sku_id": "skuId_70", "quantity": 1}
+    ]
+  }
+]

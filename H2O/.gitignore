@@ -1,0 +1,5 @@
+logs/
+_consolidation_backup_*/
+.sisyphus/
+*.log
+.env

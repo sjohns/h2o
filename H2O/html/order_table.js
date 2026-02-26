@@ -227,15 +227,17 @@ class OrderTable {
             tbody.appendChild(row);
         } else {
             // Handle the case where there are multiple SKUs
-            // Get the solution information and combine with SKU data
-            const combinedData = this.solution.map(solutionItem => {
-                const sku = this.skus[solutionItem.skuId];
-                return {
-                    ...sku,
-                    numberOfBundles: solutionItem.numberOfBundles,
-                    totalSticks: sku.calculatedSticksPerBundle * solutionItem.numberOfBundles
-                };
-            });
+            // Use shared transform so browser and smoke scripts parse identical payload shape.
+            const combinedData = (window.buildCombinedPackingData || function (skus, solution) {
+                return solution.map(function (solutionItem) {
+                    const sku = skus[solutionItem.skuId];
+                    return {
+                        ...sku,
+                        numberOfBundles: solutionItem.numberOfBundles,
+                        totalSticks: sku.calculatedSticksPerBundle * solutionItem.numberOfBundles
+                    };
+                });
+            })(this.skus, this.solution);
 
             // Get the first SKU to extract the column headers
             const firstSku = combinedData[0];

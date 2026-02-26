@@ -141,7 +141,7 @@ function selectSkus(skus) {
     selectSkusDiv.appendChild(contentDiv);
 
     // Add a click event listener to the "Create Order" button
-    createOrderButton.addEventListener('click', function () {
+    createOrderButton.addEventListener('click', async function () {
         // Get selected skus
         let selectedskus = Array.from(document.querySelectorAll('input[name=selectedsku]:checked')).map(checkbox => checkbox.value);
 
@@ -151,6 +151,24 @@ function selectSkus(skus) {
         } else if (selectedskus.length > 5) {
             alert('Please select a maximum of 5 pipe skus before creating an order.');
         } else {
+            if (window.h2oApiAdapter && window.h2oApiAdapter.enabled) {
+                try {
+                    const packedResult = await window.h2oApiAdapter.createAndPack(selectedskus);
+                    const readOnlyEngine = {
+                        updateAll: function () {
+                            alert('Order adjustment controls are only available in local JS mode.');
+                        },
+                        updateButtonStates: function () {}
+                    };
+
+                    const orderTable = new OrderTable(packedResult.skus, packedResult.solution, readOnlyEngine);
+                    readOnlyEngine.updateButtonStates();
+                    return;
+                } catch (error) {
+                    console.error('API mode failed, falling back to local mode:', error);
+                }
+            }
+
             // Filter out skus not in selectedskus from skus object
             for (const skuId in skus) {
                 if (!selectedskus.includes(skuId)) {

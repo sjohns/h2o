@@ -14,10 +14,11 @@ dependencies = [
   "pydantic>=2.7",
   "python-multipart>=0.0.9",
   "python-dotenv>=1.0",
+  "loguru>=0.7",
+  "rich>=13.7",
 ]
 
 [tool.pytest.ini_options]
 testpaths = ["cloud_app/tests"]
 python_files = ["test_*.py"]
 addopts = "-q"
-
