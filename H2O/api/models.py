@@ -22,7 +22,7 @@ class SKU(BaseModel):
 
         data = dict(value)
         sticks = data.get("calculatedSticksPerBundle")
-        truck_sticks = data.get("eagleSticksPerTruckload")
+        truck_sticks = data.get("actualSticksPerTruckLoad", data.get("eagleSticksPerTruckload"))
 
         if "calculatedBundleSize" not in data and sticks is not None:
             data["calculatedBundleSize"] = int(sticks)

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H2O Admin — Packing Data</title>
+    <link rel="stylesheet" href="css/admin_data.css">
+</head>
+<body data-role="admin">
+    <main class="page-shell">
+        <header class="page-header">
+            <div class="page-header-inner">
+                <div>
+                    <h1 class="page-title">H2O Packing Data</h1>
+                    <p class="page-subtitle">Admin — Manage and publish packing data</p>
+                </div>
+                <nav class="page-nav">
+                    <a href="/html/review_data.html">Review View</a>
+                    <a href="/html/index.html">Packing Tool</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Current Published Data -->
+        <section class="tool-card">
+            <div class="card-header">
+                <div class="card-header-row">
+                    <h2>Current Published Data</h2>
+                    <div class="card-header-actions">
+                        <a href="/admin/data/current_excel" class="btn btn-outline">Download Excel Template</a>
+                    </div>
+                </div>
+            </div>
+            <div id="currentDataContent" class="card-body">
+                <p class="loading-msg">Loading&hellip;</p>
+            </div>
+        </section>
+
+        <!-- Upload &amp; Publish -->
+        <section class="tool-card">
+            <div class="card-header">
+                <h2>Update Packing Data</h2>
+                <p class="card-header-desc">Upload an updated Excel file to validate, preview, and publish.</p>
+            </div>
+            <div class="card-body">
+                <div class="field-group">
+                    <label class="field-label" for="workbookFile">Excel file (.xlsx)</label>
+                    <input id="workbookFile" type="file" accept=".xlsx" class="file-input">
+                </div>
+                <div class="field-group">
+                    <label class="field-label" for="changeReason">
+                        Change reason <span class="badge badge-required">required to publish</span>
+                    </label>
+                    <textarea id="changeReason" class="text-input" rows="3"
+                        placeholder="Describe what changed and why (e.g. Added 6-inch SCH 80 SKU, updated bundle counts for Q3)"></textarea>
+                </div>
+                <div class="btn-row">
+                    <button id="validateBtn" data-action="validate" class="btn btn-validate" type="button">Validate</button>
+                    <button id="previewBtn" data-action="preview" class="btn btn-preview" type="button">Preview Changes</button>
+                    <button id="publishBtn" data-action="publish" class="btn btn-publish" type="button">Publish</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results -->
+        <section class="tool-card" id="resultsCard" hidden>
+            <div class="card-header">
+                <h2 id="resultsTitle">Results</h2>
+            </div>
+            <div id="resultsContent" class="card-body"></div>
+        </section>
+
+        <!-- Version History -->
+        <section class="tool-card" id="versionsCard">
+            <div class="card-header">
+                <div class="card-header-row">
+                    <h2>Publish History</h2>
+                    <button id="loadVersionsBtn" class="btn btn-outline btn-sm" type="button">Load History</button>
+                </div>
+            </div>
+            <div id="versionsContent" class="card-body">
+                <p class="muted-msg">Click &ldquo;Load History&rdquo; to view recent publishes.</p>
+            </div>
+        </section>
+    </main>
+    <script src="js/admin_data.js"></script>
+</body>
+</html>

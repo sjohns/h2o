@@ -179,8 +179,15 @@ where
 
 df_with_sku_id = duckdb.sql(query).df()
 
-columns_to_convert_to_integer = ['displayOrder', 'popularityScore', 'eagleSticksPerTruckload','calculatedSticksPerBundle']  # List of columns to convert
+# Canonical truckload sticks field name moving forward.
+if 'actualSticksPerTruckLoad' not in df_with_sku_id.columns and 'eagleSticksPerTruckload' in df_with_sku_id.columns:
+    df_with_sku_id['actualSticksPerTruckLoad'] = df_with_sku_id['eagleSticksPerTruckload']
+
+columns_to_convert_to_integer = ['displayOrder', 'popularityScore', 'actualSticksPerTruckLoad', 'calculatedSticksPerBundle']  # List of columns to convert
 df_with_sku_id[columns_to_convert_to_integer] = df_with_sku_id[columns_to_convert_to_integer].astype(int)
+
+# Backward compatibility for existing consumers that still expect the legacy key.
+df_with_sku_id['eagleSticksPerTruckload'] = df_with_sku_id['actualSticksPerTruckLoad']
 
 # Initialize a defaultdict to store the packing data
 packing_data = {

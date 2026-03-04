@@ -36,3 +36,10 @@ One-time converter used to create historical files:
 cd H2O
 python3 api/tests/harness/convert_historical_from_parity_cases.py
 ```
+
+Status (latest run):
+
+- `python3 api/tests/harness/run_harness.py --historical`
+- `total_orders: 26`
+- `exact_matches: 26`
+- `mismatches: 0`

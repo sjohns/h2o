@@ -1,67 +1,63 @@
 HANDOFF CONTEXT
 ===============
 
-USER REQUESTS (AS-IS)
----------------------
-- "What did we do so far?"
-- "Continue if you have next steps, or stop and ask for clarification if you are unsure how to proceed."
-- "save a summary/handoff for fnect session"
+CURRENT STATE (as of 2026-03-03)
+----------------------------------
+The H2O FastAPI admin workflow is complete and all 18 tests pass.
 
-GOAL
-----
-Keep the flow centered on python_process/replacement.py with API-first behavior: GET /parts first, then POST /order, then POST /api/calculate.
-
-WORK COMPLETED
---------------
-- I reviewed the current state of python_process/replacement.py and confirmed the main endpoints exist: /parts, /order, /api/calculate.
-- I updated python_process/cloud_app/ui_client/load_packing_data.js to fetch from /parts instead of /api/skus.
-- I updated python_process/cloud_app/ui_client/select_skus.js so Create Order calls /order first and uses returned skus + lcmValue before running calculate.
-- I kept the current UI interaction model (select -> create order -> adjust buttons -> recalculate) and only changed API wiring.
-- I validated server smoke flow against replacement app: /parts 200, /order 200, /api/calculate 200.
-
-CURRENT STATE
--------------
-- replacement.py is functioning as the single-file API runtime for core solver flow.
-- UI client now starts with /parts and uses /order before /api/calculate.
-- Python syntax compile check passed for replacement.py.
-- JS syntax checks passed for changed client files via node --check.
-- JS LSP diagnostics were not available in this environment because typescript-language-server is not installed.
-- Repository is dirty with many pre-existing changes unrelated to this specific step; do not revert unrelated files.
-
-PENDING TASKS
--------------
-- Run a browser-level manual check of python_process/cloud_app/ui_client/index.html served by current app path to confirm end-to-end behavior.
-- Decide whether cloud_app/api/client.py remains active in production path or whether runtime should exclusively use replacement.py entrypoint.
-- If requested, do a final naming audit for remaining legacy names (for example, lingth and compatibility keys).
-- If requested, add explicit selection-result memo cache in replacement.py for repeated /order selections.
-- Todo state at end of this session: all tracked tasks completed.
+WHAT IS DONE
+------------
+- Excel admin workflow: validate / preview / publish fully working
+- Export → import round-trip passes clean (was a known broken issue, now fixed)
+- 14-column Excel schema finalized (no user-facing IDs; explicit calculated_sticks_per_bundle)
+- Eagle reference strings (eagle_sticks_per_bundle, eagle_bundles_per_truckload) stored as-is
+- calculated_sticks_per_bundle is admin-selected int (NOT derived from other fields)
+- actual_sticks_per_truckload is independently measured int (NOT derived)
+- Two new endpoints: GET /admin/data/current (browser data view), GET /admin/data/versions
+- Admin and Review browser UIs fully implemented
+- Versioned publish with manifest files
+- ID assignment: stable matching by name, sequential IDs for new entries
+- Hot-reload on publish (no restart needed)
+- All documentation updated
 
 KEY FILES
 ---------
-- python_process/replacement.py - Main API and solver runtime, cache loading, /parts /order /api/calculate endpoints.
-- python_process/cloud_app/ui_client/load_packing_data.js - Now fetches SKU list from /parts.
-- python_process/cloud_app/ui_client/select_skus.js - Now calls /order first, then runs calculate flow.
-- python_process/cloud_app/ui_client/branch_and_bound_engine.js - Posts solve constraints to /api/calculate endpoints.
-- python_process/cloud_app/ui_client/order_table.js - UI table rendering and action hooks for solver updates.
-- python_process/cloud_app/api/client.py - Existing cloud_app adapter that delegates to replacement solver function.
+- H2O/api/admin/data_import.py   — Excel importer / validator (14 columns, no IDs)
+- H2O/api/admin/routes.py        — Admin endpoints (validate/preview/publish/current/versions)
+- H2O/api/runtime.py             — Snapshot loader + hot-reload
+- H2O/api/auth.py                — HTTP Basic auth (require_admin, require_review)
+- H2O/html/admin_data.html       — Admin browser UI
+- H2O/html/review_data.html      — Review browser UI
+- H2O/html/js/admin_data.js      — Shared UI logic (role-gated by data-role attribute)
+- H2O/html/css/admin_data.css    — Shared styles
+- H2O/api/data/packing_data.json — Active snapshot (legacy JSON shape)
+- H2O/api/data/versions/         — Versioned backups
+
+EXCEL SCHEMA (14 columns, sheet: SKUs)
+---------------------------------------
+product_type_name, product_type_display_order, product_type_active_flag,
+sku_display_order, sku_active_flag, sku_description, size_nominal,
+length_feet, popularity_score,
+eagle_sticks_per_bundle (str), eagle_bundles_per_truckload (str),
+calculated_sticks_per_bundle (int), actual_sticks_per_truckload (int),
+notes
 
 IMPORTANT DECISIONS
 -------------------
-- Keep implementation simple and avoid adding extra architecture layers for this flow.
-- Preserve endpoint compatibility while shifting UI wiring to the user-required order: /parts -> /order -> /api/calculate.
-- Keep core logic in replacement.py and avoid expanding scope into unrelated refactors during this step.
+- Eagle fields are strings — "6 / 8", "9 / 12 / 12 / 16" are valid
+- calculated_sticks_per_bundle is manually selected by admin, never auto-calculated
+- actual_sticks_per_truckload is independently measured, never auto-calculated
+- IDs are internal, assigned from existing snapshot or generated sequentially
+- Users never see IDs in Excel
 
-EXPLICIT CONSTRAINTS
---------------------
-- "do what i tell you and only that do you understand and don;t do shit i don;'t ask you to do."
-- "first the user gets the list of skus from the sever"
-- "so do this and only this the file goes in python_process the other code also go es there as dif. the fisrt thing that is done is that the sku a re loadinto a dict once at the top of the file. kiss don't make other files. fucking do what i say"
-- "rechgeck everything directory names, file names, def name, and variable names. change if required. I wan full englcih name sthat drscribe"
-- "start there and from now on tell me if you've followed the strict instruction every time you respond, every ,every time!"
+HOW TO RUN
+----------
+cd H2O
+python3 -m uvicorn api.app:app --host 127.0.0.1 --port 8001 --reload
+pytest -q api/tests    # 18 tests, all passing
 
-CONTEXT FOR CONTINUATION
-------------------------
-- Use replacement.py as source of truth for the API-first calculation flow.
-- When testing UI, confirm the app serves client-ui assets from expected routes (/client-ui and /client-ui-assets) in whichever server entrypoint is used.
-- Do not clean up or revert unrelated dirty files unless explicitly asked.
-- Next likely step is browser verification and final decision on whether cloud_app path stays as adapter or is bypassed.
+NEXT LIKELY WORK
+----------------
+- Rollback endpoint to restore a versioned snapshot
+- Excel template download (blank template with headers)
+- Any UI polish or additional column visibility
