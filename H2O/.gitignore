@@ -1,5 +1,4 @@
-logs/
-_consolidation_backup_*/
-.sisyphus/
-*.log
+__pycache__/
+*.pyc
+*.pyo
 .env
