@@ -1,4 +1,4 @@
-from .data_import import (
+from data_import import (
     REQUIRED_COLUMNS,
     ValidationIssue,
     ValidationResult,

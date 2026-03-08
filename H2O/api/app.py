@@ -13,10 +13,10 @@ ENV_PATH = PROJECT_ROOT / ".env"
 if ENV_PATH.exists():
     load_dotenv(ENV_PATH)
 
-from .admin.routes import router as admin_router
-from .app_logging import setup_logging
-from .routes import router
-from .runtime import reload_runtime_snapshot
+from admin.routes import router as admin_router
+from app_logging import setup_logging
+from routes import router
+from runtime import reload_runtime_snapshot
 
 BASE_DIR = PROJECT_ROOT
 HTML_DIR = BASE_DIR / "html"

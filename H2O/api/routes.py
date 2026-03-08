@@ -6,8 +6,8 @@ from typing import Any
 from fastapi import APIRouter, HTTPException, Request
 from loguru import logger
 
-from .cache import configure_solver_cache, solve_cached
-from .models import (
+from cache import configure_solver_cache, solve_cached
+from models import (
     CreateOrderResponse,
     OrderRequest,
     PackRequest,
@@ -16,8 +16,8 @@ from .models import (
     SolutionItem,
     StoredOrder,
 )
-from .store import InMemoryOrderStore
-from .solver import solve
+from store import InMemoryOrderStore
+from solver import solve
 
 all_skus: list[dict[str, Any]] = []
 all_skus_by_id: dict[str, dict[str, Any]] = {}

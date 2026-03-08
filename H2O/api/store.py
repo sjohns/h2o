@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 from typing import Dict, Iterable
 from uuid import uuid4
 
-from .models import OrderLineIn, StoredOrder
+from models import OrderLineIn, StoredOrder
 
 
 class InMemoryOrderStore:
