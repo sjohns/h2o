@@ -9,7 +9,11 @@ from pathlib import Path
 
 from fastapi import APIRouter, File, Form, Header, HTTPException, UploadFile
 from fastapi.responses import JSONResponse, StreamingResponse
+from loguru import logger
 from openpyxl import Workbook
+from openpyxl.styles import Alignment, Font, PatternFill
+from openpyxl.utils import get_column_letter
+from openpyxl.worksheet.datavalidation import DataValidation
 
 from ..auth import require_admin, require_review
 from ..data import load_snapshot
@@ -18,10 +22,17 @@ from .data_import import REQUIRED_COLUMNS, ValidationIssue, ValidationResult, im
 
 router = APIRouter(prefix="/admin/data", tags=["admin-data"])
 
+MAX_UPLOAD_BYTES = 10 * 1024 * 1024  # 10 MB
+
 
 def _require_xlsx(upload: UploadFile) -> None:
     if not upload.filename or not upload.filename.lower().endswith(".xlsx"):
         raise HTTPException(status_code=400, detail="Only .xlsx uploads are supported")
+
+
+def _check_file_size(data: bytes) -> None:
+    if len(data) > MAX_UPLOAD_BYTES:
+        raise HTTPException(status_code=413, detail="File too large (max 10 MB)")
 
 
 def _coerce_int(value: Any) -> int:
@@ -156,17 +167,122 @@ def _build_diff_summary(
     }
 
 
+# ── Excel styling constants ───────────────────────────────────────────────────
+_TITLE_FILL = PatternFill("solid", fgColor="1F4E79")
+_TITLE_FONT = Font(bold=True, color="FFFFFF", name="Calibri", size=14)
+_TITLE_ALIGN = Alignment(horizontal="center", vertical="center")
+
+_HEADER_FILL = PatternFill("solid", fgColor="2E75B6")
+_HEADER_FONT = Font(bold=True, color="FFFFFF", name="Calibri", size=11)
+_HEADER_ALIGN = Alignment(horizontal="center", vertical="center")
+
+_ALT_ROW_FILL = PatternFill("solid", fgColor="EEF3FA")
+_Y_FILL = PatternFill("solid", fgColor="C6EFCE")   # light green
+_N_FILL = PatternFill("solid", fgColor="FFC7CE")   # light red
+_CENTER = Alignment(horizontal="center", vertical="center")
+_LEFT = Alignment(horizontal="left", vertical="center")
+
+
+def _add_title_row(sheet: Any, title: str, num_cols: int) -> None:
+    """Merge row 1 across all columns and apply title styling."""
+    last_col = get_column_letter(num_cols)
+    sheet.merge_cells(f"A1:{last_col}1")
+    cell = sheet["A1"]
+    cell.value = title
+    cell.fill = _TITLE_FILL
+    cell.font = _TITLE_FONT
+    cell.alignment = _TITLE_ALIGN
+    sheet.row_dimensions[1].height = 30
+
+
+def _style_sheet(sheet: Any, active_flag_cols: list[str]) -> None:
+    """Style column header row (row 2), freeze at row 3, autofilter, row colors."""
+    # Column header row (row 2, below the title)
+    for cell in sheet[2]:
+        cell.fill = _HEADER_FILL
+        cell.font = _HEADER_FONT
+        cell.alignment = _HEADER_ALIGN
+    sheet.row_dimensions[2].height = 22
+    sheet.freeze_panes = "A3"
+    last_col = get_column_letter(sheet.max_column)
+    sheet.auto_filter.ref = f"A2:{last_col}2"
+
+    # Data rows: alternating background + active flag coloring
+    active_col_set = set(active_flag_cols)
+    for row_idx, row in enumerate(sheet.iter_rows(min_row=3, max_row=sheet.max_row), start=0):
+        alt = row_idx % 2 == 1
+        for cell in row:
+            if cell.value is None:
+                continue
+            col = get_column_letter(cell.column)
+            if col in active_col_set:
+                val = str(cell.value).upper()
+                cell.fill = _Y_FILL if val == "Y" else _N_FILL
+                cell.alignment = _CENTER
+            elif alt:
+                cell.fill = _ALT_ROW_FILL
+
+
 def _build_current_excel_workbook(product_types: dict[str, dict[str, Any]]) -> bytes:
-    """Export current data as Excel using the same 12-column format as the import template."""
+    """Export current data as a two-sheet Excel workbook.
+
+    Sheet 1 — "Product Types": Name | Display Order | Active
+    Sheet 2 — "SKUs": Product Type (dropdown) | Display Order | Active | Description |
+              Size | Length (ft) | Popularity Score | Eagle Sticks/Bundle |
+              Eagle Bundles/Truck | Calc Sticks/Bundle | Actual Sticks/Truck | Notes
+    """
     workbook = Workbook()
-    sheet = workbook.active
-    sheet.title = "SKUs"
-    sheet.append(REQUIRED_COLUMNS)
 
     sorted_pts = sorted(
         product_types.values(),
         key=lambda pt: (int(pt["product_type_display_order"]), pt["product_type_name"].lower()),
     )
+
+    # ── Sheet 1: Product Types ────────────────────────────────────────────────
+    _active = workbook.active
+    assert _active is not None
+    pt_sheet = _active
+    pt_sheet.title = "Product Types"
+    pt_sheet.append([""])                                    # row 1 — title (merged below)
+    pt_sheet.append(["Name", "Display Order", "Active"])    # row 2 — column headers
+
+    for pt in sorted_pts:
+        pt_sheet.append([
+            pt["product_type_name"],
+            int(pt["product_type_display_order"]),
+            pt["product_type_active_flag"],
+        ])
+
+    num_pts = len(sorted_pts)
+    pt_max = max(num_pts + 3, 100)   # +2 for title+header rows
+
+    # Active flag: Y/N dropdown (column C) — data starts at row 3
+    yn_pt = DataValidation(type="list", formula1='"Y,N"', allow_blank=False)
+    yn_pt.sqref = f"C3:C{pt_max}"
+    pt_sheet.add_data_validation(yn_pt)
+
+    # Display order: whole number ≥ 1 (column B)
+    int_pt = DataValidation(type="whole", operator="greaterThanOrEqual", formula1="1", allow_blank=False)
+    int_pt.sqref = f"B3:B{pt_max}"
+    pt_sheet.add_data_validation(int_pt)
+
+    _add_title_row(pt_sheet, "H2O — Product Types", num_cols=3)
+    pt_sheet.column_dimensions["A"].width = 40
+    pt_sheet.column_dimensions["B"].width = 14
+    pt_sheet.column_dimensions["C"].width = 8
+    _style_sheet(pt_sheet, active_flag_cols=["C"])
+
+    # ── Sheet 2: SKUs ────────────────────────────────────────────────────────
+    sku_sheet = workbook.create_sheet("SKUs")
+    sku_sheet.append([""])                                   # row 1 — title (merged below)
+    sku_sheet.append([                                       # row 2 — column headers
+        "Product Type", "Display Order", "Active", "Description", "Size",
+        "Length (ft)", "Popularity Score", "Eagle Sticks/Bundle", "Eagle Bundles/Truck",
+        "Calc Sticks/Bundle", "Actual Sticks/Truck", "Notes",
+    ])
+
+    total_skus = sum(len(pt["skus"]) for pt in sorted_pts)
+    sku_max = max(total_skus + 3, 200)   # +2 for title+header rows
 
     for pt in sorted_pts:
         sorted_skus = sorted(
@@ -174,10 +290,8 @@ def _build_current_excel_workbook(product_types: dict[str, dict[str, Any]]) -> b
             key=lambda s: (int(s["sku_display_order"]), s["sku_description"].lower()),
         )
         for sku in sorted_skus:
-            sheet.append([
+            sku_sheet.append([
                 pt["product_type_name"],
-                int(pt["product_type_display_order"]),
-                pt["product_type_active_flag"],
                 int(sku["sku_display_order"]),
                 sku["sku_active_flag"],
                 sku["sku_description"],
@@ -190,6 +304,49 @@ def _build_current_excel_workbook(product_types: dict[str, dict[str, Any]]) -> b
                 int(sku["actual_sticks_per_truckload"]),
                 sku.get("notes", ""),
             ])
+
+    # Product Type: dropdown from Product Types data rows (A3 onwards after title)
+    pt_dropdown = DataValidation(
+        type="list",
+        formula1=f"'Product Types'!$A$3:$A${num_pts + 2}",
+        allow_blank=False,
+    )
+    pt_dropdown.sqref = f"A3:A{sku_max}"
+    sku_sheet.add_data_validation(pt_dropdown)
+
+    # Active flag: Y/N dropdown (column C) — data starts at row 3
+    yn_sku = DataValidation(type="list", formula1='"Y,N"', allow_blank=False)
+    yn_sku.sqref = f"C3:C{sku_max}"
+    sku_sheet.add_data_validation(yn_sku)
+
+    # Integer ≥ 1: Display Order (B), Length (F), Popularity Score (G),
+    #               Calc Sticks/Bundle (J), Actual Sticks/Truck (K)
+    for col in ("B", "F", "G", "J", "K"):
+        val = DataValidation(type="whole", operator="greaterThanOrEqual", formula1="1", allow_blank=False)
+        val.sqref = f"{col}3:{col}{sku_max}"
+        sku_sheet.add_data_validation(val)
+
+    _add_title_row(sku_sheet, "H2O — SKUs", num_cols=12)
+    col_widths = [40, 14, 8, 50, 8, 12, 16, 22, 22, 18, 18, 30]
+    for i, width in enumerate(col_widths, start=1):
+        sku_sheet.column_dimensions[get_column_letter(i)].width = width
+
+    _style_sheet(sku_sheet, active_flag_cols=["C"])
+
+    # Per-column alignment for SKU data rows (left for text, center for numbers/flags)
+    # Columns: A=left, B=center, C=handled by _style_sheet, D=left, E=center,
+    #          F=center, G=center, H=left, I=left, J=center, K=center, L=left
+    _left_cols = {"A", "D", "H", "I", "L"}
+    _center_cols = {"B", "E", "F", "G", "J", "K"}
+    for row in sku_sheet.iter_rows(min_row=3, max_row=sku_sheet.max_row):
+        for cell in row:
+            if cell.value is None:
+                continue
+            col = get_column_letter(cell.column)
+            if col in _left_cols:
+                cell.alignment = _LEFT
+            elif col in _center_cols:
+                cell.alignment = _CENTER
 
     output = BytesIO()
     workbook.save(output)
@@ -217,7 +374,7 @@ def _assign_ids_from_snapshot(
         existing_pt_ids.add(pt_id)
         for sku_id, sku in pt.get("skus", {}).items():
             existing_sku_ids.add(sku_id)
-            composite = f"{pt_name}||{sku.get('SKU', '')}||{sku.get('size', '')}"
+            composite = json.dumps([pt_name, sku.get("SKU", ""), sku.get("size", "")], ensure_ascii=False)
             sku_composite_to_id[composite] = sku_id
 
     def _next_pt_id() -> str:
@@ -263,7 +420,7 @@ def _assign_ids_from_snapshot(
         }
 
         for _sk, sku_data in pt_data["skus"].items():
-            composite = f"{pt_name}||{sku_data['sku_description']}||{sku_data['size_nominal']}"
+            composite = json.dumps([pt_name, sku_data["sku_description"], sku_data["size_nominal"]], ensure_ascii=False)
             sku_id = sku_composite_to_id.get(composite)
             if sku_id is None:
                 sku_id = _next_sku_id()
@@ -423,8 +580,8 @@ async def list_versions(
     for mp in manifests:
         try:
             versions.append(json.loads(mp.read_text(encoding="utf-8")))
-        except Exception:
-            pass
+        except Exception as exc:
+            logger.warning("Failed to parse manifest {}: {}", mp.name, exc)
 
     return {"versions": versions}
 
@@ -447,6 +604,21 @@ async def download_current_excel(
     )
 
 
+@router.get("/current_json")
+async def download_current_json(
+    authorization: str | None = Header(default=None),
+) -> StreamingResponse:
+    require_review(authorization)
+    snapshot = json.loads(runtime.SNAPSHOT_PATH.read_bytes())
+    js_content = "const packingData = " + json.dumps(snapshot, indent=4) + ";"
+    headers = {"Content-Disposition": 'attachment; filename="load_packing_data.js"'}
+    return StreamingResponse(
+        BytesIO(js_content.encode("utf-8")),
+        media_type="application/javascript",
+        headers=headers,
+    )
+
+
 @router.post("/validate")
 async def validate_workbook(
     file: UploadFile = File(...),
@@ -454,7 +626,9 @@ async def validate_workbook(
 ) -> ValidationResult:
     require_review(authorization)
     _require_xlsx(file)
-    return import_workbook(await file.read())
+    file_bytes = await file.read()
+    _check_file_size(file_bytes)
+    return import_workbook(file_bytes)
 
 
 @router.post("/preview")
@@ -464,7 +638,9 @@ async def preview_workbook(
 ) -> dict[str, Any]:
     require_review(authorization)
     _require_xlsx(file)
-    validation = import_workbook(await file.read())
+    file_bytes = await file.read()
+    _check_file_size(file_bytes)
+    validation = import_workbook(file_bytes)
     if not validation.is_valid:
         return _response_from_validation(validation, 400)
 
@@ -486,6 +662,7 @@ async def publish_workbook(
         raise HTTPException(status_code=400, detail="change_reason is required")
 
     file_bytes = await file.read()
+    _check_file_size(file_bytes)
     validation = import_workbook(file_bytes)
     if not validation.is_valid:
         return _response_from_validation(validation, 400)
@@ -501,7 +678,24 @@ async def publish_workbook(
         validation=validation,
         json_hash=json_hash,
     )
-    _activate_snapshot(snapshot)
+
+    # Capture the old snapshot content so we can roll back if activation fails.
+    old_snapshot_bytes: bytes | None = None
+    if runtime.SNAPSHOT_PATH.exists():
+        old_snapshot_bytes = runtime.SNAPSHOT_PATH.read_bytes()
+
+    try:
+        _activate_snapshot(snapshot)
+    except Exception as exc:
+        logger.error("Snapshot activation failed (version {}): {}", version_id, exc)
+        if old_snapshot_bytes is not None:
+            try:
+                runtime.SNAPSHOT_PATH.write_bytes(old_snapshot_bytes)
+                runtime.reload_runtime_snapshot(runtime.SNAPSHOT_PATH)
+                logger.info("Rolled back to previous snapshot after activation failure")
+            except Exception as rb_exc:
+                logger.error("Rollback also failed: {}", rb_exc)
+        raise HTTPException(status_code=500, detail=f"Snapshot activation failed: {exc}") from exc
 
     return {
         "ok": True,

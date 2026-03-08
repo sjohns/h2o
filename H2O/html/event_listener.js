@@ -13,24 +13,7 @@ function listToSkuObject(skuList) {
 }
 
 document.addEventListener('DOMContentLoaded', async function () {
-    let skus;
-
-    if (window.h2oApiAdapter && window.h2oApiAdapter.enabled) {
-        try {
-            const apiSkus = await window.h2oApiAdapter.fetchSkus();
-            skus = listToSkuObject(apiSkus);
-        } catch (error) {
-            console.error('API SKU fetch failed, falling back to local data:', error);
-            skus = processPackingData(packingData);
-        }
-    } else {
-        skus = processPackingData(packingData);
-    }
-
+    const apiSkus = await window.h2oApiAdapter.fetchSkus();
+    const skus = listToSkuObject(apiSkus);
     selectSkus(skus);
-
-    const selectSkusDiv = document.getElementById('selectSkus');
-    if (selectSkusDiv.children.length === 0) {
-        selectSkus(skus);
-    }
 });

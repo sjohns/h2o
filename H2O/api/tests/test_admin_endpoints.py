@@ -222,6 +222,48 @@ def test_admin_publish_valid_writes_versioned_files_and_reloads(isolated_snapsho
     assert skus_response.json()["count"] == 2
 
 
+def test_upload_too_large_returns_413():
+    """Files over 10 MB must be rejected with 413."""
+    large_data = b"x" * (11 * 1024 * 1024)
+    response = request(
+        "POST",
+        "/admin/data/validate",
+        files={"file": ("big.xlsx", large_data, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")},
+        headers=REVIEW_AUTH_HEADER,
+    )
+    assert response.status_code == 413
+
+
+def test_corrupted_workbook_returns_400():
+    """A non-xlsx binary payload must return 400, not 500."""
+    corrupt_data = b"this is not a zip file"
+    response = request(
+        "POST",
+        "/admin/data/validate",
+        files={"file": ("bad.xlsx", corrupt_data, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")},
+        headers=REVIEW_AUTH_HEADER,
+    )
+    assert response.status_code == 200  # import_workbook returns ValidationResult
+    payload = response.json()
+    assert payload["is_valid"] is False
+    assert any("Could not open workbook" in e["message"] for e in payload["errors"])
+
+
+def test_list_versions_skips_corrupted_manifest(isolated_snapshot_paths):
+    """list_versions must not crash when a manifest file is corrupted."""
+    versions_dir = isolated_snapshot_paths["versions_dir"]
+    versions_dir.mkdir(parents=True, exist_ok=True)
+    bad_manifest = versions_dir / "20240101_000000_manifest.json"
+    bad_manifest.write_text("not valid json", encoding="utf-8")
+
+    response = request("GET", "/admin/data/versions", headers=ADMIN_AUTH_HEADER)
+    assert response.status_code == 200
+    # Corrupted manifest is skipped; no crash
+    payload = response.json()
+    assert "versions" in payload
+    assert all(isinstance(v, dict) for v in payload["versions"])
+
+
 def test_admin_publish_round_trip(isolated_snapshot_paths):
     """Download current Excel, re-upload it, validate — must pass clean."""
     # Download
@@ -238,3 +280,74 @@ def test_admin_publish_round_trip(isolated_snapshot_paths):
     assert response.status_code == 200
     payload = response.json()
     assert payload["is_valid"] is True, f"Round-trip validation failed: {payload['errors']}"
+
+
+_REQUIRED_SKU_FIELDS = (
+    "skuId", "productTypeId", "displayOrder", "popularityScore",
+    "productType", "SKU", "eagleSticksPerBundle", "eagleBundlesPerTruckLoad",
+    "eagleSticksPerTruckload", "calculatedSticksPerBundle", "size", "length",
+)
+
+
+def _assert_js_format(text: str) -> None:
+    """Assert the downloaded JS file matches the load_packing_data.js format."""
+    assert text.startswith("const packingData = "), "Must start with 'const packingData = '"
+    assert text.rstrip().endswith(";"), "Must end with ';'"
+    # Parse the JSON body between the wrapper
+    json_body = text[len("const packingData = "):].rstrip().rstrip(";")
+    data = json.loads(json_body)
+
+    assert "date" in data, "Missing 'date' field"
+    assert "productTypes" in data, "Missing 'productTypes' field"
+    assert isinstance(data["productTypes"], list), "'productTypes' must be a list"
+    assert len(data["productTypes"]) > 0, "'productTypes' must not be empty"
+
+    for pt in data["productTypes"]:
+        assert "productTypeId" in pt
+        assert "productType" in pt
+        assert isinstance(pt["skus"], dict), "'skus' must be a dict"
+
+        for sku_id, sku in pt["skus"].items():
+            for field in _REQUIRED_SKU_FIELDS:
+                assert field in sku, f"SKU {sku_id}: missing '{field}'"
+            assert sku["skuId"] == sku_id, f"SKU key {sku_id!r} != skuId {sku['skuId']!r}"
+            assert isinstance(sku["eagleSticksPerBundle"], str), \
+                f"SKU {sku_id}: eagleSticksPerBundle must be str"
+            assert isinstance(sku["eagleBundlesPerTruckLoad"], str), \
+                f"SKU {sku_id}: eagleBundlesPerTruckLoad must be str"
+            assert isinstance(sku["eagleSticksPerTruckload"], int), \
+                f"SKU {sku_id}: eagleSticksPerTruckload must be int"
+            assert isinstance(sku["calculatedSticksPerBundle"], int), \
+                f"SKU {sku_id}: calculatedSticksPerBundle must be int"
+            assert sku["displayOrder"] >= 0
+            assert sku["popularityScore"] >= 1
+            assert str(sku["length"]).endswith("'"), \
+                f"SKU {sku_id}: length {sku['length']!r} must end with apostrophe"
+
+
+def test_download_js_format_current():
+    """current_json must return load_packing_data.js format: const packingData = {...};"""
+    response = request("GET", "/admin/data/current_json", headers=REVIEW_AUTH_HEADER)
+    assert response.status_code == 200
+    cd = response.headers.get("content-disposition", "")
+    assert "load_packing_data.js" in cd
+    _assert_js_format(response.text)
+
+
+def test_download_js_format_after_publish(isolated_snapshot_paths):
+    """After an Excel publish round-trip, current_json must still produce valid load_packing_data.js."""
+    dl = request("GET", "/admin/data/current_excel", headers=REVIEW_AUTH_HEADER)
+    assert dl.status_code == 200
+
+    pub = request(
+        "POST",
+        "/admin/data/publish",
+        files={"file": ("rt.xlsx", dl.content, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")},
+        data={"change_reason": "js format test"},
+        headers=ADMIN_AUTH_HEADER,
+    )
+    assert pub.status_code == 200
+
+    response = request("GET", "/admin/data/current_json", headers=REVIEW_AUTH_HEADER)
+    assert response.status_code == 200
+    _assert_js_format(response.text)

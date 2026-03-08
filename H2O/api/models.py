@@ -17,6 +17,16 @@ class SKU(BaseModel):
     @model_validator(mode="before")
     @classmethod
     def _coerce_calculated_fields(cls, value: Any) -> Any:
+        """Bridge legacy JSON snapshot field names to the canonical model fields.
+
+        The legacy snapshot format uses:
+          - calculatedSticksPerBundle  → mapped to calculatedBundleSize
+          - actualSticksPerTruckLoad (preferred) or eagleSticksPerTruckload (fallback)
+            → used with calculatedSticksPerBundle to derive calculatedBundlesPerTruckload
+
+        These fields are populated by the solver before the SKU is serialised into
+        a PackingResult, but the raw snapshot stores only the legacy names.
+        """
         if not isinstance(value, dict):
             return value
 
@@ -69,8 +79,20 @@ class CreateOrderResponse(BaseModel):
     order_id: str
 
 
+class BundleConstraintItem(BaseModel):
+    min_bundles: int = Field(ge=0)
+    max_bundles: int = Field(ge=1)
+
+    @model_validator(mode="after")
+    def _min_le_max(self) -> BundleConstraintItem:
+        if self.min_bundles > self.max_bundles:
+            raise ValueError(f"min_bundles ({self.min_bundles}) must be <= max_bundles ({self.max_bundles})")
+        return self
+
+
 class PackRequest(BaseModel):
-    orderId: str
+    orderId: str = Field(min_length=1)
+    bundleConstraints: dict[str, BundleConstraintItem] = Field(default_factory=dict)
 
     @model_validator(mode="before")
     @classmethod
@@ -80,7 +102,7 @@ class PackRequest(BaseModel):
         if "orderId" in value:
             return value
         if "order_id" in value:
-            return {"orderId": value["order_id"]}
+            return {"orderId": value["order_id"], "bundleConstraints": value.get("bundleConstraints", {})}
         return value
 
 

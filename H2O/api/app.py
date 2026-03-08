@@ -30,7 +30,7 @@ reload_runtime_snapshot()
 app = FastAPI(title="H2O API", version="0.1.0")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://127.0.0.1:8001", "http://localhost:8001"],
     allow_methods=["*"],
     allow_headers=["*"],
 )

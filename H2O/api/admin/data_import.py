@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from io import BytesIO
 from pathlib import Path
 from typing import Any, BinaryIO
@@ -9,6 +10,28 @@ from pydantic import BaseModel, ConfigDict, Field, ValidationError, field_valida
 
 
 SHEET_NAME = "SKUs"
+SHEET_NAME_PRODUCT_TYPES = "Product Types"
+
+# Display name → internal field name mappings for the two-sheet export format
+_TWO_SHEET_PT_MAP = {
+    "Name": "product_type_name",
+    "Display Order": "product_type_display_order",
+    "Active": "product_type_active_flag",
+}
+_TWO_SHEET_SKU_MAP = {
+    "Product Type": "product_type_name",
+    "Display Order": "sku_display_order",
+    "Active": "sku_active_flag",
+    "Description": "sku_description",
+    "Size": "size_nominal",
+    "Length (ft)": "length_feet",
+    "Popularity Score": "popularity_score",
+    "Eagle Sticks/Bundle": "eagle_sticks_per_bundle",
+    "Eagle Bundles/Truck": "eagle_bundles_per_truckload",
+    "Calc Sticks/Bundle": "calculated_sticks_per_bundle",
+    "Actual Sticks/Truck": "actual_sticks_per_truckload",
+    "Notes": "notes",
+}
 
 # IDs (sku_id, product_type_id) are internal — auto-assigned on publish from the
 # current snapshot or generated sequentially for new entries. Users never see them.
@@ -97,8 +120,12 @@ class SKURecord(BaseModel):
 
 
 def _sku_key(sku_description: str, size_nominal: str) -> str:
-    """Composite key uniquely identifying a SKU within the dataset."""
-    return f"{sku_description}||{size_nominal}"
+    """Composite key uniquely identifying a SKU within the dataset.
+
+    Uses JSON encoding to avoid false collisions when either field contains
+    the separator string.
+    """
+    return json.dumps([sku_description, size_nominal], ensure_ascii=False)
 
 
 class ValidationResult(BaseModel):
@@ -128,7 +155,10 @@ def _load_workbook_bytes(source: str | Path | bytes | BinaryIO) -> bytes:
 
 
 def _read_rows(source: str | Path | bytes | BinaryIO) -> tuple[list[str], list[dict[str, Any]]]:
-    workbook = load_workbook(filename=BytesIO(_load_workbook_bytes(source)), data_only=True)
+    try:
+        workbook = load_workbook(filename=BytesIO(_load_workbook_bytes(source)), data_only=True)
+    except Exception as exc:
+        raise ValueError(f"Could not open workbook: {exc}") from exc
     if SHEET_NAME not in workbook.sheetnames:
         raise ValueError(f"Workbook must contain a '{SHEET_NAME}' sheet")
 
@@ -156,6 +186,77 @@ def _read_rows(source: str | Path | bytes | BinaryIO) -> tuple[list[str], list[d
         data_rows.append(row_map)
 
     return normalized_header, data_rows
+
+
+def _find_header_row(rows: list[tuple], expected_first_col: str) -> int:
+    """Return the 0-based index of the row whose first cell matches expected_first_col.
+
+    This handles both old format (header at index 0) and new format (title at index 0,
+    header at index 1) without hardcoding row positions.
+    """
+    for i, row in enumerate(rows):
+        first = str(_coerce_cell_value(row[0]) if row else "").strip()
+        if first == expected_first_col:
+            return i
+    raise ValueError(f"Could not find column header '{expected_first_col}' in sheet")
+
+
+def _read_rows_two_sheet(workbook: Any) -> tuple[list[str], list[dict[str, Any]]]:
+    """Read the two-sheet export format: merge 'Product Types' and 'SKUs' sheets."""
+    # ── Product Types sheet ───────────────────────────────────────────────────
+    pt_sheet = workbook[SHEET_NAME_PRODUCT_TYPES]
+    pt_raw = list(pt_sheet.iter_rows(values_only=True))
+
+    pt_header_idx = _find_header_row(pt_raw, "Name")
+    pt_header = [str(_coerce_cell_value(v)).strip() for v in pt_raw[pt_header_idx]]
+
+    product_type_data: dict[str, dict[str, Any]] = {}
+    for row in pt_raw[pt_header_idx + 1:]:
+        values = [_coerce_cell_value(v) for v in row]
+        if not any(v != "" for v in values):
+            continue
+        row_map: dict[str, Any] = {
+            _TWO_SHEET_PT_MAP.get(pt_header[i], pt_header[i]): values[i] if i < len(values) else ""
+            for i in range(len(pt_header))
+            if pt_header[i]
+        }
+        pt_name = str(row_map.get("product_type_name", "")).strip()
+        if pt_name:
+            product_type_data[pt_name] = {
+                "product_type_display_order": row_map.get("product_type_display_order", ""),
+                "product_type_active_flag": row_map.get("product_type_active_flag", ""),
+            }
+
+    # ── SKUs sheet ────────────────────────────────────────────────────────────
+    if SHEET_NAME not in workbook.sheetnames:
+        raise ValueError(f"Workbook must contain a '{SHEET_NAME}' sheet")
+
+    sku_sheet = workbook[SHEET_NAME]
+    sku_raw = list(sku_sheet.iter_rows(values_only=True))
+
+    sku_header_idx = _find_header_row(sku_raw, "Product Type")
+    sku_header = [str(_coerce_cell_value(v)).strip() for v in sku_raw[sku_header_idx]]
+
+    data_rows: list[dict[str, Any]] = []
+    for row_index, row in enumerate(sku_raw[sku_header_idx + 1:], start=sku_header_idx + 2):
+        values = [_coerce_cell_value(v) for v in row]
+        if not any(v != "" for v in values):
+            continue
+        row_map = {
+            _TWO_SHEET_SKU_MAP.get(sku_header[i], sku_header[i]): values[i] if i < len(values) else ""
+            for i in range(len(sku_header))
+            if sku_header[i]
+        }
+        pt_name = str(row_map.get("product_type_name", "")).strip()
+        pt_info = product_type_data.get(pt_name, {})
+        row_map["product_type_display_order"] = pt_info.get("product_type_display_order", "")
+        row_map["product_type_active_flag"] = pt_info.get("product_type_active_flag", "")
+        row_map.setdefault("notes", "")
+        row_map["_row_number"] = row_index
+        data_rows.append(row_map)
+
+    # Return REQUIRED_COLUMNS as the header — all 14 fields are present after the merge
+    return REQUIRED_COLUMNS, data_rows
 
 
 def _validate_columns(header: list[str]) -> list[ValidationIssue]:
@@ -213,7 +314,7 @@ def _enforce_cross_row_rules(
     product_type_state: dict[str, dict[str, Any]] = {}
 
     for row_number, record in records:
-        composite = f"{record.product_type_name}||{record.sku_description}||{record.size_nominal}"
+        composite = json.dumps([record.product_type_name, record.sku_description, record.size_nominal], ensure_ascii=False)
         if composite in seen_composite:
             first_row = seen_composite[composite]
             errors.append(
@@ -311,7 +412,26 @@ def _build_normalized_structure(records: list[tuple[int, SKURecord]]) -> dict[st
 
 
 def import_workbook(source: str | Path | bytes | BinaryIO) -> ValidationResult:
-    header, data_rows = _read_rows(source)
+    try:
+        raw_bytes = _load_workbook_bytes(source)
+        try:
+            workbook = load_workbook(filename=BytesIO(raw_bytes), data_only=True)
+        except Exception as exc:
+            raise ValueError(f"Could not open workbook: {exc}") from exc
+
+        if SHEET_NAME_PRODUCT_TYPES in workbook.sheetnames:
+            header, data_rows = _read_rows_two_sheet(workbook)
+        else:
+            header, data_rows = _read_rows(raw_bytes)
+    except ValueError as exc:
+        return ValidationResult(
+            is_valid=False,
+            errors=[ValidationIssue(level="error", message=str(exc))],
+            warnings=[],
+            product_types={},
+            counts={"rows": 0, "product_types": 0, "skus": 0},
+        )
+
     column_issues = _validate_columns(header)
 
     if any(issue.level == "error" for issue in column_issues):

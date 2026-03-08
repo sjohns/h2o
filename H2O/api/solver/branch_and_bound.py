@@ -45,7 +45,7 @@ class _CalculateRatios:
             if score not in distinct_popularity_scores:
                 distinct_popularity_scores.append(score)
 
-        weights = [1 / score for score in distinct_popularity_scores]
+        weights = [1 / max(score, 1) for score in distinct_popularity_scores]
         total_weight = sum(weights)
         target_normalized_weights = [weight / total_weight for weight in weights]
 
@@ -69,6 +69,9 @@ class _CalculateRatios:
                 total_sticks_per_sku[sku_id] = total_sticks
 
         total_sticks = sum(total_sticks_per_sku.values())
+
+        if total_sticks == 0:
+            return {"differenceSum": 0, "totalSticks": 0}
 
         normalized_weights_per_sku = {
             sku_id: sticks / total_sticks for sku_id, sticks in total_sticks_per_sku.items()
@@ -272,7 +275,7 @@ class _BranchAndBoundEngine:
         return int(total)
 
 
-def solve(order: Any, sku_data: dict[str, dict[str, Any]]) -> dict[str, Any]:
+def solve(order: Any, sku_data: dict[str, dict[str, Any]], bundle_constraints: dict | None = None) -> dict[str, Any]:
     if hasattr(order, "model_dump"):
         order_dict = order.model_dump()
     elif isinstance(order, dict):
@@ -302,6 +305,11 @@ def solve(order: Any, sku_data: dict[str, dict[str, Any]]) -> dict[str, Any]:
 
     ratios_calculator = _CalculateRatios(selected_skus)
     engine = _BranchAndBoundEngine(selected_skus, lcm_value, ratios_calculator)
+    if bundle_constraints:
+        for sku_id, c in bundle_constraints.items():
+            if sku_id in engine.bundle_constraints:
+                engine.bundle_constraints[sku_id]["minNumberOfBundles"] = c["min_bundles"]
+                engine.bundle_constraints[sku_id]["maxNumberOfBundles"] = c["max_bundles"]
     optimal_solution_obj = engine.best_solution()
     solution = optimal_solution_obj["solution"]
     total_size = int(optimal_solution_obj.get("totalSize", engine.calculate_truck_size(solution)))

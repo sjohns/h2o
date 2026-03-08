@@ -4,85 +4,127 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>H2O Admin — Packing Data</title>
-    <link rel="stylesheet" href="css/admin_data.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body data-role="admin">
-    <main class="page-shell">
-        <header class="page-header">
-            <div class="page-header-inner">
-                <div>
-                    <h1 class="page-title">H2O Packing Data</h1>
-                    <p class="page-subtitle">Admin — Manage and publish packing data</p>
-                </div>
-                <nav class="page-nav">
-                    <a href="/html/review_data.html">Review View</a>
-                    <a href="/html/index.html">Packing Tool</a>
-                </nav>
-            </div>
-        </header>
+<body data-role="admin" class="bg-light">
 
-        <!-- Current Published Data -->
-        <section class="tool-card">
-            <div class="card-header">
-                <div class="card-header-row">
-                    <h2>Current Published Data</h2>
-                    <div class="card-header-actions">
-                        <a href="/admin/data/current_excel" class="btn btn-outline">Download Excel Template</a>
+    <header class="py-3 px-4 text-white mb-4"
+            style="background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <span class="fw-bold fs-5">H2O Packing Data</span>
+                <span class="ms-2 small" style="color:#94a3b8">Admin — Manage and publish packing data</span>
+            </div>
+            <button id="signOutBtn" class="btn btn-sm" type="button"
+                    style="background:rgba(255,255,255,0.1);color:#cbd5e1;border:1.5px solid #475569">Sign Out</button>
+        </div>
+    </header>
+
+    <main class="container-lg pb-5">
+
+        <!-- Help -->
+        <div class="accordion mb-4 shadow-sm" id="helpAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button fw-semibold" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#helpBody" aria-expanded="true">
+                        How to use this page
+                    </button>
+                </h2>
+                <div id="helpBody" class="accordion-collapse collapse show">
+                    <div class="accordion-body">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <p class="fw-semibold small text-uppercase text-muted mb-2">Workflow</p>
+                                <ol class="ps-3 small mb-0">
+                                    <li class="mb-1"><strong>Download</strong> — Get the current data as an Excel workbook. Open it in Excel or Google Sheets.</li>
+                                    <li class="mb-1"><strong>Edit</strong> — Add, remove or update SKUs. Use the dropdown in the Active column (Y/N). Do not add or remove columns.</li>
+                                    <li class="mb-1"><strong>Upload</strong> — Select your modified file using the file picker below.</li>
+                                    <li class="mb-1"><strong>Validate</strong> — Check the file for errors before continuing.</li>
+                                    <li class="mb-1"><strong>Preview</strong> — Review exactly what will change compared to the live data.</li>
+                                    <li class="mb-1"><strong>Change reason</strong> — Briefly describe what changed and why.</li>
+                                    <li class="mb-0"><strong>Publish</strong> — Push changes live. The packing tool updates immediately.</li>
+                                </ol>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="fw-semibold small text-uppercase text-muted mb-2">Tips</p>
+                                <ul class="ps-3 small mb-0">
+                                    <li class="mb-1">The <strong>Active</strong> column only accepts <strong>Y</strong> or <strong>N</strong>. Use the dropdown in Excel.</li>
+                                    <li class="mb-1"><strong>Display Order</strong>, <strong>Length</strong>, <strong>Popularity Score</strong>, and bundle sizes must be positive whole numbers.</li>
+                                    <li class="mb-1">The <strong>Product Type</strong> column on the SKUs sheet must match a name on the Product Types sheet.</li>
+                                    <li class="mb-1">Changes take effect <strong>immediately</strong> upon publish — the packing tool updates live.</li>
+                                    <li class="mb-1">All publishes are versioned. Use <strong>Publish History</strong> below to review past changes.</li>
+                                    <li class="mb-0">Download <strong>load_packing_data.js</strong> to get the data file used by the original packing system.</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div id="currentDataContent" class="card-body">
-                <p class="loading-msg">Loading&hellip;</p>
-            </div>
-        </section>
+        </div>
 
-        <!-- Upload &amp; Publish -->
-        <section class="tool-card">
-            <div class="card-header">
-                <h2>Update Packing Data</h2>
-                <p class="card-header-desc">Upload an updated Excel file to validate, preview, and publish.</p>
+        <!-- Current Published Data -->
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header d-flex justify-content-between align-items-center py-3">
+                <h2 class="h5 mb-0">Current Published Data</h2>
+                <div class="d-flex gap-2">
+                    <button id="downloadBtn" class="btn btn-outline-secondary btn-sm" type="button">Download Excel</button>
+                    <button id="downloadJsonBtn" class="btn btn-outline-secondary btn-sm" type="button">Download load_packing_data.js</button>
+                </div>
+            </div>
+            <div id="currentDataContent" class="card-body">
+                <p class="text-muted mb-0">Loading&hellip;</p>
+            </div>
+        </div>
+
+        <!-- Upload & Publish -->
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header py-3">
+                <h2 class="h5 mb-1">Update Packing Data</h2>
+                <p class="text-muted small mb-0">Upload an updated Excel file to validate, preview, and publish.</p>
             </div>
             <div class="card-body">
-                <div class="field-group">
-                    <label class="field-label" for="workbookFile">Excel file (.xlsx)</label>
-                    <input id="workbookFile" type="file" accept=".xlsx" class="file-input">
+                <div class="mb-3">
+                    <label class="form-label fw-semibold" for="workbookFile">Excel file (.xlsx)</label>
+                    <input id="workbookFile" type="file" accept=".xlsx" class="form-control">
                 </div>
-                <div class="field-group">
-                    <label class="field-label" for="changeReason">
-                        Change reason <span class="badge badge-required">required to publish</span>
+                <div class="mb-3">
+                    <label class="form-label fw-semibold" for="changeReason">
+                        Change reason <span class="badge bg-secondary fw-normal">required to publish</span>
                     </label>
-                    <textarea id="changeReason" class="text-input" rows="3"
+                    <textarea id="changeReason" class="form-control" rows="3"
                         placeholder="Describe what changed and why (e.g. Added 6-inch SCH 80 SKU, updated bundle counts for Q3)"></textarea>
                 </div>
-                <div class="btn-row">
-                    <button id="validateBtn" data-action="validate" class="btn btn-validate" type="button">Validate</button>
-                    <button id="previewBtn" data-action="preview" class="btn btn-preview" type="button">Preview Changes</button>
-                    <button id="publishBtn" data-action="publish" class="btn btn-publish" type="button">Publish</button>
+                <div class="d-flex gap-2 flex-wrap">
+                    <button id="validateBtn" data-action="validate" class="btn btn-outline-primary" type="button">Validate</button>
+                    <button id="previewBtn" data-action="preview" class="btn btn-outline-info" type="button">Preview Changes</button>
+                    <button id="publishBtn" data-action="publish" class="btn btn-success" type="button">Publish</button>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- Results -->
-        <section class="tool-card" id="resultsCard" hidden>
-            <div class="card-header">
-                <h2 id="resultsTitle">Results</h2>
+        <div class="card mb-4 shadow-sm" id="resultsCard" hidden>
+            <div class="card-header py-3">
+                <h2 class="h5 mb-0" id="resultsTitle">Results</h2>
             </div>
             <div id="resultsContent" class="card-body"></div>
-        </section>
+        </div>
 
         <!-- Version History -->
-        <section class="tool-card" id="versionsCard">
-            <div class="card-header">
-                <div class="card-header-row">
-                    <h2>Publish History</h2>
-                    <button id="loadVersionsBtn" class="btn btn-outline btn-sm" type="button">Load History</button>
-                </div>
+        <div class="card mb-4 shadow-sm" id="versionsCard">
+            <div class="card-header d-flex justify-content-between align-items-center py-3">
+                <h2 class="h5 mb-0">Publish History</h2>
+                <button id="loadVersionsBtn" class="btn btn-outline-secondary btn-sm" type="button">Load History</button>
             </div>
             <div id="versionsContent" class="card-body">
-                <p class="muted-msg">Click &ldquo;Load History&rdquo; to view recent publishes.</p>
+                <p class="text-muted mb-0">Click &ldquo;Load History&rdquo; to view recent publishes.</p>
             </div>
-        </section>
+        </div>
+
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/admin_data.js"></script>
 </body>
 </html>

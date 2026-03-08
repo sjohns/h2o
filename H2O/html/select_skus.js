@@ -151,57 +151,11 @@ function selectSkus(skus) {
         } else if (selectedskus.length > 5) {
             alert('Please select a maximum of 5 pipe skus before creating an order.');
         } else {
-            if (window.h2oApiAdapter && window.h2oApiAdapter.enabled) {
-                try {
-                    const packedResult = await window.h2oApiAdapter.createAndPack(selectedskus);
-                    const readOnlyEngine = {
-                        updateAll: function () {
-                            alert('Order adjustment controls are only available in local JS mode.');
-                        },
-                        updateButtonStates: function () {}
-                    };
-
-                    const orderTable = new OrderTable(packedResult.skus, packedResult.solution, readOnlyEngine);
-                    readOnlyEngine.updateButtonStates();
-                    return;
-                } catch (error) {
-                    console.error('API mode failed, falling back to local mode:', error);
-                }
-            }
-
-            // Filter out skus not in selectedskus from skus object
-            for (const skuId in skus) {
-                if (!selectedskus.includes(skuId)) {
-                    delete skus[skuId];
-                }
-            }
-            console.log('Selected SKUs:', skus);
-            
-                    const skuIds = Object.keys(skus);
-
-            
-            // Calculate the least common multiple (LCM) for the selected SKUs
-             calculateBundlesPerTruckload(skus);
-            const lcmValue = calculateLCMFromSKUs(skus);
-            console.log("LCM of calculatedBundlesPerTruckload values:", lcmValue);
-            
-            // Calculate additional fields for each SKU
-            calculateAdditionalFields(skus, lcmValue);
-
-            // Initialize the ratios calculator with the selected SKUs
-            const ratiosCalculator = new CalculateRatios(skus);
-
-            // Initialize the Branch and Bound engine with the selected SKUs and the calculated LCM value
-            branchAndBoundEngine = new BranchAndBoundEngine(skus, lcmValue, ratiosCalculator);
-
-            // Get the best solution from the Branch and Bound engine
-            const solution = branchAndBoundEngine.bestSolution();
-
-            // Initialize the order table with the selected SKUs and the best solution
-            const orderTable = new OrderTable(skus, solution, branchAndBoundEngine);
-
-            // Update the button states in the Branch and Bound engine
-            branchAndBoundEngine.updateButtonStates();
+            const { orderId, packingResult } = await window.h2oApiAdapter.createAndPack(selectedskus);
+            const apiEngine = new ApiEngine(packingResult.skus, window.h2oApiAdapter.baseUrl, orderId);
+            branchAndBoundEngine = apiEngine;
+            orderTable = new OrderTable(packingResult.skus, packingResult.solution, apiEngine);
+            apiEngine.updateButtonStates();
         }
     });
     

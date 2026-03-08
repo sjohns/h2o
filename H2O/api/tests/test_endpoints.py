@@ -113,3 +113,52 @@ def test_order_validation_for_unknown_sku():
 def test_pack_unknown_order_returns_404():
     response = request("POST", "/pack", json={"order_id": "missing"})
     assert response.status_code == 404
+
+
+def test_pack_single_sku():
+    skus = request("GET", "/skus").json()["skus"]
+    selected_id = skus[0]["skuId"]
+    create_response = request(
+        "POST",
+        "/orders",
+        json={"items": [{"sku_id": selected_id, "quantity": 1}]},
+    )
+    assert create_response.status_code == 200
+    order_id = create_response.json()["order_id"]
+
+    pack_response = request("POST", "/pack", json={"order_id": order_id})
+    assert pack_response.status_code == 200
+    result = pack_response.json()["packing_result"]
+    assert len(result["solution"]) == 1
+    assert result["solution"][0]["skuId"] == selected_id
+    assert result["totalSize"] > 0
+
+
+def test_pack_with_bundle_constraints():
+    skus = request("GET", "/skus").json()["skus"]
+    selected = [skus[0]["skuId"], skus[1]["skuId"]]
+    order_id = request(
+        "POST",
+        "/orders",
+        json={"items": [{"sku_id": selected[0], "quantity": 1}, {"sku_id": selected[1], "quantity": 1}]},
+    ).json()["order_id"]
+
+    # First do an unconstrained solve to get the initial result
+    unconstrained = request("POST", "/pack", json={"order_id": order_id}).json()["packing_result"]
+    sku0_bundles = next(s["numberOfBundles"] for s in unconstrained["solution"] if s["skuId"] == selected[0])
+    max0 = unconstrained["skus"][selected[0]]["calculatedBundlesPerTruckload"]
+
+    # Constrain sku0 to exactly sku0_bundles
+    constraints = {
+        selected[0]: {"min_bundles": sku0_bundles, "max_bundles": sku0_bundles},
+        selected[1]: {"min_bundles": 1, "max_bundles": max0},
+    }
+    constrained = request(
+        "POST",
+        "/pack",
+        json={"orderId": order_id, "bundleConstraints": constraints},
+    ).json()["packing_result"]
+
+    assert constrained["solution"] is not None
+    sku0_constrained = next(s["numberOfBundles"] for s in constrained["solution"] if s["skuId"] == selected[0])
+    assert sku0_constrained == sku0_bundles

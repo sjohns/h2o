@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import threading
 from typing import Any
 
 from fastapi import APIRouter, HTTPException, Request
@@ -22,21 +23,29 @@ all_skus: list[dict[str, Any]] = []
 all_skus_by_id: dict[str, dict[str, Any]] = {}
 valid_sku_ids: set[str] = set()
 order_store = InMemoryOrderStore()
+_state_lock = threading.RLock()
 
 router = APIRouter()
 
 
 def initialize_runtime(loaded_skus: list[dict[str, Any]], loaded_sku_map: dict[str, dict[str, Any]]) -> None:
     global all_skus, all_skus_by_id, valid_sku_ids
-    all_skus = loaded_skus
-    all_skus_by_id = loaded_sku_map
-    valid_sku_ids = set(loaded_sku_map.keys())
+    with _state_lock:
+        all_skus = loaded_skus
+        all_skus_by_id = loaded_sku_map
+        valid_sku_ids = set(loaded_sku_map.keys())
     configure_solver_cache(_solver_function)
 
 
 def _solver_function(ids: list[str]) -> dict:
     solver_order = {"items": [{"sku_id": sku_id, "quantity": 1} for sku_id in ids]}
     return solve(solver_order, all_skus_by_id)
+
+
+def _solver_function_constrained(ids: list[str], bundle_constraints: dict) -> dict:
+    solver_order = {"items": [{"sku_id": sku_id, "quantity": 1} for sku_id in ids]}
+    raw_constraints = {k: {"min_bundles": v.min_bundles, "max_bundles": v.max_bundles} for k, v in bundle_constraints.items()}
+    return solve(solver_order, all_skus_by_id, raw_constraints)
 
 
 @router.get("/health")
@@ -82,10 +91,18 @@ async def pack_order(request: Request, req: PackRequest) -> PackResponse:
 
     logger.info("Solver request: {} SKUs", len(selected_skus))
 
-    key = tuple(sorted(selected_skus))
+    if req.bundleConstraints:
+        order_sku_ids = set(selected_skus)
+        unknown = [k for k in req.bundleConstraints if k not in order_sku_ids]
+        if unknown:
+            raise HTTPException(status_code=400, detail=f"bundleConstraints contains SKU IDs not in order: {unknown}")
 
     try:
-        solver_result = solve_cached(key)
+        if req.bundleConstraints:
+            solver_result = _solver_function_constrained(selected_skus, req.bundleConstraints)
+        else:
+            key = tuple(sorted(selected_skus))
+            solver_result = solve_cached(key)
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
 
