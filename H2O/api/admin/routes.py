@@ -15,10 +15,10 @@ from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.datavalidation import DataValidation
 
-from auth import require_admin, require_review
-from data import load_snapshot
-import runtime
-from admin.data_import import REQUIRED_COLUMNS, ValidationIssue, ValidationResult, import_workbook, _sku_key
+from ..auth import require_admin, require_review
+from ..data import load_snapshot
+from .. import runtime
+from .data_import import REQUIRED_COLUMNS, ValidationIssue, ValidationResult, import_workbook, _sku_key
 
 router = APIRouter(prefix="/admin/data", tags=["admin-data"])
 

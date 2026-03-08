@@ -4,9 +4,9 @@ from pathlib import Path
 
 from loguru import logger
 
-from data import flatten_skus, load_snapshot
-from models import SKU
-from routes import initialize_runtime
+from .data import flatten_skus, load_snapshot
+from .models import SKU
+from .routes import initialize_runtime
 
 
 BASE_DIR = Path(__file__).resolve().parents[1]
