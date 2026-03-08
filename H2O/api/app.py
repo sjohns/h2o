@@ -16,7 +16,7 @@ else:
     raise RuntimeError(f".env not found at {ENV_PATH}")
 
 from .admin.routes import router as admin_router
-from .logging import setup_logging
+from .app_logging import setup_logging
 from .routes import router
 from .runtime import reload_runtime_snapshot
 
