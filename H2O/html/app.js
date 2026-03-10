@@ -1,6 +1,6 @@
 // ── Config ────────────────────────────────────────────────────────────────────
 const params = new URLSearchParams(window.location.search);
-const API_BASE_URL = params.get('apiBase') || 'http://127.0.0.1:8001';
+const API_BASE_URL = params.get('apiBase') || (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost' ? 'http://127.0.0.1:8001' : 'https://h2o-api-97ivf.ondigitalocean.app');
 
 // ── API adapter ───────────────────────────────────────────────────────────────
 const h2oApi = {
