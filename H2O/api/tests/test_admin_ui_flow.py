@@ -58,7 +58,6 @@ def _build_workbook_bytes() -> bytes:
 @pytest.fixture
 def isolated_snapshot_paths(tmp_path, monkeypatch):
     original_snapshot_path = runtime.SNAPSHOT_PATH
-    original_versions_dir = runtime.VERSIONS_DIR
 
     temp_snapshot_path = tmp_path / "packing_data.json"
     temp_snapshot_path.write_text(original_snapshot_path.read_text(encoding="utf-8"), encoding="utf-8")
@@ -81,7 +80,7 @@ def test_admin_ui_http_flow(isolated_snapshot_paths):
         "POST",
         "/admin/data/validate",
         files={"file": ("ui_flow.xlsx", workbook, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")},
-        headers=REVIEW_AUTH_HEADER,
+        headers=ADMIN_AUTH_HEADER,
     )
     assert validate_response.status_code == 200
     assert validate_response.json()["is_valid"] is True
@@ -90,7 +89,7 @@ def test_admin_ui_http_flow(isolated_snapshot_paths):
         "POST",
         "/admin/data/preview",
         files={"file": ("ui_flow.xlsx", workbook, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")},
-        headers=REVIEW_AUTH_HEADER,
+        headers=ADMIN_AUTH_HEADER,
     )
     assert preview_response.status_code == 200
     assert "diff" in preview_response.json()

@@ -2,6 +2,11 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Behaviour Rules
+
+- Only do exactly what the user explicitly instructs. Nothing more.
+- If you think something else should be done, do not do it — ask the user first and wait for approval.
+
 ## Three Systems in This Repo
 
 This repo contains three distinct, independently-runnable systems at different stages of development:
@@ -22,7 +27,8 @@ The AGENTS.md at the repo root is **stale** — it describes a pre-API state and
 
 ```bash
 # Start server
-python3 -m uvicorn api.app:app --host 127.0.0.1 --port 8001 --reload
+python -m uvicorn api.app:app --host 0.0.0.0 --port 8080               # production
+python -m uvicorn api.app:app --host 127.0.0.1 --port 8001 --reload   # local dev
 
 # Run all tests
 pytest -q api/tests
@@ -79,6 +85,7 @@ Auth is HTTP Basic. Tests monkeypatch these via `conftest.py` — no `.env` need
 2. **Admin/Excel workflow** (`H2O/api/admin/routes.py`) — HTTP Basic auth:
    - `GET /admin/data/current` — current data as JSON for browser display (review+admin)
    - `GET /admin/data/current_excel` — export active snapshot as `.xlsx` (review+admin)
+   - `GET /admin/data/current_json` — export active snapshot as `load_packing_data.js` legacy format (review+admin)
    - `GET /admin/data/versions` — last 20 version manifests (admin only)
    - `POST /admin/data/validate` — validate uploaded `.xlsx` (review+admin)
    - `POST /admin/data/preview` — validate + diff vs. active snapshot (review+admin)
@@ -130,9 +137,11 @@ The `isolated_snapshot_paths` fixture (defined in both `test_admin_endpoints.py`
 - `http://127.0.0.1:8001/html/admin_data.html` — admin Excel workflow (validate/preview/publish)
 - `http://127.0.0.1:8001/html/review_data.html` — review workflow (validate/preview only)
 
-Both admin and review HTML pages use `H2O/html/js/admin_data.js` and share `H2O/html/css/admin_data.css`. The page role (`admin` vs `review`) is determined by `data-role` attribute on `<body>`, which controls whether the publish button is wired.
+Both admin and review HTML pages use `H2O/html/js/admin_data.js` and `H2O/html/css/admin_data.css`. The page role (`admin` vs `review`) is determined by `data-role` attribute on `<body>`, which controls whether the publish button is wired.
 
-`H2O/html/config.js` sets `window.H2O_CONFIG` with `USE_API: true` and `API_BASE_URL: http://127.0.0.1:8001`. `H2O/html/api_adapter.js` provides `window.h2oApiAdapter` used by `select_skus.js` to call the API backend instead of the local JS solver.
+`H2O/html/app.js` is the single JS file for the packing UI. It contains `ApiEngine` (manages bundle constraints and calls the Python solver API) and `OrderTable` (renders the order and packing slip). It calls `GET /skus`, `POST /orders`, and `POST /pack` directly — no intermediate adapter. `login.html` + `H2O/html/js/login.js` handle auth (HTTP Basic, token stored in sessionStorage).
+
+Several JS files remain on disk from the previous architecture (`config.js`, `api_adapter.js`, `select_skus.js`, `event_listener.js`, `order_table.js`, etc.) but are **not loaded by any active page** and can be ignored.
 
 ### Data Generation Pipeline
 

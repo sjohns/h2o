@@ -1,9 +1,10 @@
 {
-    "date": "2024-08-07_11-08-27",
+    "date": "2026-03-13_11-18-42",
     "productTypes": [
         {
             "productTypeId": "productTypeId_1",
             "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+            "active": true,
             "skus": {
                 "skuId_1": {
                     "skuId": "skuId_1",
@@ -15,9 +16,11 @@
                     "eagleSticksPerBundle": "360",
                     "eagleBundlesPerTruckLoad": "36",
                     "eagleSticksPerTruckload": 12960,
+                    "actualSticksPerTruckLoad": 12960,
                     "length": "20'",
                     "calculatedSticksPerBundle": 360,
-                    "size": "1/2\""
+                    "size": "1/2\"",
+                    "active": true
                 },
                 "skuId_2": {
                     "skuId": "skuId_2",
@@ -29,9 +32,11 @@
                     "eagleSticksPerBundle": "400",
                     "eagleBundlesPerTruckLoad": "24",
                     "eagleSticksPerTruckload": 9600,
+                    "actualSticksPerTruckLoad": 9600,
                     "length": "20'",
                     "calculatedSticksPerBundle": 400,
-                    "size": "3/4\""
+                    "size": "3/4\"",
+                    "active": true
                 },
                 "skuId_3": {
                     "skuId": "skuId_3",
@@ -43,9 +48,11 @@
                     "eagleSticksPerBundle": "280",
                     "eagleBundlesPerTruckLoad": "20",
                     "eagleSticksPerTruckload": 5600,
+                    "actualSticksPerTruckLoad": 5600,
                     "length": "20'",
                     "calculatedSticksPerBundle": 280,
-                    "size": "1\""
+                    "size": "1\"",
+                    "active": true
                 },
                 "skuId_4": {
                     "skuId": "skuId_4",
@@ -57,9 +64,11 @@
                     "eagleSticksPerBundle": "220",
                     "eagleBundlesPerTruckLoad": "24",
                     "eagleSticksPerTruckload": 5280,
+                    "actualSticksPerTruckLoad": 5280,
                     "length": "20'",
                     "calculatedSticksPerBundle": 220,
-                    "size": "1 1/4\""
+                    "size": "1 1/4\"",
+                    "active": true
                 },
                 "skuId_5": {
                     "skuId": "skuId_5",
@@ -71,9 +80,11 @@
                     "eagleSticksPerBundle": "180",
                     "eagleBundlesPerTruckLoad": "24",
                     "eagleSticksPerTruckload": 4320,
+                    "actualSticksPerTruckLoad": 4320,
                     "length": "20'",
                     "calculatedSticksPerBundle": 180,
-                    "size": "1 1/2\""
+                    "size": "1 1/2\"",
+                    "active": true
                 },
                 "skuId_6": {
                     "skuId": "skuId_6",
@@ -85,9 +96,11 @@
                     "eagleSticksPerBundle": "105",
                     "eagleBundlesPerTruckLoad": "24",
                     "eagleSticksPerTruckload": 2520,
+                    "actualSticksPerTruckLoad": 2520,
                     "length": "20'",
                     "calculatedSticksPerBundle": 105,
-                    "size": "2\""
+                    "size": "2\"",
+                    "active": true
                 },
                 "skuId_7": {
                     "skuId": "skuId_7",
@@ -99,9 +112,11 @@
                     "eagleSticksPerBundle": "73",
                     "eagleBundlesPerTruckLoad": "24",
                     "eagleSticksPerTruckload": 1752,
+                    "actualSticksPerTruckLoad": 1752,
                     "length": "20'",
                     "calculatedSticksPerBundle": 73,
-                    "size": "2 1/2\""
+                    "size": "2 1/2\"",
+                    "active": true
                 },
                 "skuId_8": {
                     "skuId": "skuId_8",
@@ -113,65 +128,11 @@
                     "eagleSticksPerBundle": "75",
                     "eagleBundlesPerTruckLoad": "16",
                     "eagleSticksPerTruckload": 1200,
+                    "actualSticksPerTruckLoad": 1200,
                     "length": "20'",
                     "calculatedSticksPerBundle": 75,
-                    "size": "3\""
-                },
-                "skuId_10": {
-                    "skuId": "skuId_10",
-                    "productTypeId": "productTypeId_1",
-                    "displayOrder": 10,
-                    "popularityScore": 6,
-                    "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
-                    "SKU": "6\" PVC PIPE SCH 40 - BELL ENDED",
-                    "eagleSticksPerBundle": "26",
-                    "eagleBundlesPerTruckLoad": "12",
-                    "eagleSticksPerTruckload": 312,
-                    "length": "20'",
-                    "calculatedSticksPerBundle": 26,
-                    "size": "6\""
-                },
-                "skuId_11": {
-                    "skuId": "skuId_11",
-                    "productTypeId": "productTypeId_1",
-                    "displayOrder": 11,
-                    "popularityScore": 6,
-                    "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
-                    "SKU": "8\" PVC PIPE SCH 40 - BELL ENDED",
-                    "eagleSticksPerBundle": "15",
-                    "eagleBundlesPerTruckLoad": "12",
-                    "eagleSticksPerTruckload": 180,
-                    "length": "20'",
-                    "calculatedSticksPerBundle": 15,
-                    "size": "8\""
-                },
-                "skuId_12": {
-                    "skuId": "skuId_12",
-                    "productTypeId": "productTypeId_1",
-                    "displayOrder": 12,
-                    "popularityScore": 6,
-                    "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
-                    "SKU": "10\" PVC PIPE SCH 40 - BELL ENDED",
-                    "eagleSticksPerBundle": "12",
-                    "eagleBundlesPerTruckLoad": "12",
-                    "eagleSticksPerTruckload": 144,
-                    "length": "20'",
-                    "calculatedSticksPerBundle": 12,
-                    "size": "10\""
-                },
-                "skuId_13": {
-                    "skuId": "skuId_13",
-                    "productTypeId": "productTypeId_1",
-                    "displayOrder": 13,
-                    "popularityScore": 6,
-                    "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
-                    "SKU": "12\" PVC PIPE SCH 40 - BELL ENDED",
-                    "eagleSticksPerBundle": "6 / 8",
-                    "eagleBundlesPerTruckLoad": "6 / 6",
-                    "eagleSticksPerTruckload": 84,
-                    "length": "20'",
-                    "calculatedSticksPerBundle": 6,
-                    "size": "12\""
+                    "size": "3\"",
+                    "active": true
                 },
                 "skuId_9": {
                     "skuId": "skuId_9",
@@ -183,15 +144,82 @@
                     "eagleSticksPerBundle": "57",
                     "eagleBundlesPerTruckLoad": "12",
                     "eagleSticksPerTruckload": 684,
+                    "actualSticksPerTruckLoad": 684,
                     "length": "20'",
                     "calculatedSticksPerBundle": 57,
-                    "size": "4\""
+                    "size": "4\"",
+                    "active": true
+                },
+                "skuId_10": {
+                    "skuId": "skuId_10",
+                    "productTypeId": "productTypeId_1",
+                    "displayOrder": 10,
+                    "popularityScore": 6,
+                    "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+                    "SKU": "6\" PVC PIPE SCH 40 - BELL ENDED",
+                    "eagleSticksPerBundle": "26",
+                    "eagleBundlesPerTruckLoad": "12",
+                    "eagleSticksPerTruckload": 312,
+                    "actualSticksPerTruckLoad": 312,
+                    "length": "20'",
+                    "calculatedSticksPerBundle": 26,
+                    "size": "6\"",
+                    "active": true
+                },
+                "skuId_11": {
+                    "skuId": "skuId_11",
+                    "productTypeId": "productTypeId_1",
+                    "displayOrder": 11,
+                    "popularityScore": 6,
+                    "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+                    "SKU": "8\" PVC PIPE SCH 40 - BELL ENDED",
+                    "eagleSticksPerBundle": "15",
+                    "eagleBundlesPerTruckLoad": "12",
+                    "eagleSticksPerTruckload": 180,
+                    "actualSticksPerTruckLoad": 180,
+                    "length": "20'",
+                    "calculatedSticksPerBundle": 15,
+                    "size": "8\"",
+                    "active": true
+                },
+                "skuId_12": {
+                    "skuId": "skuId_12",
+                    "productTypeId": "productTypeId_1",
+                    "displayOrder": 12,
+                    "popularityScore": 6,
+                    "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+                    "SKU": "10\" PVC PIPE SCH 40 - BELL ENDED",
+                    "eagleSticksPerBundle": "12",
+                    "eagleBundlesPerTruckLoad": "12",
+                    "eagleSticksPerTruckload": 144,
+                    "actualSticksPerTruckLoad": 144,
+                    "length": "20'",
+                    "calculatedSticksPerBundle": 12,
+                    "size": "10\"",
+                    "active": true
+                },
+                "skuId_13": {
+                    "skuId": "skuId_13",
+                    "productTypeId": "productTypeId_1",
+                    "displayOrder": 13,
+                    "popularityScore": 6,
+                    "productType": "SCH 40 PVC NSF (Pools & Irrigation)",
+                    "SKU": "12\" PVC PIPE SCH 40 - BELL ENDED",
+                    "eagleSticksPerBundle": "6 / 8",
+                    "eagleBundlesPerTruckLoad": "6 / 6",
+                    "eagleSticksPerTruckload": 84,
+                    "actualSticksPerTruckLoad": 84,
+                    "length": "20'",
+                    "calculatedSticksPerBundle": 6,
+                    "size": "12\"",
+                    "active": true
                 }
             }
         },
         {
             "productTypeId": "productTypeId_2",
             "productType": "SCH 80 PVC (No NSF) Gray Pipe",
+            "active": true,
             "skus": {
                 "skuId_14": {
                     "skuId": "skuId_14",
@@ -203,9 +231,11 @@
                     "eagleSticksPerBundle": "360",
                     "eagleBundlesPerTruckLoad": "36",
                     "eagleSticksPerTruckload": 12960,
+                    "actualSticksPerTruckLoad": 12960,
                     "length": "20'",
                     "calculatedSticksPerBundle": 360,
-                    "size": "1/2\""
+                    "size": "1/2\"",
+                    "active": true
                 },
                 "skuId_15": {
                     "skuId": "skuId_15",
@@ -217,9 +247,11 @@
                     "eagleSticksPerBundle": "400",
                     "eagleBundlesPerTruckLoad": "24",
                     "eagleSticksPerTruckload": 9600,
+                    "actualSticksPerTruckLoad": 9600,
                     "length": "20'",
                     "calculatedSticksPerBundle": 400,
-                    "size": "3/4\""
+                    "size": "3/4\"",
+                    "active": true
                 },
                 "skuId_16": {
                     "skuId": "skuId_16",
@@ -231,9 +263,11 @@
                     "eagleSticksPerBundle": "280",
                     "eagleBundlesPerTruckLoad": "20",
                     "eagleSticksPerTruckload": 5600,
+                    "actualSticksPerTruckLoad": 5600,
                     "length": "20'",
                     "calculatedSticksPerBundle": 280,
-                    "size": "1\""
+                    "size": "1\"",
+                    "active": true
                 },
                 "skuId_17": {
                     "skuId": "skuId_17",
@@ -245,9 +279,11 @@
                     "eagleSticksPerBundle": "220",
                     "eagleBundlesPerTruckLoad": "24",
                     "eagleSticksPerTruckload": 5280,
+                    "actualSticksPerTruckLoad": 5280,
                     "length": "20'",
                     "calculatedSticksPerBundle": 220,
-                    "size": "1 1/4\""
+                    "size": "1 1/4\"",
+                    "active": true
                 },
                 "skuId_18": {
                     "skuId": "skuId_18",
@@ -259,9 +295,11 @@
                     "eagleSticksPerBundle": "180",
                     "eagleBundlesPerTruckLoad": "24",
                     "eagleSticksPerTruckload": 4320,
+                    "actualSticksPerTruckLoad": 4320,
                     "length": "20'",
                     "calculatedSticksPerBundle": 180,
-                    "size": "1 1/2\""
+                    "size": "1 1/2\"",
+                    "active": true
                 },
                 "skuId_19": {
                     "skuId": "skuId_19",
@@ -273,9 +311,11 @@
                     "eagleSticksPerBundle": "105",
                     "eagleBundlesPerTruckLoad": "24",
                     "eagleSticksPerTruckload": 2520,
+                    "actualSticksPerTruckLoad": 2520,
                     "length": "20'",
                     "calculatedSticksPerBundle": 105,
-                    "size": "2\""
+                    "size": "2\"",
+                    "active": true
                 },
                 "skuId_20": {
                     "skuId": "skuId_20",
@@ -287,9 +327,11 @@
                     "eagleSticksPerBundle": "73",
                     "eagleBundlesPerTruckLoad": "24",
                     "eagleSticksPerTruckload": 1752,
+                    "actualSticksPerTruckLoad": 1752,
                     "length": "20'",
                     "calculatedSticksPerBundle": 73,
-                    "size": "2 1/2\""
+                    "size": "2 1/2\"",
+                    "active": true
                 },
                 "skuId_21": {
                     "skuId": "skuId_21",
@@ -301,9 +343,11 @@
                     "eagleSticksPerBundle": "75",
                     "eagleBundlesPerTruckLoad": "16",
                     "eagleSticksPerTruckload": 1200,
+                    "actualSticksPerTruckLoad": 1200,
                     "length": "20'",
                     "calculatedSticksPerBundle": 75,
-                    "size": "3\""
+                    "size": "3\"",
+                    "active": true
                 },
                 "skuId_22": {
                     "skuId": "skuId_22",
@@ -315,9 +359,11 @@
                     "eagleSticksPerBundle": "57",
                     "eagleBundlesPerTruckLoad": "12",
                     "eagleSticksPerTruckload": 684,
+                    "actualSticksPerTruckLoad": 684,
                     "length": "20'",
                     "calculatedSticksPerBundle": 57,
-                    "size": "4\""
+                    "size": "4\"",
+                    "active": true
                 },
                 "skuId_23": {
                     "skuId": "skuId_23",
@@ -329,9 +375,11 @@
                     "eagleSticksPerBundle": "26",
                     "eagleBundlesPerTruckLoad": "12",
                     "eagleSticksPerTruckload": 312,
+                    "actualSticksPerTruckLoad": 312,
                     "length": "20'",
                     "calculatedSticksPerBundle": 26,
-                    "size": "6\""
+                    "size": "6\"",
+                    "active": true
                 },
                 "skuId_24": {
                     "skuId": "skuId_24",
@@ -343,15 +391,18 @@
                     "eagleSticksPerBundle": "15",
                     "eagleBundlesPerTruckLoad": "12",
                     "eagleSticksPerTruckload": 180,
+                    "actualSticksPerTruckLoad": 180,
                     "length": "20'",
                     "calculatedSticksPerBundle": 15,
-                    "size": "8\""
+                    "size": "8\"",
+                    "active": true
                 }
             }
         },
         {
             "productTypeId": "productTypeId_3",
             "productType": "SDR 26 CL160 (Irrigation) Thin Wall (NSF)",
+            "active": true,
             "skus": {
                 "skuId_25": {
                     "skuId": "skuId_25",
@@ -363,9 +414,11 @@
                     "eagleSticksPerBundle": "360",
                     "eagleBundlesPerTruckLoad": "36",
                     "eagleSticksPerTruckload": 12960,
+                    "actualSticksPerTruckLoad": 12960,
                     "length": "20'",
                     "calculatedSticksPerBundle": 360,
-                    "size": "1/2\""
+                    "size": "1/2\"",
+                    "active": true
                 },
                 "skuId_26": {
                     "skuId": "skuId_26",
@@ -377,9 +430,11 @@
                     "eagleSticksPerBundle": "400",
                     "eagleBundlesPerTruckLoad": "24",
                     "eagleSticksPerTruckload": 9600,
+                    "actualSticksPerTruckLoad": 9600,
                     "length": "20'",
                     "calculatedSticksPerBundle": 400,
-                    "size": "3/4\""
+                    "size": "3/4\"",
+                    "active": true
                 },
                 "skuId_27": {
                     "skuId": "skuId_27",
@@ -391,9 +446,11 @@
                     "eagleSticksPerBundle": "280",
                     "eagleBundlesPerTruckLoad": "20",
                     "eagleSticksPerTruckload": 5600,
+                    "actualSticksPerTruckLoad": 5600,
                     "length": "20'",
                     "calculatedSticksPerBundle": 280,
-                    "size": "1\""
+                    "size": "1\"",
+                    "active": true
                 },
                 "skuId_28": {
                     "skuId": "skuId_28",
@@ -405,9 +462,11 @@
                     "eagleSticksPerBundle": "220",
                     "eagleBundlesPerTruckLoad": "24",
                     "eagleSticksPerTruckload": 5280,
+                    "actualSticksPerTruckLoad": 5280,
                     "length": "20'",
                     "calculatedSticksPerBundle": 220,
-                    "size": "1 1/4\""
+                    "size": "1 1/4\"",
+                    "active": true
                 },
                 "skuId_29": {
                     "skuId": "skuId_29",
@@ -419,9 +478,11 @@
                     "eagleSticksPerBundle": "270",
                     "eagleBundlesPerTruckLoad": "16",
                     "eagleSticksPerTruckload": 4320,
+                    "actualSticksPerTruckLoad": 4320,
                     "length": "20'",
                     "calculatedSticksPerBundle": 270,
-                    "size": "1 1/2\""
+                    "size": "1 1/2\"",
+                    "active": true
                 },
                 "skuId_30": {
                     "skuId": "skuId_30",
@@ -433,9 +494,11 @@
                     "eagleSticksPerBundle": "185",
                     "eagleBundlesPerTruckLoad": "16",
                     "eagleSticksPerTruckload": 2960,
+                    "actualSticksPerTruckLoad": 2960,
                     "length": "20'",
                     "calculatedSticksPerBundle": 185,
-                    "size": "2\""
+                    "size": "2\"",
+                    "active": true
                 },
                 "skuId_31": {
                     "skuId": "skuId_31",
@@ -447,9 +510,11 @@
                     "eagleSticksPerBundle": "73",
                     "eagleBundlesPerTruckLoad": "28",
                     "eagleSticksPerTruckload": 2044,
+                    "actualSticksPerTruckLoad": 2044,
                     "length": "20'",
                     "calculatedSticksPerBundle": 73,
-                    "size": "2 1/2\""
+                    "size": "2 1/2\"",
+                    "active": true
                 },
                 "skuId_32": {
                     "skuId": "skuId_32",
@@ -461,9 +526,11 @@
                     "eagleSticksPerBundle": "75",
                     "eagleBundlesPerTruckLoad": "16",
                     "eagleSticksPerTruckload": 1200,
+                    "actualSticksPerTruckLoad": 1200,
                     "length": "20'",
                     "calculatedSticksPerBundle": 75,
-                    "size": "3\""
+                    "size": "3\"",
+                    "active": true
                 },
                 "skuId_33": {
                     "skuId": "skuId_33",
@@ -475,9 +542,11 @@
                     "eagleSticksPerBundle": "76",
                     "eagleBundlesPerTruckLoad": "12",
                     "eagleSticksPerTruckload": 912,
+                    "actualSticksPerTruckLoad": 912,
                     "length": "20'",
                     "calculatedSticksPerBundle": 76,
-                    "size": "4\""
+                    "size": "4\"",
+                    "active": true
                 },
                 "skuId_34": {
                     "skuId": "skuId_34",
@@ -489,9 +558,11 @@
                     "eagleSticksPerBundle": "28 / 35",
                     "eagleBundlesPerTruckLoad": "4 / 8",
                     "eagleSticksPerTruckload": 392,
+                    "actualSticksPerTruckLoad": 392,
                     "length": "20'",
                     "calculatedSticksPerBundle": 28,
-                    "size": "6\""
+                    "size": "6\"",
+                    "active": true
                 },
                 "skuId_35": {
                     "skuId": "skuId_35",
@@ -503,9 +574,11 @@
                     "eagleSticksPerBundle": "25 / 30",
                     "eagleBundlesPerTruckLoad": "4 / 4",
                     "eagleSticksPerTruckload": 220,
+                    "actualSticksPerTruckLoad": 220,
                     "length": "20'",
                     "calculatedSticksPerBundle": 25,
-                    "size": "8\""
+                    "size": "8\"",
+                    "active": true
                 },
                 "skuId_36": {
                     "skuId": "skuId_36",
@@ -517,9 +590,11 @@
                     "eagleSticksPerBundle": "16 / 20",
                     "eagleBundlesPerTruckLoad": "4 / 4",
                     "eagleSticksPerTruckload": 144,
+                    "actualSticksPerTruckLoad": 144,
                     "length": "20'",
                     "calculatedSticksPerBundle": 16,
-                    "size": "10\""
+                    "size": "10\"",
+                    "active": true
                 },
                 "skuId_37": {
                     "skuId": "skuId_37",
@@ -531,15 +606,18 @@
                     "eagleSticksPerBundle": "9 / 12 / 12 / 16",
                     "eagleBundlesPerTruckLoad": "2 / 2 / 2 / 2",
                     "eagleSticksPerTruckload": 98,
+                    "actualSticksPerTruckLoad": 98,
                     "length": "20'",
                     "calculatedSticksPerBundle": 12,
-                    "size": "12\""
+                    "size": "12\"",
+                    "active": true
                 }
             }
         },
         {
             "productTypeId": "productTypeId_4",
             "productType": "SDR 21 CL200 (Irrigation) Thin Wall (NSF)",
+            "active": true,
             "skus": {
                 "skuId_38": {
                     "skuId": "skuId_38",
@@ -551,9 +629,11 @@
                     "eagleSticksPerBundle": "400",
                     "eagleBundlesPerTruckLoad": "24",
                     "eagleSticksPerTruckload": 9600,
+                    "actualSticksPerTruckLoad": 9600,
                     "length": "20'",
                     "calculatedSticksPerBundle": 400,
-                    "size": "3/4\""
+                    "size": "3/4\"",
+                    "active": true
                 },
                 "skuId_39": {
                     "skuId": "skuId_39",
@@ -565,9 +645,11 @@
                     "eagleSticksPerBundle": "280",
                     "eagleBundlesPerTruckLoad": "20",
                     "eagleSticksPerTruckload": 5600,
+                    "actualSticksPerTruckLoad": 5600,
                     "length": "20'",
                     "calculatedSticksPerBundle": 280,
-                    "size": "1\""
+                    "size": "1\"",
+                    "active": true
                 },
                 "skuId_40": {
                     "skuId": "skuId_40",
@@ -579,121 +661,11 @@
                     "eagleSticksPerBundle": "220",
                     "eagleBundlesPerTruckLoad": "24",
                     "eagleSticksPerTruckload": 5280,
+                    "actualSticksPerTruckLoad": 5280,
                     "length": "20'",
                     "calculatedSticksPerBundle": 220,
-                    "size": "1 1/4\""
-                },
-                "skuId_42": {
-                    "skuId": "skuId_42",
-                    "productTypeId": "productTypeId_4",
-                    "displayOrder": 42,
-                    "popularityScore": 7,
-                    "productType": "SDR 21 CL200 (Irrigation) Thin Wall (NSF)",
-                    "SKU": "2\" SDR21 PVC PIPE IPS - GASKETED",
-                    "eagleSticksPerBundle": "185",
-                    "eagleBundlesPerTruckLoad": "16",
-                    "eagleSticksPerTruckload": 2960,
-                    "length": "20'",
-                    "calculatedSticksPerBundle": 185,
-                    "size": "2\""
-                },
-                "skuId_43": {
-                    "skuId": "skuId_43",
-                    "productTypeId": "productTypeId_4",
-                    "displayOrder": 43,
-                    "popularityScore": 7,
-                    "productType": "SDR 21 CL200 (Irrigation) Thin Wall (NSF)",
-                    "SKU": "2 1/2\" SDR21 PVC PIPE IPS - GASKETED",
-                    "eagleSticksPerBundle": "73",
-                    "eagleBundlesPerTruckLoad": "28",
-                    "eagleSticksPerTruckload": 2044,
-                    "length": "20'",
-                    "calculatedSticksPerBundle": 73,
-                    "size": "2 1/2\""
-                },
-                "skuId_44": {
-                    "skuId": "skuId_44",
-                    "productTypeId": "productTypeId_4",
-                    "displayOrder": 44,
-                    "popularityScore": 7,
-                    "productType": "SDR 21 CL200 (Irrigation) Thin Wall (NSF)",
-                    "SKU": "3\" SDR21 PVC PIPE IPS - GASKETED",
-                    "eagleSticksPerBundle": "75",
-                    "eagleBundlesPerTruckLoad": "16",
-                    "eagleSticksPerTruckload": 1200,
-                    "length": "20'",
-                    "calculatedSticksPerBundle": 75,
-                    "size": "3\""
-                },
-                "skuId_45": {
-                    "skuId": "skuId_45",
-                    "productTypeId": "productTypeId_4",
-                    "displayOrder": 45,
-                    "popularityScore": 7,
-                    "productType": "SDR 21 CL200 (Irrigation) Thin Wall (NSF)",
-                    "SKU": "4\" SDR21 PVC PIPE IPS - GASKETED",
-                    "eagleSticksPerBundle": "76",
-                    "eagleBundlesPerTruckLoad": "12",
-                    "eagleSticksPerTruckload": 912,
-                    "length": "20'",
-                    "calculatedSticksPerBundle": 76,
-                    "size": "4\""
-                },
-                "skuId_46": {
-                    "skuId": "skuId_46",
-                    "productTypeId": "productTypeId_4",
-                    "displayOrder": 46,
-                    "popularityScore": 7,
-                    "productType": "SDR 21 CL200 (Irrigation) Thin Wall (NSF)",
-                    "SKU": "6\" SDR21 PVC PIPE IPS - GASKETED",
-                    "eagleSticksPerBundle": "28 / 35",
-                    "eagleBundlesPerTruckLoad": "4 / 8",
-                    "eagleSticksPerTruckload": 392,
-                    "length": "20'",
-                    "calculatedSticksPerBundle": 28,
-                    "size": "6\""
-                },
-                "skuId_47": {
-                    "skuId": "skuId_47",
-                    "productTypeId": "productTypeId_4",
-                    "displayOrder": 47,
-                    "popularityScore": 7,
-                    "productType": "SDR 21 CL200 (Irrigation) Thin Wall (NSF)",
-                    "SKU": "8\" SDR21 PVC PIPE IPS - GASKETED",
-                    "eagleSticksPerBundle": "25 / 30",
-                    "eagleBundlesPerTruckLoad": "4 / 4",
-                    "eagleSticksPerTruckload": 220,
-                    "length": "20'",
-                    "calculatedSticksPerBundle": 25,
-                    "size": "8\""
-                },
-                "skuId_48": {
-                    "skuId": "skuId_48",
-                    "productTypeId": "productTypeId_4",
-                    "displayOrder": 48,
-                    "popularityScore": 7,
-                    "productType": "SDR 21 CL200 (Irrigation) Thin Wall (NSF)",
-                    "SKU": "10\" SDR21 PVC PIPE IPS - GASKETED",
-                    "eagleSticksPerBundle": "16 / 20",
-                    "eagleBundlesPerTruckLoad": "4 / 4",
-                    "eagleSticksPerTruckload": 144,
-                    "length": "20'",
-                    "calculatedSticksPerBundle": 16,
-                    "size": "10\""
-                },
-                "skuId_49": {
-                    "skuId": "skuId_49",
-                    "productTypeId": "productTypeId_4",
-                    "displayOrder": 49,
-                    "popularityScore": 7,
-                    "productType": "SDR 21 CL200 (Irrigation) Thin Wall (NSF)",
-                    "SKU": "12\" SDR21 PVC PIPE IPS - GASKETED",
-                    "eagleSticksPerBundle": "9 / 12 / 12 / 16",
-                    "eagleBundlesPerTruckLoad": "2 / 2 / 2 / 2",
-                    "eagleSticksPerTruckload": 98,
-                    "length": "20'",
-                    "calculatedSticksPerBundle": 12,
-                    "size": "12\""
+                    "size": "1 1/4\"",
+                    "active": true
                 },
                 "skuId_41": {
                     "skuId": "skuId_41",
@@ -705,15 +677,146 @@
                     "eagleSticksPerBundle": "270",
                     "eagleBundlesPerTruckLoad": "16",
                     "eagleSticksPerTruckload": 4320,
+                    "actualSticksPerTruckLoad": 4320,
                     "length": "20'",
                     "calculatedSticksPerBundle": 270,
-                    "size": "1 1/2\""
+                    "size": "1 1/2\"",
+                    "active": true
+                },
+                "skuId_42": {
+                    "skuId": "skuId_42",
+                    "productTypeId": "productTypeId_4",
+                    "displayOrder": 42,
+                    "popularityScore": 7,
+                    "productType": "SDR 21 CL200 (Irrigation) Thin Wall (NSF)",
+                    "SKU": "2\" SDR21 PVC PIPE IPS - GASKETED",
+                    "eagleSticksPerBundle": "185",
+                    "eagleBundlesPerTruckLoad": "16",
+                    "eagleSticksPerTruckload": 2960,
+                    "actualSticksPerTruckLoad": 2960,
+                    "length": "20'",
+                    "calculatedSticksPerBundle": 185,
+                    "size": "2\"",
+                    "active": true
+                },
+                "skuId_43": {
+                    "skuId": "skuId_43",
+                    "productTypeId": "productTypeId_4",
+                    "displayOrder": 43,
+                    "popularityScore": 7,
+                    "productType": "SDR 21 CL200 (Irrigation) Thin Wall (NSF)",
+                    "SKU": "2 1/2\" SDR21 PVC PIPE IPS - GASKETED",
+                    "eagleSticksPerBundle": "73",
+                    "eagleBundlesPerTruckLoad": "28",
+                    "eagleSticksPerTruckload": 2044,
+                    "actualSticksPerTruckLoad": 2044,
+                    "length": "20'",
+                    "calculatedSticksPerBundle": 73,
+                    "size": "2 1/2\"",
+                    "active": true
+                },
+                "skuId_44": {
+                    "skuId": "skuId_44",
+                    "productTypeId": "productTypeId_4",
+                    "displayOrder": 44,
+                    "popularityScore": 7,
+                    "productType": "SDR 21 CL200 (Irrigation) Thin Wall (NSF)",
+                    "SKU": "3\" SDR21 PVC PIPE IPS - GASKETED",
+                    "eagleSticksPerBundle": "75",
+                    "eagleBundlesPerTruckLoad": "16",
+                    "eagleSticksPerTruckload": 1200,
+                    "actualSticksPerTruckLoad": 1200,
+                    "length": "20'",
+                    "calculatedSticksPerBundle": 75,
+                    "size": "3\"",
+                    "active": true
+                },
+                "skuId_45": {
+                    "skuId": "skuId_45",
+                    "productTypeId": "productTypeId_4",
+                    "displayOrder": 45,
+                    "popularityScore": 7,
+                    "productType": "SDR 21 CL200 (Irrigation) Thin Wall (NSF)",
+                    "SKU": "4\" SDR21 PVC PIPE IPS - GASKETED",
+                    "eagleSticksPerBundle": "76",
+                    "eagleBundlesPerTruckLoad": "12",
+                    "eagleSticksPerTruckload": 912,
+                    "actualSticksPerTruckLoad": 912,
+                    "length": "20'",
+                    "calculatedSticksPerBundle": 76,
+                    "size": "4\"",
+                    "active": true
+                },
+                "skuId_46": {
+                    "skuId": "skuId_46",
+                    "productTypeId": "productTypeId_4",
+                    "displayOrder": 46,
+                    "popularityScore": 7,
+                    "productType": "SDR 21 CL200 (Irrigation) Thin Wall (NSF)",
+                    "SKU": "6\" SDR21 PVC PIPE IPS - GASKETED",
+                    "eagleSticksPerBundle": "28 / 35",
+                    "eagleBundlesPerTruckLoad": "4 / 8",
+                    "eagleSticksPerTruckload": 392,
+                    "actualSticksPerTruckLoad": 392,
+                    "length": "20'",
+                    "calculatedSticksPerBundle": 28,
+                    "size": "6\"",
+                    "active": true
+                },
+                "skuId_47": {
+                    "skuId": "skuId_47",
+                    "productTypeId": "productTypeId_4",
+                    "displayOrder": 47,
+                    "popularityScore": 7,
+                    "productType": "SDR 21 CL200 (Irrigation) Thin Wall (NSF)",
+                    "SKU": "8\" SDR21 PVC PIPE IPS - GASKETED",
+                    "eagleSticksPerBundle": "25 / 30",
+                    "eagleBundlesPerTruckLoad": "4 / 4",
+                    "eagleSticksPerTruckload": 220,
+                    "actualSticksPerTruckLoad": 220,
+                    "length": "20'",
+                    "calculatedSticksPerBundle": 25,
+                    "size": "8\"",
+                    "active": true
+                },
+                "skuId_48": {
+                    "skuId": "skuId_48",
+                    "productTypeId": "productTypeId_4",
+                    "displayOrder": 48,
+                    "popularityScore": 7,
+                    "productType": "SDR 21 CL200 (Irrigation) Thin Wall (NSF)",
+                    "SKU": "10\" SDR21 PVC PIPE IPS - GASKETED",
+                    "eagleSticksPerBundle": "16 / 20",
+                    "eagleBundlesPerTruckLoad": "4 / 4",
+                    "eagleSticksPerTruckload": 144,
+                    "actualSticksPerTruckLoad": 144,
+                    "length": "20'",
+                    "calculatedSticksPerBundle": 16,
+                    "size": "10\"",
+                    "active": true
+                },
+                "skuId_49": {
+                    "skuId": "skuId_49",
+                    "productTypeId": "productTypeId_4",
+                    "displayOrder": 49,
+                    "popularityScore": 7,
+                    "productType": "SDR 21 CL200 (Irrigation) Thin Wall (NSF)",
+                    "SKU": "12\" SDR21 PVC PIPE IPS - GASKETED",
+                    "eagleSticksPerBundle": "9 / 12 / 12 / 16",
+                    "eagleBundlesPerTruckLoad": "2 / 2 / 2 / 2",
+                    "eagleSticksPerTruckload": 98,
+                    "actualSticksPerTruckLoad": 98,
+                    "length": "20'",
+                    "calculatedSticksPerBundle": 12,
+                    "size": "12\"",
+                    "active": true
                 }
             }
         },
         {
             "productTypeId": "productTypeId_5",
             "productType": "C900 Blue Waterline Pipe (NSF)",
+            "active": true,
             "skus": {
                 "skuId_50": {
                     "skuId": "skuId_50",
@@ -725,9 +828,11 @@
                     "eagleSticksPerBundle": "60",
                     "eagleBundlesPerTruckLoad": "12",
                     "eagleSticksPerTruckload": 720,
+                    "actualSticksPerTruckLoad": 720,
                     "length": "20'",
                     "calculatedSticksPerBundle": 60,
-                    "size": "4\""
+                    "size": "4\"",
+                    "active": true
                 },
                 "skuId_51": {
                     "skuId": "skuId_51",
@@ -739,9 +844,11 @@
                     "eagleSticksPerBundle": "28",
                     "eagleBundlesPerTruckLoad": "12",
                     "eagleSticksPerTruckload": 336,
+                    "actualSticksPerTruckLoad": 336,
                     "length": "20'",
                     "calculatedSticksPerBundle": 28,
-                    "size": "6\""
+                    "size": "6\"",
+                    "active": true
                 },
                 "skuId_52": {
                     "skuId": "skuId_52",
@@ -753,9 +860,11 @@
                     "eagleSticksPerBundle": "15",
                     "eagleBundlesPerTruckLoad": "12",
                     "eagleSticksPerTruckload": 180,
+                    "actualSticksPerTruckLoad": 180,
                     "length": "20'",
                     "calculatedSticksPerBundle": 15,
-                    "size": "8\""
+                    "size": "8\"",
+                    "active": true
                 },
                 "skuId_53": {
                     "skuId": "skuId_53",
@@ -767,9 +876,11 @@
                     "eagleSticksPerBundle": "16",
                     "eagleBundlesPerTruckLoad": "8",
                     "eagleSticksPerTruckload": 128,
+                    "actualSticksPerTruckLoad": 128,
                     "length": "20'",
                     "calculatedSticksPerBundle": 16,
-                    "size": "10\""
+                    "size": "10\"",
+                    "active": true
                 },
                 "skuId_54": {
                     "skuId": "skuId_54",
@@ -781,9 +892,11 @@
                     "eagleSticksPerBundle": "4 / 6",
                     "eagleBundlesPerTruckLoad": "6 / 6",
                     "eagleSticksPerTruckload": 84,
+                    "actualSticksPerTruckLoad": 84,
                     "length": "20'",
                     "calculatedSticksPerBundle": 4,
-                    "size": "12\""
+                    "size": "12\"",
+                    "active": true
                 },
                 "skuId_55": {
                     "skuId": "skuId_55",
@@ -795,9 +908,11 @@
                     "eagleSticksPerBundle": "60",
                     "eagleBundlesPerTruckLoad": "12",
                     "eagleSticksPerTruckload": 720,
+                    "actualSticksPerTruckLoad": 720,
                     "length": "20'",
                     "calculatedSticksPerBundle": 60,
-                    "size": "4\""
+                    "size": "4\"",
+                    "active": true
                 },
                 "skuId_56": {
                     "skuId": "skuId_56",
@@ -809,9 +924,11 @@
                     "eagleSticksPerBundle": "28",
                     "eagleBundlesPerTruckLoad": "13",
                     "eagleSticksPerTruckload": 364,
+                    "actualSticksPerTruckLoad": 364,
                     "length": "20'",
                     "calculatedSticksPerBundle": 28,
-                    "size": "6\""
+                    "size": "6\"",
+                    "active": true
                 },
                 "skuId_57": {
                     "skuId": "skuId_57",
@@ -823,9 +940,11 @@
                     "eagleSticksPerBundle": "15 / 20",
                     "eagleBundlesPerTruckLoad": "8 / 4",
                     "eagleSticksPerTruckload": 200,
+                    "actualSticksPerTruckLoad": 200,
                     "length": "20'",
                     "calculatedSticksPerBundle": 15,
-                    "size": "8\""
+                    "size": "8\"",
+                    "active": true
                 },
                 "skuId_58": {
                     "skuId": "skuId_58",
@@ -837,9 +956,11 @@
                     "eagleSticksPerBundle": "16",
                     "eagleBundlesPerTruckLoad": "8",
                     "eagleSticksPerTruckload": 128,
+                    "actualSticksPerTruckLoad": 128,
                     "length": "20'",
                     "calculatedSticksPerBundle": 16,
-                    "size": "10\""
+                    "size": "10\"",
+                    "active": true
                 },
                 "skuId_59": {
                     "skuId": "skuId_59",
@@ -851,9 +972,11 @@
                     "eagleSticksPerBundle": "6 / 8 / 9 / 12",
                     "eagleBundlesPerTruckLoad": "4 / 4 / 2 / 2",
                     "eagleSticksPerTruckload": 98,
+                    "actualSticksPerTruckLoad": 98,
                     "length": "20'",
                     "calculatedSticksPerBundle": 8,
-                    "size": "12\""
+                    "size": "12\"",
+                    "active": true
                 },
                 "skuId_60": {
                     "skuId": "skuId_60",
@@ -865,9 +988,11 @@
                     "eagleSticksPerBundle": "9",
                     "eagleBundlesPerTruckLoad": "8",
                     "eagleSticksPerTruckload": 72,
+                    "actualSticksPerTruckLoad": 72,
                     "length": "20'",
                     "calculatedSticksPerBundle": 9,
-                    "size": "14\""
+                    "size": "14\"",
+                    "active": true
                 },
                 "skuId_61": {
                     "skuId": "skuId_61",
@@ -879,9 +1004,11 @@
                     "eagleSticksPerBundle": "4 / 6 / 6 / 9",
                     "eagleBundlesPerTruckLoad": "2 / 2 / 2 / 2",
                     "eagleSticksPerTruckload": 50,
+                    "actualSticksPerTruckLoad": 50,
                     "length": "20'",
                     "calculatedSticksPerBundle": 6,
-                    "size": "16\""
+                    "size": "16\"",
+                    "active": true
                 },
                 "skuId_62": {
                     "skuId": "skuId_62",
@@ -893,9 +1020,11 @@
                     "eagleSticksPerBundle": "4 / 6",
                     "eagleBundlesPerTruckLoad": "4 / 4",
                     "eagleSticksPerTruckload": 40,
+                    "actualSticksPerTruckLoad": 40,
                     "length": "20'",
                     "calculatedSticksPerBundle": 4,
-                    "size": "18\""
+                    "size": "18\"",
+                    "active": true
                 },
                 "skuId_63": {
                     "skuId": "skuId_63",
@@ -907,9 +1036,11 @@
                     "eagleSticksPerBundle": "4",
                     "eagleBundlesPerTruckLoad": "8",
                     "eagleSticksPerTruckload": 32,
+                    "actualSticksPerTruckLoad": 32,
                     "length": "20'",
                     "calculatedSticksPerBundle": 4,
-                    "size": "20\""
+                    "size": "20\"",
+                    "active": true
                 },
                 "skuId_64": {
                     "skuId": "skuId_64",
@@ -921,9 +1052,11 @@
                     "eagleSticksPerBundle": "3",
                     "eagleBundlesPerTruckLoad": "6",
                     "eagleSticksPerTruckload": 18,
+                    "actualSticksPerTruckLoad": 18,
                     "length": "20'",
                     "calculatedSticksPerBundle": 3,
-                    "size": "24\""
+                    "size": "24\"",
+                    "active": true
                 },
                 "skuId_65": {
                     "skuId": "skuId_65",
@@ -935,9 +1068,11 @@
                     "eagleSticksPerBundle": "60",
                     "eagleBundlesPerTruckLoad": "12",
                     "eagleSticksPerTruckload": 720,
+                    "actualSticksPerTruckLoad": 720,
                     "length": "20'",
                     "calculatedSticksPerBundle": 60,
-                    "size": "4\""
+                    "size": "4\"",
+                    "active": true
                 },
                 "skuId_66": {
                     "skuId": "skuId_66",
@@ -949,107 +1084,11 @@
                     "eagleSticksPerBundle": "28",
                     "eagleBundlesPerTruckLoad": "12",
                     "eagleSticksPerTruckload": 336,
+                    "actualSticksPerTruckLoad": 336,
                     "length": "20'",
                     "calculatedSticksPerBundle": 28,
-                    "size": "6\""
-                },
-                "skuId_68": {
-                    "skuId": "skuId_68",
-                    "productTypeId": "productTypeId_5",
-                    "displayOrder": 68,
-                    "popularityScore": 9,
-                    "productType": "C900 Blue Waterline Pipe (NSF)",
-                    "SKU": "10\" DR25 PVC PIPE C900 - GASKETED",
-                    "eagleSticksPerBundle": "16",
-                    "eagleBundlesPerTruckLoad": "8",
-                    "eagleSticksPerTruckload": 128,
-                    "length": "20'",
-                    "calculatedSticksPerBundle": 16,
-                    "size": "10\""
-                },
-                "skuId_69": {
-                    "skuId": "skuId_69",
-                    "productTypeId": "productTypeId_5",
-                    "displayOrder": 69,
-                    "popularityScore": 9,
-                    "productType": "C900 Blue Waterline Pipe (NSF)",
-                    "SKU": "12\" DR25 PVC PIPE C900 - GASKETED",
-                    "eagleSticksPerBundle": "6 / 8 / 9 / 12",
-                    "eagleBundlesPerTruckLoad": "4 / 4 / 2 / 2",
-                    "eagleSticksPerTruckload": 98,
-                    "length": "20'",
-                    "calculatedSticksPerBundle": 8,
-                    "size": "12\""
-                },
-                "skuId_70": {
-                    "skuId": "skuId_70",
-                    "productTypeId": "productTypeId_5",
-                    "displayOrder": 70,
-                    "popularityScore": 9,
-                    "productType": "C900 Blue Waterline Pipe (NSF)",
-                    "SKU": "14\" DR25 PVC PIPE C900 - GASKETED",
-                    "eagleSticksPerBundle": "9",
-                    "eagleBundlesPerTruckLoad": "8",
-                    "eagleSticksPerTruckload": 72,
-                    "length": "20'",
-                    "calculatedSticksPerBundle": 9,
-                    "size": "14\""
-                },
-                "skuId_71": {
-                    "skuId": "skuId_71",
-                    "productTypeId": "productTypeId_5",
-                    "displayOrder": 71,
-                    "popularityScore": 9,
-                    "productType": "C900 Blue Waterline Pipe (NSF)",
-                    "SKU": "16\" DR25 PVC PIPE C900 - GASKETED",
-                    "eagleSticksPerBundle": "4 / 6 / 6 / 9",
-                    "eagleBundlesPerTruckLoad": "2 / 2 / 2 / 2",
-                    "eagleSticksPerTruckload": 50,
-                    "length": "20'",
-                    "calculatedSticksPerBundle": 6,
-                    "size": "16\""
-                },
-                "skuId_72": {
-                    "skuId": "skuId_72",
-                    "productTypeId": "productTypeId_5",
-                    "displayOrder": 72,
-                    "popularityScore": 9,
-                    "productType": "C900 Blue Waterline Pipe (NSF)",
-                    "SKU": "18\" DR25 PVC PIPE C900 - GASKETED",
-                    "eagleSticksPerBundle": "4 / 6",
-                    "eagleBundlesPerTruckLoad": "4 / 4",
-                    "eagleSticksPerTruckload": 40,
-                    "length": "20'",
-                    "calculatedSticksPerBundle": 4,
-                    "size": "18\""
-                },
-                "skuId_73": {
-                    "skuId": "skuId_73",
-                    "productTypeId": "productTypeId_5",
-                    "displayOrder": 73,
-                    "popularityScore": 9,
-                    "productType": "C900 Blue Waterline Pipe (NSF)",
-                    "SKU": "20\" DR25 PVC PIPE C900 - GASKETED",
-                    "eagleSticksPerBundle": "4",
-                    "eagleBundlesPerTruckLoad": "8",
-                    "eagleSticksPerTruckload": 32,
-                    "length": "20'",
-                    "calculatedSticksPerBundle": 4,
-                    "size": "20\""
-                },
-                "skuId_74": {
-                    "skuId": "skuId_74",
-                    "productTypeId": "productTypeId_5",
-                    "displayOrder": 74,
-                    "popularityScore": 9,
-                    "productType": "C900 Blue Waterline Pipe (NSF)",
-                    "SKU": "24\" DR25 PVC PIPE C900 - GASKETED",
-                    "eagleSticksPerBundle": "3",
-                    "eagleBundlesPerTruckLoad": "9",
-                    "eagleSticksPerTruckload": 18,
-                    "length": "20'",
-                    "calculatedSticksPerBundle": 3,
-                    "size": "24\""
+                    "size": "6\"",
+                    "active": true
                 },
                 "skuId_67": {
                     "skuId": "skuId_67",
@@ -1061,15 +1100,130 @@
                     "eagleSticksPerBundle": "15 / 20",
                     "eagleBundlesPerTruckLoad": "8 / 4",
                     "eagleSticksPerTruckload": 200,
+                    "actualSticksPerTruckLoad": 200,
                     "length": "20'",
                     "calculatedSticksPerBundle": 15,
-                    "size": "8\""
+                    "size": "8\"",
+                    "active": true
+                },
+                "skuId_68": {
+                    "skuId": "skuId_68",
+                    "productTypeId": "productTypeId_5",
+                    "displayOrder": 68,
+                    "popularityScore": 9,
+                    "productType": "C900 Blue Waterline Pipe (NSF)",
+                    "SKU": "10\" DR25 PVC PIPE C900 - GASKETED",
+                    "eagleSticksPerBundle": "16",
+                    "eagleBundlesPerTruckLoad": "8",
+                    "eagleSticksPerTruckload": 128,
+                    "actualSticksPerTruckLoad": 128,
+                    "length": "20'",
+                    "calculatedSticksPerBundle": 16,
+                    "size": "10\"",
+                    "active": true
+                },
+                "skuId_69": {
+                    "skuId": "skuId_69",
+                    "productTypeId": "productTypeId_5",
+                    "displayOrder": 69,
+                    "popularityScore": 9,
+                    "productType": "C900 Blue Waterline Pipe (NSF)",
+                    "SKU": "12\" DR25 PVC PIPE C900 - GASKETED",
+                    "eagleSticksPerBundle": "6 / 8 / 9 / 12",
+                    "eagleBundlesPerTruckLoad": "4 / 4 / 2 / 2",
+                    "eagleSticksPerTruckload": 98,
+                    "actualSticksPerTruckLoad": 98,
+                    "length": "20'",
+                    "calculatedSticksPerBundle": 8,
+                    "size": "12\"",
+                    "active": true
+                },
+                "skuId_70": {
+                    "skuId": "skuId_70",
+                    "productTypeId": "productTypeId_5",
+                    "displayOrder": 70,
+                    "popularityScore": 9,
+                    "productType": "C900 Blue Waterline Pipe (NSF)",
+                    "SKU": "14\" DR25 PVC PIPE C900 - GASKETED",
+                    "eagleSticksPerBundle": "9",
+                    "eagleBundlesPerTruckLoad": "8",
+                    "eagleSticksPerTruckload": 72,
+                    "actualSticksPerTruckLoad": 72,
+                    "length": "20'",
+                    "calculatedSticksPerBundle": 9,
+                    "size": "14\"",
+                    "active": true
+                },
+                "skuId_71": {
+                    "skuId": "skuId_71",
+                    "productTypeId": "productTypeId_5",
+                    "displayOrder": 71,
+                    "popularityScore": 9,
+                    "productType": "C900 Blue Waterline Pipe (NSF)",
+                    "SKU": "16\" DR25 PVC PIPE C900 - GASKETED",
+                    "eagleSticksPerBundle": "4 / 6 / 6 / 9",
+                    "eagleBundlesPerTruckLoad": "2 / 2 / 2 / 2",
+                    "eagleSticksPerTruckload": 50,
+                    "actualSticksPerTruckLoad": 50,
+                    "length": "20'",
+                    "calculatedSticksPerBundle": 6,
+                    "size": "16\"",
+                    "active": true
+                },
+                "skuId_72": {
+                    "skuId": "skuId_72",
+                    "productTypeId": "productTypeId_5",
+                    "displayOrder": 72,
+                    "popularityScore": 9,
+                    "productType": "C900 Blue Waterline Pipe (NSF)",
+                    "SKU": "18\" DR25 PVC PIPE C900 - GASKETED",
+                    "eagleSticksPerBundle": "4 / 6",
+                    "eagleBundlesPerTruckLoad": "4 / 4",
+                    "eagleSticksPerTruckload": 40,
+                    "actualSticksPerTruckLoad": 40,
+                    "length": "20'",
+                    "calculatedSticksPerBundle": 4,
+                    "size": "18\"",
+                    "active": true
+                },
+                "skuId_73": {
+                    "skuId": "skuId_73",
+                    "productTypeId": "productTypeId_5",
+                    "displayOrder": 73,
+                    "popularityScore": 9,
+                    "productType": "C900 Blue Waterline Pipe (NSF)",
+                    "SKU": "20\" DR25 PVC PIPE C900 - GASKETED",
+                    "eagleSticksPerBundle": "4",
+                    "eagleBundlesPerTruckLoad": "8",
+                    "eagleSticksPerTruckload": 32,
+                    "actualSticksPerTruckLoad": 32,
+                    "length": "20'",
+                    "calculatedSticksPerBundle": 4,
+                    "size": "20\"",
+                    "active": true
+                },
+                "skuId_74": {
+                    "skuId": "skuId_74",
+                    "productTypeId": "productTypeId_5",
+                    "displayOrder": 74,
+                    "popularityScore": 9,
+                    "productType": "C900 Blue Waterline Pipe (NSF)",
+                    "SKU": "24\" DR25 PVC PIPE C900 - GASKETED",
+                    "eagleSticksPerBundle": "3",
+                    "eagleBundlesPerTruckLoad": "9",
+                    "eagleSticksPerTruckload": 18,
+                    "actualSticksPerTruckLoad": 18,
+                    "length": "20'",
+                    "calculatedSticksPerBundle": 3,
+                    "size": "24\"",
+                    "active": true
                 }
             }
         },
         {
             "productTypeId": "productTypeId_6",
             "productType": "Green Sanitary Gravity Sewer Pipe (No NSF)",
+            "active": true,
             "skus": {
                 "skuId_75": {
                     "skuId": "skuId_75",
@@ -1081,9 +1235,11 @@
                     "eagleSticksPerBundle": "84",
                     "eagleBundlesPerTruckLoad": "18",
                     "eagleSticksPerTruckload": 1512,
+                    "actualSticksPerTruckLoad": 1512,
                     "length": "14'",
                     "calculatedSticksPerBundle": 84,
-                    "size": "4\""
+                    "size": "4\"",
+                    "active": true
                 },
                 "skuId_76": {
                     "skuId": "skuId_76",
@@ -1095,9 +1251,11 @@
                     "eagleSticksPerBundle": "40",
                     "eagleBundlesPerTruckLoad": "18",
                     "eagleSticksPerTruckload": 720,
+                    "actualSticksPerTruckLoad": 720,
                     "length": "14'",
                     "calculatedSticksPerBundle": 40,
-                    "size": "6\""
+                    "size": "6\"",
+                    "active": true
                 },
                 "skuId_77": {
                     "skuId": "skuId_77",
@@ -1109,9 +1267,11 @@
                     "eagleSticksPerBundle": "30 / 36",
                     "eagleBundlesPerTruckLoad": "6 / 6",
                     "eagleSticksPerTruckload": 396,
+                    "actualSticksPerTruckLoad": 396,
                     "length": "14'",
                     "calculatedSticksPerBundle": 30,
-                    "size": "8\""
+                    "size": "8\"",
+                    "active": true
                 },
                 "skuId_78": {
                     "skuId": "skuId_78",
@@ -1123,9 +1283,11 @@
                     "eagleSticksPerBundle": "12 / 15",
                     "eagleBundlesPerTruckLoad": "9 / 9",
                     "eagleSticksPerTruckload": 243,
+                    "actualSticksPerTruckLoad": 243,
                     "length": "14'",
                     "calculatedSticksPerBundle": 12,
-                    "size": "10\""
+                    "size": "10\"",
+                    "active": true
                 },
                 "skuId_79": {
                     "skuId": "skuId_79",
@@ -1137,9 +1299,11 @@
                     "eagleSticksPerBundle": "12 / 16",
                     "eagleBundlesPerTruckLoad": "6 / 6",
                     "eagleSticksPerTruckload": 168,
+                    "actualSticksPerTruckLoad": 168,
                     "length": "14'",
                     "calculatedSticksPerBundle": 12,
-                    "size": "12\""
+                    "size": "12\"",
+                    "active": true
                 },
                 "skuId_80": {
                     "skuId": "skuId_80",
@@ -1151,9 +1315,11 @@
                     "eagleSticksPerBundle": "84",
                     "eagleBundlesPerTruckLoad": "18",
                     "eagleSticksPerTruckload": 1512,
+                    "actualSticksPerTruckLoad": 1512,
                     "length": "14'",
                     "calculatedSticksPerBundle": 84,
-                    "size": "4\""
+                    "size": "4\"",
+                    "active": true
                 },
                 "skuId_81": {
                     "skuId": "skuId_81",
@@ -1165,9 +1331,11 @@
                     "eagleSticksPerBundle": "40",
                     "eagleBundlesPerTruckLoad": "19",
                     "eagleSticksPerTruckload": 720,
+                    "actualSticksPerTruckLoad": 720,
                     "length": "14'",
                     "calculatedSticksPerBundle": 40,
-                    "size": "6\""
+                    "size": "6\"",
+                    "active": true
                 },
                 "skuId_82": {
                     "skuId": "skuId_82",
@@ -1179,9 +1347,11 @@
                     "eagleSticksPerBundle": "30 / 36",
                     "eagleBundlesPerTruckLoad": "6 / 6",
                     "eagleSticksPerTruckload": 396,
+                    "actualSticksPerTruckLoad": 396,
                     "length": "14'",
                     "calculatedSticksPerBundle": 30,
-                    "size": "8\""
+                    "size": "8\"",
+                    "active": true
                 },
                 "skuId_83": {
                     "skuId": "skuId_83",
@@ -1193,9 +1363,11 @@
                     "eagleSticksPerBundle": "12 / 15",
                     "eagleBundlesPerTruckLoad": "9 / 9",
                     "eagleSticksPerTruckload": 243,
+                    "actualSticksPerTruckLoad": 243,
                     "length": "14'",
                     "calculatedSticksPerBundle": 12,
-                    "size": "10\""
+                    "size": "10\"",
+                    "active": true
                 },
                 "skuId_84": {
                     "skuId": "skuId_84",
@@ -1207,9 +1379,11 @@
                     "eagleSticksPerBundle": "12 / 16",
                     "eagleBundlesPerTruckLoad": "6 / 6",
                     "eagleSticksPerTruckload": 168,
+                    "actualSticksPerTruckLoad": 168,
                     "length": "14'",
                     "calculatedSticksPerBundle": 12,
-                    "size": "12\""
+                    "size": "12\"",
+                    "active": true
                 }
             }
         }

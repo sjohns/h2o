@@ -22,45 +22,6 @@
 
     <main class="container-lg pb-5">
 
-        <!-- Help -->
-        <div class="accordion mb-4 shadow-sm" id="helpAccordion">
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button fw-semibold" type="button"
-                            data-bs-toggle="collapse" data-bs-target="#helpBody" aria-expanded="true">
-                        How to use this page
-                    </button>
-                </h2>
-                <div id="helpBody" class="accordion-collapse collapse show">
-                    <div class="accordion-body">
-                        <div class="row g-4">
-                            <div class="col-md-6">
-                                <p class="fw-semibold small text-uppercase text-muted mb-2">Workflow</p>
-                                <ol class="ps-3 small mb-0">
-                                    <li class="mb-1"><strong>Download</strong> — Get the current data as an Excel workbook. Open it in Excel or Google Sheets.</li>
-                                    <li class="mb-1"><strong>Edit</strong> — Add, remove or update SKUs. Use the dropdown in the Active column (Y/N). Do not add or remove columns.</li>
-                                    <li class="mb-1"><strong>Upload</strong> — Select your modified file using the file picker below.</li>
-                                    <li class="mb-1"><strong>Validate</strong> — Check the file for errors before previewing.</li>
-                                    <li class="mb-1"><strong>Preview</strong> — See exactly what will change compared to the live data.</li>
-                                    <li class="mb-0"><strong>Contact an admin</strong> — Share the validated file with an admin to publish the approved changes.</li>
-                                </ol>
-                            </div>
-                            <div class="col-md-6">
-                                <p class="fw-semibold small text-uppercase text-muted mb-2">Tips</p>
-                                <ul class="ps-3 small mb-0">
-                                    <li class="mb-1">The <strong>Active</strong> column only accepts <strong>Y</strong> or <strong>N</strong>. Use the dropdown in Excel.</li>
-                                    <li class="mb-1"><strong>Display Order</strong>, <strong>Length</strong>, <strong>Popularity Score</strong>, and bundle sizes must be positive whole numbers.</li>
-                                    <li class="mb-1">The <strong>Product Type</strong> column on the SKUs sheet must match a name on the Product Types sheet.</li>
-                                    <li class="mb-1">You can validate and preview changes freely — nothing is published until an admin approves.</li>
-                                    <li class="mb-0">If validation fails, the error list will show the exact row and field that needs fixing.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- Current Published Data -->
         <div class="card mb-4 shadow-sm">
             <div class="card-header d-flex justify-content-between align-items-center py-3">
@@ -72,24 +33,6 @@
             </div>
             <div id="currentDataContent" class="card-body">
                 <p class="text-muted mb-0">Loading&hellip;</p>
-            </div>
-        </div>
-
-        <!-- Preview Changes -->
-        <div class="card mb-4 shadow-sm">
-            <div class="card-header py-3">
-                <h2 class="h5 mb-1">Preview Changes</h2>
-                <p class="text-muted small mb-0">Upload an Excel file to validate and preview changes. An admin must publish approved changes.</p>
-            </div>
-            <div class="card-body">
-                <div class="mb-3">
-                    <label class="form-label fw-semibold" for="workbookFile">Excel file (.xlsx)</label>
-                    <input id="workbookFile" type="file" accept=".xlsx" class="form-control">
-                </div>
-                <div class="d-flex gap-2 flex-wrap">
-                    <button id="validateBtn" data-action="validate" class="btn btn-outline-primary" type="button">Validate</button>
-                    <button id="previewBtn" data-action="preview" class="btn btn-outline-info" type="button">Preview Changes</button>
-                </div>
             </div>
         </div>
 

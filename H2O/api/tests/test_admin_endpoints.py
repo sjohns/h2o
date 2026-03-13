@@ -70,7 +70,6 @@ VALID_ROW = [
 @pytest.fixture
 def isolated_snapshot_paths(tmp_path, monkeypatch):
     original_snapshot_path = runtime.SNAPSHOT_PATH
-    original_versions_dir = runtime.VERSIONS_DIR
 
     temp_snapshot_path = tmp_path / "packing_data.json"
     temp_snapshot_path.write_text(original_snapshot_path.read_text(encoding="utf-8"), encoding="utf-8")
@@ -92,7 +91,7 @@ def test_admin_validate_success():
         "POST",
         "/admin/data/validate",
         files={"file": ("data.xlsx", workbook, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")},
-        headers=REVIEW_AUTH_HEADER,
+        headers=ADMIN_AUTH_HEADER,
     )
     assert response.status_code == 200
     payload = response.json()
@@ -109,7 +108,7 @@ def test_admin_validate_mixed_bundle_string():
         "POST",
         "/admin/data/validate",
         files={"file": ("data.xlsx", workbook, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")},
-        headers=REVIEW_AUTH_HEADER,
+        headers=ADMIN_AUTH_HEADER,
     )
     assert response.status_code == 200
     assert response.json()["is_valid"] is True
@@ -123,7 +122,7 @@ def test_admin_validate_failure_duplicate_sku():
         "POST",
         "/admin/data/validate",
         files={"file": ("data.xlsx", workbook, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")},
-        headers=REVIEW_AUTH_HEADER,
+        headers=ADMIN_AUTH_HEADER,
     )
     assert response.status_code == 200
     payload = response.json()
@@ -149,7 +148,7 @@ def test_admin_preview_valid_returns_diff():
         "POST",
         "/admin/data/preview",
         files={"file": ("data.xlsx", workbook, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")},
-        headers=REVIEW_AUTH_HEADER,
+        headers=ADMIN_AUTH_HEADER,
     )
     assert response.status_code == 200
     payload = response.json()
@@ -170,7 +169,7 @@ def test_admin_preview_invalid_returns_400():
         "POST",
         "/admin/data/preview",
         files={"file": ("data.xlsx", workbook, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")},
-        headers=REVIEW_AUTH_HEADER,
+        headers=ADMIN_AUTH_HEADER,
     )
     assert response.status_code == 400
     assert response.json()["is_valid"] is False
@@ -229,7 +228,7 @@ def test_upload_too_large_returns_413():
         "POST",
         "/admin/data/validate",
         files={"file": ("big.xlsx", large_data, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")},
-        headers=REVIEW_AUTH_HEADER,
+        headers=ADMIN_AUTH_HEADER,
     )
     assert response.status_code == 413
 
@@ -241,7 +240,7 @@ def test_corrupted_workbook_returns_400():
         "POST",
         "/admin/data/validate",
         files={"file": ("bad.xlsx", corrupt_data, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")},
-        headers=REVIEW_AUTH_HEADER,
+        headers=ADMIN_AUTH_HEADER,
     )
     assert response.status_code == 200  # import_workbook returns ValidationResult
     payload = response.json()
@@ -275,7 +274,7 @@ def test_admin_publish_round_trip(isolated_snapshot_paths):
         "POST",
         "/admin/data/validate",
         files={"file": ("roundtrip.xlsx", dl.content, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")},
-        headers=REVIEW_AUTH_HEADER,
+        headers=ADMIN_AUTH_HEADER,
     )
     assert response.status_code == 200
     payload = response.json()

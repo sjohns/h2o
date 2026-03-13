@@ -11,8 +11,8 @@ ROOT = Path(__file__).resolve().parents[3]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from api.data import flatten_skus, load_snapshot
-from api.solver.branch_and_bound import solve
+from api.data import flatten_skus, load_snapshot  # noqa: E402
+from api.solver.branch_and_bound import solve  # noqa: E402
 
 ORDERS_PATH = ROOT / "api" / "tests" / "harness" / "orders.json"
 EXPECTED_PATH = ROOT / "api" / "tests" / "harness" / "expected_results.json"
@@ -40,7 +40,7 @@ def _normalize_solution(solution: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 "numberOfBundles": int(row["numberOfBundles"]),
             }
         )
-    return normalized
+    return sorted(normalized, key=lambda x: x["skuId"])
 
 
 def _load_orders(path: Path) -> list[dict[str, Any]]:

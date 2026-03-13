@@ -10,19 +10,30 @@ from pathlib import Path
 from fastapi import APIRouter, File, Form, Header, HTTPException, UploadFile
 from fastapi.responses import JSONResponse, StreamingResponse
 from loguru import logger
-from openpyxl import Workbook
+from openpyxl import load_workbook
 from openpyxl.styles import Alignment, Font, PatternFill
-from openpyxl.utils import get_column_letter
-from openpyxl.worksheet.datavalidation import DataValidation
 
 from ..auth import require_admin, require_review
-from ..data import load_snapshot
+from ..data import DEFAULT_ACTIVE, load_snapshot
 from .. import runtime
-from .data_import import REQUIRED_COLUMNS, ValidationIssue, ValidationResult, import_workbook, _sku_key
+from .data_import import ValidationResult, import_workbook, _sku_key
 
 router = APIRouter(prefix="/admin/data", tags=["admin-data"])
 
 MAX_UPLOAD_BYTES = 10 * 1024 * 1024  # 10 MB
+TEMPLATE_PATH = Path(__file__).parent / "h2o_template.xlsx"
+
+# Excel column positions
+PT_NOTES_COL = 4   # Notes column on Product Types sheet (informational, not imported)
+SKU_STATUS_COL = 13  # Status column on SKUs sheet (informational, not imported)
+
+
+def _to_active_flag(active: bool) -> str:
+    return "Y" if active else "N"
+
+
+def _from_active_flag(flag: Any) -> bool:
+    return str(flag).strip().upper() == "Y"
 
 
 def _require_xlsx(upload: UploadFile) -> None:
@@ -63,17 +74,15 @@ def _normalize_current_snapshot(snapshot: dict[str, Any]) -> dict[str, dict[str,
             product_types[pt_name] = {
                 "product_type_name": pt_name,
                 "product_type_display_order": display_order,
-                "product_type_active_flag": "Y",
+                "product_type_active_flag": _to_active_flag(product_type.get("active", DEFAULT_ACTIVE)),
                 "skus": {},
             }
 
         for _sku_id, sku in product_type.get("skus", {}).items():
             sku_desc = sku.get("SKU", "")
             size = sku.get("size", "")
-            # Eagle reference strings — stored as-is, never parsed as numbers
             eagle_sticks = str(sku.get("eagleSticksPerBundle", "")).strip()
             eagle_bundles = str(sku.get("eagleBundlesPerTruckLoad", "")).strip()
-            # calculatedSticksPerBundle is the admin-selected value, always an integer
             calc_sticks = int(sku.get("calculatedSticksPerBundle", 0))
             actual_sticks = _coerce_int(
                 sku.get("actualSticksPerTruckLoad", sku.get("eagleSticksPerTruckload", 0))
@@ -83,7 +92,7 @@ def _normalize_current_snapshot(snapshot: dict[str, Any]) -> dict[str, dict[str,
                 "sku_description": sku_desc,
                 "size_nominal": size,
                 "sku_display_order": int(sku.get("displayOrder", 0)),
-                "sku_active_flag": "Y",
+                "sku_active_flag": _to_active_flag(sku.get("active", DEFAULT_ACTIVE)),
                 "length_feet": _coerce_length_feet(sku.get("length", "0")),
                 "popularity_score": int(sku.get("popularityScore", 1)),
                 "eagle_sticks_per_bundle": eagle_sticks,
@@ -167,134 +176,129 @@ def _build_diff_summary(
     }
 
 
-# ── Excel styling constants ───────────────────────────────────────────────────
-_TITLE_FILL = PatternFill("solid", fgColor="1F4E79")
-_TITLE_FONT = Font(bold=True, color="FFFFFF", name="Calibri", size=14)
-_TITLE_ALIGN = Alignment(horizontal="center", vertical="center")
+_EXCEL_Y_FILL   = PatternFill("solid", fgColor="C6EFCE")
+_EXCEL_N_FILL   = PatternFill("solid", fgColor="FFC7CE")
+_EXCEL_ALT_FILL = PatternFill("solid", fgColor="EEF3FA")
+_EXCEL_WHT_FILL = PatternFill("solid", fgColor="FFFFFF")
+_EXCEL_NOTE_FILL = PatternFill("solid", fgColor="FFEB9C")
+_EXCEL_DATA_FONT = Font(name="Calibri", size=10)
+_EXCEL_NOTE_FONT = Font(name="Calibri", size=10, italic=True)
 
-_HEADER_FILL = PatternFill("solid", fgColor="2E75B6")
-_HEADER_FONT = Font(bold=True, color="FFFFFF", name="Calibri", size=11)
-_HEADER_ALIGN = Alignment(horizontal="center", vertical="center")
-
-_ALT_ROW_FILL = PatternFill("solid", fgColor="EEF3FA")
-_Y_FILL = PatternFill("solid", fgColor="C6EFCE")   # light green
-_N_FILL = PatternFill("solid", fgColor="FFC7CE")   # light red
-_CENTER = Alignment(horizontal="center", vertical="center")
-_LEFT = Alignment(horizontal="left", vertical="center")
-
-
-def _add_title_row(sheet: Any, title: str, num_cols: int) -> None:
-    """Merge row 1 across all columns and apply title styling."""
-    last_col = get_column_letter(num_cols)
-    sheet.merge_cells(f"A1:{last_col}1")
-    cell = sheet["A1"]
-    cell.value = title
-    cell.fill = _TITLE_FILL
-    cell.font = _TITLE_FONT
-    cell.alignment = _TITLE_ALIGN
-    sheet.row_dimensions[1].height = 30
+_ALIGN_LEFT   = Alignment(horizontal="left",   vertical="center")
+_ALIGN_RIGHT  = Alignment(horizontal="right",  vertical="center")
+_ALIGN_CENTER = Alignment(horizontal="center", vertical="center")
+_ALIGN_LEFT_WRAP   = Alignment(horizontal="left",   vertical="center", wrap_text=True)
+_ALIGN_RIGHT_WRAP  = Alignment(horizontal="right",  vertical="center", wrap_text=True)
+_ALIGN_CENTER_WRAP = Alignment(horizontal="center", vertical="center", wrap_text=True)
 
 
-def _style_sheet(sheet: Any, active_flag_cols: list[str]) -> None:
-    """Style column header row (row 2), freeze at row 3, autofilter, row colors."""
-    # Column header row (row 2, below the title)
-    for cell in sheet[2]:
-        cell.fill = _HEADER_FILL
-        cell.font = _HEADER_FONT
-        cell.alignment = _HEADER_ALIGN
-    sheet.row_dimensions[2].height = 22
-    sheet.freeze_panes = "A3"
-    last_col = get_column_letter(sheet.max_column)
-    sheet.auto_filter.ref = f"A2:{last_col}2"
-
-    # Data rows: alternating background + active flag coloring
-    active_col_set = set(active_flag_cols)
-    for row_idx, row in enumerate(sheet.iter_rows(min_row=3, max_row=sheet.max_row), start=0):
-        alt = row_idx % 2 == 1
-        for cell in row:
-            if cell.value is None:
-                continue
-            col = get_column_letter(cell.column)
-            if col in active_col_set:
-                val = str(cell.value).upper()
-                cell.fill = _Y_FILL if val == "Y" else _N_FILL
-                cell.alignment = _CENTER
-            elif alt:
-                cell.fill = _ALT_ROW_FILL
+def _add_status_note(cell: Any, message: str) -> None:
+    cell.value = message
+    cell.font = _EXCEL_NOTE_FONT
+    cell.fill = _EXCEL_NOTE_FILL
+    cell.alignment = _ALIGN_LEFT
 
 
 def _build_current_excel_workbook(product_types: dict[str, dict[str, Any]]) -> bytes:
-    """Export current data as a two-sheet Excel workbook.
+    """Populate the static Excel template with current packing data."""
 
-    Sheet 1 — "Product Types": Name | Display Order | Active
-    Sheet 2 — "SKUs": Product Type (dropdown) | Display Order | Active | Description |
-              Size | Length (ft) | Popularity Score | Eagle Sticks/Bundle |
-              Eagle Bundles/Truck | Calc Sticks/Bundle | Actual Sticks/Truck | Notes
-    """
-    workbook = Workbook()
+    LEFT_COLS   = {1, 5, 8, 9, 12}      # A, E, H, I, L  — text, left-align
+    RIGHT_COLS  = {2, 3, 6, 7, 10, 11}  # B(PT), C, F, G, J, K  — integers, right-align
+    CENTER_COLS = {4}                    # D               — Active, center
+    WRAP_COLS   = {2, 12}               # B (Description), L (Notes) — wrap text
+    ACTIVE_COL_PT  = 3   # C on Product Types
+    ACTIVE_COL_SKU = 4   # D on SKUs
+
+    wb = load_workbook(TEMPLATE_PATH)
+    pt_sheet  = wb["Product Types"]
+    sku_sheet = wb["SKUs"]
+
+    # Move Instructions sheet to first position
+    if "Instructions" in wb.sheetnames:
+        wb.move_sheet("Instructions", offset=-wb.sheetnames.index("Instructions"))
+
+    # Protect title and header rows (rows 1-2) — data rows remain editable
+    from openpyxl.styles import Protection
+    unlocked = Protection(locked=False)
+    for sheet in (pt_sheet, sku_sheet):
+        sheet.protection.sheet = True
+        sheet.protection.password = ""
+        sheet.protection.enable()
+        for row in sheet.iter_rows(min_row=3):
+            for cell in row:
+                cell.protection = unlocked
+
+    # Clear all sample data rows from template before writing real data
+    for row in pt_sheet.iter_rows(min_row=3, max_row=pt_sheet.max_row):
+        for cell in row:
+            cell.value = None
+
+    for row in sku_sheet.iter_rows(min_row=3, max_row=sku_sheet.max_row):
+        for cell in row:
+            cell.value = None
 
     sorted_pts = sorted(
         product_types.values(),
         key=lambda pt: (int(pt["product_type_display_order"]), pt["product_type_name"].lower()),
     )
 
-    # ── Sheet 1: Product Types ────────────────────────────────────────────────
-    _active = workbook.active
-    assert _active is not None
-    pt_sheet = _active
-    pt_sheet.title = "Product Types"
-    pt_sheet.append([""])                                    # row 1 — title (merged below)
-    pt_sheet.append(["Name", "Display Order", "Active"])    # row 2 — column headers
+    # ── Product Types sheet ───────────────────────────────────────────────────
+    # Add a "Notes" header in column PT_NOTES_COL (informational only, not imported)
+    pt_sheet.cell(2, PT_NOTES_COL).value = "Notes"
 
+    pt_row = 3
     for pt in sorted_pts:
-        pt_sheet.append([
-            pt["product_type_name"],
-            int(pt["product_type_display_order"]),
-            pt["product_type_active_flag"],
-        ])
+        pt_sheet.cell(pt_row, 1).value = pt["product_type_name"]
+        pt_sheet.cell(pt_row, 2).value = int(pt["product_type_display_order"])
+        pt_sheet.cell(pt_row, 3).value = pt["product_type_active_flag"]
 
-    num_pts = len(sorted_pts)
-    pt_max = max(num_pts + 3, 100)   # +2 for title+header rows
+        alt = (pt_row % 2 == 0)
+        base = _EXCEL_ALT_FILL if alt else _EXCEL_WHT_FILL
+        pt_active = _from_active_flag(pt["product_type_active_flag"])
 
-    # Active flag: Y/N dropdown (column C) — data starts at row 3
-    yn_pt = DataValidation(type="list", formula1='"Y,N"', allow_blank=False)
-    yn_pt.sqref = f"C3:C{pt_max}"
-    pt_sheet.add_data_validation(yn_pt)
+        for c in range(1, 4):
+            cell = pt_sheet.cell(pt_row, c)
+            cell.font = _EXCEL_DATA_FONT
+            if c == ACTIVE_COL_PT:
+                cell.fill = _EXCEL_Y_FILL if pt_active else _EXCEL_N_FILL
+                cell.alignment = _ALIGN_CENTER
+            elif c in LEFT_COLS:
+                cell.fill = base
+                cell.alignment = _ALIGN_LEFT
+            elif c in RIGHT_COLS:
+                cell.fill = base
+                cell.alignment = _ALIGN_RIGHT
+            else:
+                cell.fill = base
+                cell.alignment = _ALIGN_CENTER
 
-    # Display order: whole number ≥ 1 (column B)
-    int_pt = DataValidation(type="whole", operator="greaterThanOrEqual", formula1="1", allow_blank=False)
-    int_pt.sqref = f"B3:B{pt_max}"
-    pt_sheet.add_data_validation(int_pt)
+        # Auto-note if all SKUs are inactive
+        all_skus_inactive = all(
+            not _from_active_flag(sku["sku_active_flag"])
+            for sku in pt["skus"].values()
+        )
+        if all_skus_inactive and pt["skus"]:
+            _add_status_note(pt_sheet.cell(pt_row, PT_NOTES_COL), "All SKUs are inactive")
 
-    _add_title_row(pt_sheet, "H2O — Product Types", num_cols=3)
-    pt_sheet.column_dimensions["A"].width = 40
-    pt_sheet.column_dimensions["B"].width = 14
-    pt_sheet.column_dimensions["C"].width = 8
-    _style_sheet(pt_sheet, active_flag_cols=["C"])
+        pt_row += 1
 
-    # ── Sheet 2: SKUs ────────────────────────────────────────────────────────
-    sku_sheet = workbook.create_sheet("SKUs")
-    sku_sheet.append([""])                                   # row 1 — title (merged below)
-    sku_sheet.append([                                       # row 2 — column headers
-        "Product Type", "Display Order", "Active", "Description", "Size",
-        "Length (ft)", "Popularity Score", "Eagle Sticks/Bundle", "Eagle Bundles/Truck",
-        "Calc Sticks/Bundle", "Actual Sticks/Truck", "Notes",
-    ])
+    # ── SKUs sheet ────────────────────────────────────────────────────────────
+    # Add a "Status" header in column SKU_STATUS_COL (informational only, not imported)
+    sku_sheet.cell(2, SKU_STATUS_COL).value = "Status"
 
-    total_skus = sum(len(pt["skus"]) for pt in sorted_pts)
-    sku_max = max(total_skus + 3, 200)   # +2 for title+header rows
-
+    sku_row = 3
     for pt in sorted_pts:
+        pt_active = _from_active_flag(pt["product_type_active_flag"])
         sorted_skus = sorted(
             pt["skus"].values(),
             key=lambda s: (int(s["sku_display_order"]), s["sku_description"].lower()),
         )
         for sku in sorted_skus:
-            sku_sheet.append([
+            values = [
                 pt["product_type_name"],
+                sku["sku_description"],
                 int(sku["sku_display_order"]),
                 sku["sku_active_flag"],
-                sku["sku_description"],
                 sku["size_nominal"],
                 int(sku["length_feet"]),
                 int(sku["popularity_score"]),
@@ -303,53 +307,40 @@ def _build_current_excel_workbook(product_types: dict[str, dict[str, Any]]) -> b
                 int(sku["calculated_sticks_per_bundle"]),
                 int(sku["actual_sticks_per_truckload"]),
                 sku.get("notes", ""),
-            ])
+            ]
 
-    # Product Type: dropdown from Product Types data rows (A3 onwards after title)
-    pt_dropdown = DataValidation(
-        type="list",
-        formula1=f"'Product Types'!$A$3:$A${num_pts + 2}",
-        allow_blank=False,
-    )
-    pt_dropdown.sqref = f"A3:A{sku_max}"
-    sku_sheet.add_data_validation(pt_dropdown)
+            alt = (sku_row % 2 == 0)
+            base = _EXCEL_ALT_FILL if alt else _EXCEL_WHT_FILL
+            sku_active = _from_active_flag(sku["sku_active_flag"])
 
-    # Active flag: Y/N dropdown (column C) — data starts at row 3
-    yn_sku = DataValidation(type="list", formula1='"Y,N"', allow_blank=False)
-    yn_sku.sqref = f"C3:C{sku_max}"
-    sku_sheet.add_data_validation(yn_sku)
+            for c, val in enumerate(values, 1):
+                cell = sku_sheet.cell(sku_row, c)
+                cell.value = val
+                cell.font  = _EXCEL_DATA_FONT
+                wrap = c in WRAP_COLS
+                if c == ACTIVE_COL_SKU:
+                    cell.fill = _EXCEL_Y_FILL if sku_active else _EXCEL_N_FILL
+                    cell.alignment = _ALIGN_CENTER_WRAP if wrap else _ALIGN_CENTER
+                elif c in LEFT_COLS:
+                    cell.fill = base
+                    cell.alignment = _ALIGN_LEFT_WRAP if wrap else _ALIGN_LEFT
+                elif c in RIGHT_COLS:
+                    cell.fill = base
+                    cell.alignment = _ALIGN_RIGHT_WRAP if wrap else _ALIGN_RIGHT
+                elif c in CENTER_COLS:
+                    cell.fill = base
+                    cell.alignment = _ALIGN_CENTER_WRAP if wrap else _ALIGN_CENTER
+                else:
+                    cell.fill = base
 
-    # Integer ≥ 1: Display Order (B), Length (F), Popularity Score (G),
-    #               Calc Sticks/Bundle (J), Actual Sticks/Truck (K)
-    for col in ("B", "F", "G", "J", "K"):
-        val = DataValidation(type="whole", operator="greaterThanOrEqual", formula1="1", allow_blank=False)
-        val.sqref = f"{col}3:{col}{sku_max}"
-        sku_sheet.add_data_validation(val)
+            # Auto-note if PT is inactive
+            if not pt_active:
+                _add_status_note(sku_sheet.cell(sku_row, SKU_STATUS_COL), "Product type is inactive")
 
-    _add_title_row(sku_sheet, "H2O — SKUs", num_cols=12)
-    col_widths = [40, 14, 8, 50, 8, 12, 16, 22, 22, 18, 18, 30]
-    for i, width in enumerate(col_widths, start=1):
-        sku_sheet.column_dimensions[get_column_letter(i)].width = width
-
-    _style_sheet(sku_sheet, active_flag_cols=["C"])
-
-    # Per-column alignment for SKU data rows (left for text, center for numbers/flags)
-    # Columns: A=left, B=center, C=handled by _style_sheet, D=left, E=center,
-    #          F=center, G=center, H=left, I=left, J=center, K=center, L=left
-    _left_cols = {"A", "D", "H", "I", "L"}
-    _center_cols = {"B", "E", "F", "G", "J", "K"}
-    for row in sku_sheet.iter_rows(min_row=3, max_row=sku_sheet.max_row):
-        for cell in row:
-            if cell.value is None:
-                continue
-            col = get_column_letter(cell.column)
-            if col in _left_cols:
-                cell.alignment = _LEFT
-            elif col in _center_cols:
-                cell.alignment = _CENTER
+            sku_row += 1
 
     output = BytesIO()
-    workbook.save(output)
+    wb.save(output)
     return output.getvalue()
 
 
@@ -438,24 +429,28 @@ def _assign_ids_from_snapshot(
 
 
 def _serialize_legacy_snapshot(product_types: dict[str, dict[str, Any]]) -> dict[str, Any]:
-    """Convert ID-assigned product_types back to the legacy JSON snapshot format."""
+    """Convert ID-assigned product_types back to the legacy JSON snapshot format.
+
+    All product types and SKUs are stored (including inactive) so they can be
+    reactivated later. The `active` boolean field on each entry controls whether
+    the solver uses them.
+    """
     snapshot_product_types: list[dict[str, Any]] = []
 
-    active_pts = sorted(
-        (pt for pt in product_types.values() if pt["product_type_active_flag"] == "Y"),
+    all_pts = sorted(
+        product_types.values(),
         key=lambda pt: (int(pt["product_type_display_order"]), pt["product_type_name"].lower()),
     )
 
-    for pt in active_pts:
-        active_skus = sorted(
-            (sku for sku in pt["skus"].values() if sku["sku_active_flag"] == "Y"),
+    for pt in all_pts:
+        pt_active = _from_active_flag(pt["product_type_active_flag"])
+        all_skus = sorted(
+            pt["skus"].values(),
             key=lambda s: (int(s["sku_display_order"]), int(s["popularity_score"]), s["sku_description"].lower()),
         )
-        if not active_skus:
-            continue
 
         legacy_skus: dict[str, dict[str, Any]] = {}
-        for sku in active_skus:
+        for sku in all_skus:
             actual = int(sku["actual_sticks_per_truckload"])
             calculated_bundle_size = int(sku["calculated_sticks_per_bundle"])
             legacy_skus[sku["sku_id"]] = {
@@ -472,11 +467,13 @@ def _serialize_legacy_snapshot(product_types: dict[str, dict[str, Any]]) -> dict
                 "length": f"{int(sku['length_feet'])}'",
                 "calculatedSticksPerBundle": calculated_bundle_size,
                 "size": sku["size_nominal"],
+                "active": _from_active_flag(sku["sku_active_flag"]),
             }
 
         snapshot_product_types.append({
             "productTypeId": pt["product_type_id"],
             "productType": pt["product_type_name"],
+            "active": pt_active,
             "skus": legacy_skus,
         })
 
@@ -624,7 +621,7 @@ async def validate_workbook(
     file: UploadFile = File(...),
     authorization: str | None = Header(default=None),
 ) -> ValidationResult:
-    require_review(authorization)
+    require_admin(authorization)
     _require_xlsx(file)
     file_bytes = await file.read()
     _check_file_size(file_bytes)
@@ -636,7 +633,7 @@ async def preview_workbook(
     file: UploadFile = File(...),
     authorization: str | None = Header(default=None),
 ) -> dict[str, Any]:
-    require_review(authorization)
+    require_admin(authorization)
     _require_xlsx(file)
     file_bytes = await file.read()
     _check_file_size(file_bytes)
@@ -679,7 +676,6 @@ async def publish_workbook(
         json_hash=json_hash,
     )
 
-    # Capture the old snapshot content so we can roll back if activation fails.
     old_snapshot_bytes: bytes | None = None
     if runtime.SNAPSHOT_PATH.exists():
         old_snapshot_bytes = runtime.SNAPSHOT_PATH.read_bytes()

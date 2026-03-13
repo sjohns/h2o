@@ -1,5 +1,13 @@
 # Repository Guidelines
 
+> **STALE — DO NOT TRUST**
+> This file describes a pre-API state of the project. It is incorrect on several points:
+> - There IS an automated test suite (26 pytest tests in `H2O/api/tests/`)
+> - The active server is a FastAPI app at `H2O/api/`, not a static file server
+> - `packing_slip_scraper.py` and `compare_packing_slips.py` are not part of the active system
+> - The packing UI (`index.html`) is now driven by `app.js` calling the FastAPI API
+> - See `CLAUDE.md` for current, accurate project guidance
+
 ## Project Structure & Module Organization
 Primary work happens in `H2O/`.
 - `H2O/html/`: browser app for SKU selection and order/packing-slip generation (`index.html` + modular JS files).

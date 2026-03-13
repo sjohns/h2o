@@ -358,15 +358,14 @@ def _enforce_cross_row_rules(
     for product_type_name, sku_records in grouped.items():
         if all(record.sku_active_flag == "N" for _, record in sku_records):
             first_row_number, exemplar = sku_records[0]
-            if exemplar.product_type_active_flag == "Y":
-                warnings.append(
+            warnings.append(
                     ValidationIssue(
                         level="warning",
                         row=first_row_number,
-                        field="product_type_active_flag",
+                        field="sku_active_flag",
                         message=(
-                            f"Product type '{product_type_name}' will be deactivated "
-                            f"because all its SKUs are inactive"
+                            f"Product type '{product_type_name}' has all SKUs inactive "
+                            f"and will not be used in packing"
                         ),
                     )
                 )
@@ -403,10 +402,6 @@ def _build_normalized_structure(records: list[tuple[int, SKURecord]]) -> dict[st
             "actual_sticks_per_truckload": record.actual_sticks_per_truckload,
             "notes": record.notes,
         }
-
-    for product_type in product_types.values():
-        if all(sku["sku_active_flag"] == "N" for sku in product_type["skus"].values()):
-            product_type["product_type_active_flag"] = "N"
 
     return product_types
 
