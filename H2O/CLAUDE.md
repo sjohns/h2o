@@ -152,7 +152,7 @@ To regenerate from CSV:
 cd H2O/calculate_load_packing_data
 python3 calculate_load_packing_data.py
 ```
-Input: `H2O New PRICE LIST & LOADING CHART 2024.csv`
+Input: `h2o_packing_data.csv`
 Output: `H2O/html/load_packing_data.js` and `H2O/api/data/packing_data.json`
 
 ---

@@ -27,12 +27,12 @@ The implemented data flow is:
 
 Active snapshot:
 
-- `H2O/api/data/packing_data.json`
+- `api/data/packing_data.json`
 
 Versioned backups:
 
-- `H2O/api/data/versions/<version_id>_packing_data.json`
-- `H2O/api/data/versions/<version_id>_manifest.json`
+- `api/data/versions/<version_id>_packing_data.json`
+- `api/data/versions/<version_id>_manifest.json`
 
 The runtime API reloads the snapshot in memory after publish.
 
@@ -73,20 +73,18 @@ Admin users can:
 Start the FastAPI server from the `H2O` directory:
 
 ```bash
-cd H2O
 python -m uvicorn api.app:app --host 127.0.0.1 --port 8001 --reload
 ```
 
 Production:
 
 ```bash
-cd H2O
 python -m uvicorn api.app:app --host 0.0.0.0 --port 8080
 ```
 
 ## Auth Setup
 
-Credentials are loaded from `H2O/.env`. Example: `H2O/api/.env.example`.
+Credentials are loaded from `.env`. Example: `api/.env.example`.
 
 Required variables:
 
@@ -143,20 +141,19 @@ Excel workflow endpoints:
 
 ## Data Storage and Versions
 
-- Active: `H2O/api/data/packing_data.json`
-- Versioned: `H2O/api/data/versions/<version_id>_packing_data.json` + `_manifest.json`
+- Active: `api/data/packing_data.json`
+- Versioned: `api/data/versions/<version_id>_packing_data.json` + `_manifest.json`
 
 Manifest includes: `version_id`, `published_at`, `source_filename`, `change_reason`, `counts`, `sha256`, warnings.
 
 ## Constraints
 
-- Rollback is manual — copy the desired versioned snapshot to `H2O/api/data/packing_data.json` and restart
+- Rollback is manual — copy the desired versioned snapshot to `api/data/packing_data.json` and restart
 - Admin and Review auth use shared HTTP Basic credentials from `.env`
 
 ## Testing
 
 ```bash
-cd H2O
 pytest -q api/tests
 python3 api/tests/harness/run_harness.py
 python3 api/tests/harness/run_harness.py --historical

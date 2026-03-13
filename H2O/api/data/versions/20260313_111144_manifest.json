@@ -1,0 +1,13 @@
+{
+    "version_id": "20260313_111144",
+    "published_at": "2026-03-13T11:11:44.429566",
+    "source_filename": "packing_data_20260313(1).xlsx",
+    "change_reason": "test 1",
+    "counts": {
+        "rows": 84,
+        "product_types": 6,
+        "skus": 84
+    },
+    "sha256": "ce4ba7c46dd227309b1a902040cb570ca7c6772aee31dcc42b4bbf0949271409",
+    "warnings": []
+}

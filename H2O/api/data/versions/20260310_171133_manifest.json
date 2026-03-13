@@ -1,0 +1,13 @@
+{
+    "version_id": "20260310_171133",
+    "published_at": "2026-03-10T17:11:33.631758",
+    "source_filename": "packing_data_20260310(25).xlsx",
+    "change_reason": "test",
+    "counts": {
+        "rows": 84,
+        "product_types": 6,
+        "skus": 84
+    },
+    "sha256": "0de2f98f9faf43cfd1c187806a092ba157a89f59abf8bceade842b8bbc638ff7",
+    "warnings": []
+}

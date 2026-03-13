@@ -32,14 +32,14 @@ import datetime
 from collections import defaultdict
 from pathlib import Path
 
-# import pandas as pd
-# import numpy as np
+import pandas as pd
+pd.options.future.infer_string = False
 import duckdb
 
 from typing import Optional, List
 
 # Define file names for input and output
-input_file_name = 'H2O New PRICE LIST & LOADING CHART 2024.csv'
+input_file_name = 'h2o_packing_data.csv'
 output_js_file_name = 'load_packing_data.js'
 output_api_json_file_name = '../api/data/packing_data.json'
 
@@ -65,7 +65,8 @@ def drop_column_if_exists(df, column_name):
 # Get the current timestamp
 timestamp = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 
-df = duckdb.read_csv(input_file_name).df()
+df = pd.read_csv(input_file_name).rename(columns={'Unnamed: 3': 'column3'})
+df.columns = df.columns.str.strip()
 
 # Remove rows and columns that are all NaN (blank)
 df = df.dropna(how='all', axis=0).dropna(how='all', axis=1)

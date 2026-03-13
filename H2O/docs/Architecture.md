@@ -16,12 +16,12 @@ Users work with Excel files through the Admin browser page. The API validates an
 
 ### FastAPI app (`api/`)
 
-Entry point: `H2O/api/app.py`
+Entry point: `api/app.py`
 
-- Loads `H2O/.env` at startup (required)
+- Loads `.env` at startup (required)
 - Calls `reload_runtime_snapshot()` to load SKUs into memory
-- Mounts `/html` → `H2O/html/` (static files)
-- Mounts `/api/data` → `H2O/api/data/` (snapshot files)
+- Mounts `/html` → `html/` (static files)
+- Mounts `/api/data` → `api/data/` (snapshot files)
 - Registers two routers
 
 ### Solver routes (`api/routes.py`)
@@ -51,7 +51,7 @@ Excel workflow endpoints (HTTP Basic auth):
 
 ### Excel importer (`data_import.py`)
 
-`H2O/api/admin/data_import.py`:
+`api/admin/data_import.py`:
 
 - Reads `.xlsx` from a `SKUs` sheet (or two-sheet format with `Product Types` + `SKUs`)
 - Validates required columns (14 columns)
@@ -62,7 +62,7 @@ Excel workflow endpoints (HTTP Basic auth):
 
 ### Runtime snapshot loader (`runtime.py`)
 
-`H2O/api/runtime.py`:
+`api/runtime.py`:
 
 - `SNAPSHOT_PATH` — active snapshot path
 - `VERSIONS_DIR` — versioned backup directory
@@ -74,20 +74,20 @@ Excel workflow endpoints (HTTP Basic auth):
 
 Static files served by FastAPI:
 
-- `H2O/html/index.html` — Packing order UI. Bootstrap 5.3.3. All logic in `app.js`.
-- `H2O/html/app.js` — Packing UI logic: `ApiEngine` class manages bundle constraints and calls the solver API (`GET /skus`, `POST /orders`, `POST /pack`). `OrderTable` renders the order summary and packing slip. Correct Amount checkbox locks a SKU's bundle count.
-- `H2O/html/login.html` + `H2O/html/js/login.js` — HTTP Basic auth. Token stored in sessionStorage. Redirects to admin or review page based on role.
-- `H2O/html/admin_data.html` — Admin: validate / preview / publish + version history
-- `H2O/html/review_data.html` — Review: view current data + download only
-- `H2O/html/js/admin_data.js` — shared admin/review UI logic, role-gated by `data-role` attribute on `<body>`
-- `H2O/html/css/admin_data.css` — shared styles
+- `html/index.html` — Packing order UI. Bootstrap 5.3.3. All logic in `app.js`.
+- `html/app.js` — Packing UI logic: `ApiEngine` class manages bundle constraints and calls the solver API (`GET /skus`, `POST /orders`, `POST /pack`). `OrderTable` renders the order summary and packing slip. Correct Amount checkbox locks a SKU's bundle count.
+- `html/login.html` + `html/js/login.js` — HTTP Basic auth. Token stored in sessionStorage. Redirects to admin or review page based on role.
+- `html/admin_data.html` — Admin: validate / preview / publish + version history
+- `html/review_data.html` — Review: view current data + download only
+- `html/js/admin_data.js` — shared admin/review UI logic, role-gated by `data-role` attribute on `<body>`
+- `html/css/admin_data.css` — shared styles
 
-Several JS files remain on disk from the previous architecture (`config.js`, `api_adapter.js`, `select_skus.js`, `event_listener.js`, `order_table.js`, etc.) but are not loaded by any active page.
+Legacy JS files (`config.js`, `api_adapter.js`, `select_skus.js`, `event_listener.js`, `order_table.js`, etc.) have been archived and are not part of the active system.
 
 ### Solver (unchanged)
 
-- `H2O/api/solver/branch_and_bound.py` — Python port of original JS solver
-- `H2O/html/branch_and_bound_engine.js` — Original JS solver (reference)
+- `api/solver/branch_and_bound.py` — Python port of original JS solver
+- `html/branch_and_bound_engine.js` — Original JS solver (reference)
 
 These are not modified by the Excel admin workflow.
 
@@ -121,7 +121,7 @@ Setting `active_flag = N` does not delete the item. All product types and SKUs a
 
 ## 4. Auth Model
 
-HTTP Basic authentication. Credentials from `H2O/.env`:
+HTTP Basic authentication. Credentials from `.env`:
 
 ```
 H2O_ADMIN_USER=...
@@ -136,7 +136,7 @@ H2O_REVIEW_PASS=...
 ## 5. Storage
 
 ```
-H2O/api/data/
+api/data/
   packing_data.json             ← Active snapshot (legacy JSON shape, includes inactive items)
   versions/
     <YYYYMMDD_HHMMSS>_packing_data.json   ← Versioned snapshot

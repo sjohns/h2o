@@ -126,14 +126,14 @@ The manifest records: publish time, source filename, change reason, SKU counts, 
 
 Access is protected by HTTP Basic credentials. The browser will prompt for username and password.
 
-Credentials are set by the system administrator in `H2O/.env`.
+Credentials are set by the system administrator in `.env`.
 
 ## 11. Rollback
 
 To restore a previous version, copy the desired versioned snapshot file to:
 
 ```
-H2O/api/data/packing_data.json
+api/data/packing_data.json
 ```
 
 Then restart the server.

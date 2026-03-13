@@ -18,4 +18,4 @@ All core workflow tasks are complete and all 26 tests pass.
 - Rollback endpoint to restore a versioned snapshot (currently manual)
 - Multi-user concurrent publish protection (last-write-wins currently)
 - User-facing version history UI improvements (diff between versions)
-- Remove orphaned JS files from `H2O/html/` (`config.js`, `api_adapter.js`, `select_skus.js`, etc.) once legacy system is fully cut over
+- Remove archived legacy files once confirmed no longer needed

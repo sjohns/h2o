@@ -1,5 +1,5 @@
-const packingData = {
-    "date": "2026-03-13_14-24-09",
+{
+    "date": "2026-03-10_17-14-37",
     "productTypes": [
         {
             "productTypeId": "productTypeId_1",
@@ -15,10 +15,10 @@ const packingData = {
                     "eagleSticksPerBundle": "360",
                     "eagleBundlesPerTruckLoad": "36",
                     "eagleSticksPerTruckload": 12960,
+                    "actualSticksPerTruckLoad": 12960,
                     "length": "20'",
                     "calculatedSticksPerBundle": 360,
-                    "size": "1/2\"",
-                    "actualSticksPerTruckLoad": 12960
+                    "size": "1/2\""
                 },
                 "skuId_2": {
                     "skuId": "skuId_2",
@@ -30,10 +30,10 @@ const packingData = {
                     "eagleSticksPerBundle": "400",
                     "eagleBundlesPerTruckLoad": "24",
                     "eagleSticksPerTruckload": 9600,
+                    "actualSticksPerTruckLoad": 9600,
                     "length": "20'",
                     "calculatedSticksPerBundle": 400,
-                    "size": "3/4\"",
-                    "actualSticksPerTruckLoad": 9600
+                    "size": "3/4\""
                 },
                 "skuId_3": {
                     "skuId": "skuId_3",
@@ -45,10 +45,10 @@ const packingData = {
                     "eagleSticksPerBundle": "280",
                     "eagleBundlesPerTruckLoad": "20",
                     "eagleSticksPerTruckload": 5600,
+                    "actualSticksPerTruckLoad": 5600,
                     "length": "20'",
                     "calculatedSticksPerBundle": 280,
-                    "size": "1\"",
-                    "actualSticksPerTruckLoad": 5600
+                    "size": "1\""
                 },
                 "skuId_4": {
                     "skuId": "skuId_4",
@@ -60,10 +60,10 @@ const packingData = {
                     "eagleSticksPerBundle": "220",
                     "eagleBundlesPerTruckLoad": "24",
                     "eagleSticksPerTruckload": 5280,
+                    "actualSticksPerTruckLoad": 5280,
                     "length": "20'",
                     "calculatedSticksPerBundle": 220,
-                    "size": "1 1/4\"",
-                    "actualSticksPerTruckLoad": 5280
+                    "size": "1 1/4\""
                 },
                 "skuId_5": {
                     "skuId": "skuId_5",
@@ -75,10 +75,10 @@ const packingData = {
                     "eagleSticksPerBundle": "180",
                     "eagleBundlesPerTruckLoad": "24",
                     "eagleSticksPerTruckload": 4320,
+                    "actualSticksPerTruckLoad": 4320,
                     "length": "20'",
                     "calculatedSticksPerBundle": 180,
-                    "size": "1 1/2\"",
-                    "actualSticksPerTruckLoad": 4320
+                    "size": "1 1/2\""
                 },
                 "skuId_6": {
                     "skuId": "skuId_6",
@@ -90,10 +90,10 @@ const packingData = {
                     "eagleSticksPerBundle": "105",
                     "eagleBundlesPerTruckLoad": "24",
                     "eagleSticksPerTruckload": 2520,
+                    "actualSticksPerTruckLoad": 2520,
                     "length": "20'",
                     "calculatedSticksPerBundle": 105,
-                    "size": "2\"",
-                    "actualSticksPerTruckLoad": 2520
+                    "size": "2\""
                 },
                 "skuId_7": {
                     "skuId": "skuId_7",
@@ -105,10 +105,10 @@ const packingData = {
                     "eagleSticksPerBundle": "73",
                     "eagleBundlesPerTruckLoad": "24",
                     "eagleSticksPerTruckload": 1752,
+                    "actualSticksPerTruckLoad": 1752,
                     "length": "20'",
                     "calculatedSticksPerBundle": 73,
-                    "size": "2 1/2\"",
-                    "actualSticksPerTruckLoad": 1752
+                    "size": "2 1/2\""
                 },
                 "skuId_8": {
                     "skuId": "skuId_8",
@@ -120,10 +120,10 @@ const packingData = {
                     "eagleSticksPerBundle": "75",
                     "eagleBundlesPerTruckLoad": "16",
                     "eagleSticksPerTruckload": 1200,
+                    "actualSticksPerTruckLoad": 1200,
                     "length": "20'",
                     "calculatedSticksPerBundle": 75,
-                    "size": "3\"",
-                    "actualSticksPerTruckLoad": 1200
+                    "size": "3\""
                 },
                 "skuId_9": {
                     "skuId": "skuId_9",
@@ -135,10 +135,10 @@ const packingData = {
                     "eagleSticksPerBundle": "57",
                     "eagleBundlesPerTruckLoad": "12",
                     "eagleSticksPerTruckload": 684,
+                    "actualSticksPerTruckLoad": 684,
                     "length": "20'",
                     "calculatedSticksPerBundle": 57,
-                    "size": "4\"",
-                    "actualSticksPerTruckLoad": 684
+                    "size": "4\""
                 },
                 "skuId_10": {
                     "skuId": "skuId_10",
@@ -150,10 +150,10 @@ const packingData = {
                     "eagleSticksPerBundle": "26",
                     "eagleBundlesPerTruckLoad": "12",
                     "eagleSticksPerTruckload": 312,
+                    "actualSticksPerTruckLoad": 312,
                     "length": "20'",
                     "calculatedSticksPerBundle": 26,
-                    "size": "6\"",
-                    "actualSticksPerTruckLoad": 312
+                    "size": "6\""
                 },
                 "skuId_11": {
                     "skuId": "skuId_11",
@@ -165,10 +165,10 @@ const packingData = {
                     "eagleSticksPerBundle": "15",
                     "eagleBundlesPerTruckLoad": "12",
                     "eagleSticksPerTruckload": 180,
+                    "actualSticksPerTruckLoad": 180,
                     "length": "20'",
                     "calculatedSticksPerBundle": 15,
-                    "size": "8\"",
-                    "actualSticksPerTruckLoad": 180
+                    "size": "8\""
                 },
                 "skuId_12": {
                     "skuId": "skuId_12",
@@ -180,10 +180,10 @@ const packingData = {
                     "eagleSticksPerBundle": "12",
                     "eagleBundlesPerTruckLoad": "12",
                     "eagleSticksPerTruckload": 144,
+                    "actualSticksPerTruckLoad": 144,
                     "length": "20'",
                     "calculatedSticksPerBundle": 12,
-                    "size": "10\"",
-                    "actualSticksPerTruckLoad": 144
+                    "size": "10\""
                 },
                 "skuId_13": {
                     "skuId": "skuId_13",
@@ -195,10 +195,10 @@ const packingData = {
                     "eagleSticksPerBundle": "6 / 8",
                     "eagleBundlesPerTruckLoad": "6 / 6",
                     "eagleSticksPerTruckload": 84,
+                    "actualSticksPerTruckLoad": 84,
                     "length": "20'",
                     "calculatedSticksPerBundle": 6,
-                    "size": "12\"",
-                    "actualSticksPerTruckLoad": 84
+                    "size": "12\""
                 }
             }
         },
@@ -216,10 +216,10 @@ const packingData = {
                     "eagleSticksPerBundle": "360",
                     "eagleBundlesPerTruckLoad": "36",
                     "eagleSticksPerTruckload": 12960,
+                    "actualSticksPerTruckLoad": 12960,
                     "length": "20'",
                     "calculatedSticksPerBundle": 360,
-                    "size": "1/2\"",
-                    "actualSticksPerTruckLoad": 12960
+                    "size": "1/2\""
                 },
                 "skuId_15": {
                     "skuId": "skuId_15",
@@ -231,10 +231,10 @@ const packingData = {
                     "eagleSticksPerBundle": "400",
                     "eagleBundlesPerTruckLoad": "24",
                     "eagleSticksPerTruckload": 9600,
+                    "actualSticksPerTruckLoad": 9600,
                     "length": "20'",
                     "calculatedSticksPerBundle": 400,
-                    "size": "3/4\"",
-                    "actualSticksPerTruckLoad": 9600
+                    "size": "3/4\""
                 },
                 "skuId_16": {
                     "skuId": "skuId_16",
@@ -246,10 +246,10 @@ const packingData = {
                     "eagleSticksPerBundle": "280",
                     "eagleBundlesPerTruckLoad": "20",
                     "eagleSticksPerTruckload": 5600,
+                    "actualSticksPerTruckLoad": 5600,
                     "length": "20'",
                     "calculatedSticksPerBundle": 280,
-                    "size": "1\"",
-                    "actualSticksPerTruckLoad": 5600
+                    "size": "1\""
                 },
                 "skuId_17": {
                     "skuId": "skuId_17",
@@ -261,10 +261,10 @@ const packingData = {
                     "eagleSticksPerBundle": "220",
                     "eagleBundlesPerTruckLoad": "24",
                     "eagleSticksPerTruckload": 5280,
+                    "actualSticksPerTruckLoad": 5280,
                     "length": "20'",
                     "calculatedSticksPerBundle": 220,
-                    "size": "1 1/4\"",
-                    "actualSticksPerTruckLoad": 5280
+                    "size": "1 1/4\""
                 },
                 "skuId_18": {
                     "skuId": "skuId_18",
@@ -276,10 +276,10 @@ const packingData = {
                     "eagleSticksPerBundle": "180",
                     "eagleBundlesPerTruckLoad": "24",
                     "eagleSticksPerTruckload": 4320,
+                    "actualSticksPerTruckLoad": 4320,
                     "length": "20'",
                     "calculatedSticksPerBundle": 180,
-                    "size": "1 1/2\"",
-                    "actualSticksPerTruckLoad": 4320
+                    "size": "1 1/2\""
                 },
                 "skuId_19": {
                     "skuId": "skuId_19",
@@ -291,10 +291,10 @@ const packingData = {
                     "eagleSticksPerBundle": "105",
                     "eagleBundlesPerTruckLoad": "24",
                     "eagleSticksPerTruckload": 2520,
+                    "actualSticksPerTruckLoad": 2520,
                     "length": "20'",
                     "calculatedSticksPerBundle": 105,
-                    "size": "2\"",
-                    "actualSticksPerTruckLoad": 2520
+                    "size": "2\""
                 },
                 "skuId_20": {
                     "skuId": "skuId_20",
@@ -306,10 +306,10 @@ const packingData = {
                     "eagleSticksPerBundle": "73",
                     "eagleBundlesPerTruckLoad": "24",
                     "eagleSticksPerTruckload": 1752,
+                    "actualSticksPerTruckLoad": 1752,
                     "length": "20'",
                     "calculatedSticksPerBundle": 73,
-                    "size": "2 1/2\"",
-                    "actualSticksPerTruckLoad": 1752
+                    "size": "2 1/2\""
                 },
                 "skuId_21": {
                     "skuId": "skuId_21",
@@ -321,10 +321,10 @@ const packingData = {
                     "eagleSticksPerBundle": "75",
                     "eagleBundlesPerTruckLoad": "16",
                     "eagleSticksPerTruckload": 1200,
+                    "actualSticksPerTruckLoad": 1200,
                     "length": "20'",
                     "calculatedSticksPerBundle": 75,
-                    "size": "3\"",
-                    "actualSticksPerTruckLoad": 1200
+                    "size": "3\""
                 },
                 "skuId_22": {
                     "skuId": "skuId_22",
@@ -336,10 +336,10 @@ const packingData = {
                     "eagleSticksPerBundle": "57",
                     "eagleBundlesPerTruckLoad": "12",
                     "eagleSticksPerTruckload": 684,
+                    "actualSticksPerTruckLoad": 684,
                     "length": "20'",
                     "calculatedSticksPerBundle": 57,
-                    "size": "4\"",
-                    "actualSticksPerTruckLoad": 684
+                    "size": "4\""
                 },
                 "skuId_23": {
                     "skuId": "skuId_23",
@@ -351,10 +351,10 @@ const packingData = {
                     "eagleSticksPerBundle": "26",
                     "eagleBundlesPerTruckLoad": "12",
                     "eagleSticksPerTruckload": 312,
+                    "actualSticksPerTruckLoad": 312,
                     "length": "20'",
                     "calculatedSticksPerBundle": 26,
-                    "size": "6\"",
-                    "actualSticksPerTruckLoad": 312
+                    "size": "6\""
                 },
                 "skuId_24": {
                     "skuId": "skuId_24",
@@ -366,10 +366,10 @@ const packingData = {
                     "eagleSticksPerBundle": "15",
                     "eagleBundlesPerTruckLoad": "12",
                     "eagleSticksPerTruckload": 180,
+                    "actualSticksPerTruckLoad": 180,
                     "length": "20'",
                     "calculatedSticksPerBundle": 15,
-                    "size": "8\"",
-                    "actualSticksPerTruckLoad": 180
+                    "size": "8\""
                 }
             }
         },
@@ -387,10 +387,10 @@ const packingData = {
                     "eagleSticksPerBundle": "360",
                     "eagleBundlesPerTruckLoad": "36",
                     "eagleSticksPerTruckload": 12960,
+                    "actualSticksPerTruckLoad": 12960,
                     "length": "20'",
                     "calculatedSticksPerBundle": 360,
-                    "size": "1/2\"",
-                    "actualSticksPerTruckLoad": 12960
+                    "size": "1/2\""
                 },
                 "skuId_26": {
                     "skuId": "skuId_26",
@@ -402,10 +402,10 @@ const packingData = {
                     "eagleSticksPerBundle": "400",
                     "eagleBundlesPerTruckLoad": "24",
                     "eagleSticksPerTruckload": 9600,
+                    "actualSticksPerTruckLoad": 9600,
                     "length": "20'",
                     "calculatedSticksPerBundle": 400,
-                    "size": "3/4\"",
-                    "actualSticksPerTruckLoad": 9600
+                    "size": "3/4\""
                 },
                 "skuId_27": {
                     "skuId": "skuId_27",
@@ -417,10 +417,10 @@ const packingData = {
                     "eagleSticksPerBundle": "280",
                     "eagleBundlesPerTruckLoad": "20",
                     "eagleSticksPerTruckload": 5600,
+                    "actualSticksPerTruckLoad": 5600,
                     "length": "20'",
                     "calculatedSticksPerBundle": 280,
-                    "size": "1\"",
-                    "actualSticksPerTruckLoad": 5600
+                    "size": "1\""
                 },
                 "skuId_28": {
                     "skuId": "skuId_28",
@@ -432,10 +432,10 @@ const packingData = {
                     "eagleSticksPerBundle": "220",
                     "eagleBundlesPerTruckLoad": "24",
                     "eagleSticksPerTruckload": 5280,
+                    "actualSticksPerTruckLoad": 5280,
                     "length": "20'",
                     "calculatedSticksPerBundle": 220,
-                    "size": "1 1/4\"",
-                    "actualSticksPerTruckLoad": 5280
+                    "size": "1 1/4\""
                 },
                 "skuId_29": {
                     "skuId": "skuId_29",
@@ -447,10 +447,10 @@ const packingData = {
                     "eagleSticksPerBundle": "270",
                     "eagleBundlesPerTruckLoad": "16",
                     "eagleSticksPerTruckload": 4320,
+                    "actualSticksPerTruckLoad": 4320,
                     "length": "20'",
                     "calculatedSticksPerBundle": 270,
-                    "size": "1 1/2\"",
-                    "actualSticksPerTruckLoad": 4320
+                    "size": "1 1/2\""
                 },
                 "skuId_30": {
                     "skuId": "skuId_30",
@@ -462,10 +462,10 @@ const packingData = {
                     "eagleSticksPerBundle": "185",
                     "eagleBundlesPerTruckLoad": "16",
                     "eagleSticksPerTruckload": 2960,
+                    "actualSticksPerTruckLoad": 2960,
                     "length": "20'",
                     "calculatedSticksPerBundle": 185,
-                    "size": "2\"",
-                    "actualSticksPerTruckLoad": 2960
+                    "size": "2\""
                 },
                 "skuId_31": {
                     "skuId": "skuId_31",
@@ -477,10 +477,10 @@ const packingData = {
                     "eagleSticksPerBundle": "73",
                     "eagleBundlesPerTruckLoad": "28",
                     "eagleSticksPerTruckload": 2044,
+                    "actualSticksPerTruckLoad": 2044,
                     "length": "20'",
                     "calculatedSticksPerBundle": 73,
-                    "size": "2 1/2\"",
-                    "actualSticksPerTruckLoad": 2044
+                    "size": "2 1/2\""
                 },
                 "skuId_32": {
                     "skuId": "skuId_32",
@@ -492,10 +492,10 @@ const packingData = {
                     "eagleSticksPerBundle": "75",
                     "eagleBundlesPerTruckLoad": "16",
                     "eagleSticksPerTruckload": 1200,
+                    "actualSticksPerTruckLoad": 1200,
                     "length": "20'",
                     "calculatedSticksPerBundle": 75,
-                    "size": "3\"",
-                    "actualSticksPerTruckLoad": 1200
+                    "size": "3\""
                 },
                 "skuId_33": {
                     "skuId": "skuId_33",
@@ -507,10 +507,10 @@ const packingData = {
                     "eagleSticksPerBundle": "76",
                     "eagleBundlesPerTruckLoad": "12",
                     "eagleSticksPerTruckload": 912,
+                    "actualSticksPerTruckLoad": 912,
                     "length": "20'",
                     "calculatedSticksPerBundle": 76,
-                    "size": "4\"",
-                    "actualSticksPerTruckLoad": 912
+                    "size": "4\""
                 },
                 "skuId_34": {
                     "skuId": "skuId_34",
@@ -522,10 +522,10 @@ const packingData = {
                     "eagleSticksPerBundle": "28 / 35",
                     "eagleBundlesPerTruckLoad": "4 / 8",
                     "eagleSticksPerTruckload": 392,
+                    "actualSticksPerTruckLoad": 392,
                     "length": "20'",
                     "calculatedSticksPerBundle": 28,
-                    "size": "6\"",
-                    "actualSticksPerTruckLoad": 392
+                    "size": "6\""
                 },
                 "skuId_35": {
                     "skuId": "skuId_35",
@@ -537,10 +537,10 @@ const packingData = {
                     "eagleSticksPerBundle": "25 / 30",
                     "eagleBundlesPerTruckLoad": "4 / 4",
                     "eagleSticksPerTruckload": 220,
+                    "actualSticksPerTruckLoad": 220,
                     "length": "20'",
                     "calculatedSticksPerBundle": 25,
-                    "size": "8\"",
-                    "actualSticksPerTruckLoad": 220
+                    "size": "8\""
                 },
                 "skuId_36": {
                     "skuId": "skuId_36",
@@ -552,10 +552,10 @@ const packingData = {
                     "eagleSticksPerBundle": "16 / 20",
                     "eagleBundlesPerTruckLoad": "4 / 4",
                     "eagleSticksPerTruckload": 144,
+                    "actualSticksPerTruckLoad": 144,
                     "length": "20'",
                     "calculatedSticksPerBundle": 16,
-                    "size": "10\"",
-                    "actualSticksPerTruckLoad": 144
+                    "size": "10\""
                 },
                 "skuId_37": {
                     "skuId": "skuId_37",
@@ -567,10 +567,10 @@ const packingData = {
                     "eagleSticksPerBundle": "9 / 12 / 12 / 16",
                     "eagleBundlesPerTruckLoad": "2 / 2 / 2 / 2",
                     "eagleSticksPerTruckload": 98,
+                    "actualSticksPerTruckLoad": 98,
                     "length": "20'",
                     "calculatedSticksPerBundle": 12,
-                    "size": "12\"",
-                    "actualSticksPerTruckLoad": 98
+                    "size": "12\""
                 }
             }
         },
@@ -588,10 +588,10 @@ const packingData = {
                     "eagleSticksPerBundle": "400",
                     "eagleBundlesPerTruckLoad": "24",
                     "eagleSticksPerTruckload": 9600,
+                    "actualSticksPerTruckLoad": 9600,
                     "length": "20'",
                     "calculatedSticksPerBundle": 400,
-                    "size": "3/4\"",
-                    "actualSticksPerTruckLoad": 9600
+                    "size": "3/4\""
                 },
                 "skuId_39": {
                     "skuId": "skuId_39",
@@ -603,10 +603,10 @@ const packingData = {
                     "eagleSticksPerBundle": "280",
                     "eagleBundlesPerTruckLoad": "20",
                     "eagleSticksPerTruckload": 5600,
+                    "actualSticksPerTruckLoad": 5600,
                     "length": "20'",
                     "calculatedSticksPerBundle": 280,
-                    "size": "1\"",
-                    "actualSticksPerTruckLoad": 5600
+                    "size": "1\""
                 },
                 "skuId_40": {
                     "skuId": "skuId_40",
@@ -618,10 +618,10 @@ const packingData = {
                     "eagleSticksPerBundle": "220",
                     "eagleBundlesPerTruckLoad": "24",
                     "eagleSticksPerTruckload": 5280,
+                    "actualSticksPerTruckLoad": 5280,
                     "length": "20'",
                     "calculatedSticksPerBundle": 220,
-                    "size": "1 1/4\"",
-                    "actualSticksPerTruckLoad": 5280
+                    "size": "1 1/4\""
                 },
                 "skuId_41": {
                     "skuId": "skuId_41",
@@ -633,10 +633,10 @@ const packingData = {
                     "eagleSticksPerBundle": "270",
                     "eagleBundlesPerTruckLoad": "16",
                     "eagleSticksPerTruckload": 4320,
+                    "actualSticksPerTruckLoad": 4320,
                     "length": "20'",
                     "calculatedSticksPerBundle": 270,
-                    "size": "1 1/2\"",
-                    "actualSticksPerTruckLoad": 4320
+                    "size": "1 1/2\""
                 },
                 "skuId_42": {
                     "skuId": "skuId_42",
@@ -648,10 +648,10 @@ const packingData = {
                     "eagleSticksPerBundle": "185",
                     "eagleBundlesPerTruckLoad": "16",
                     "eagleSticksPerTruckload": 2960,
+                    "actualSticksPerTruckLoad": 2960,
                     "length": "20'",
                     "calculatedSticksPerBundle": 185,
-                    "size": "2\"",
-                    "actualSticksPerTruckLoad": 2960
+                    "size": "2\""
                 },
                 "skuId_43": {
                     "skuId": "skuId_43",
@@ -663,10 +663,10 @@ const packingData = {
                     "eagleSticksPerBundle": "73",
                     "eagleBundlesPerTruckLoad": "28",
                     "eagleSticksPerTruckload": 2044,
+                    "actualSticksPerTruckLoad": 2044,
                     "length": "20'",
                     "calculatedSticksPerBundle": 73,
-                    "size": "2 1/2\"",
-                    "actualSticksPerTruckLoad": 2044
+                    "size": "2 1/2\""
                 },
                 "skuId_44": {
                     "skuId": "skuId_44",
@@ -678,10 +678,10 @@ const packingData = {
                     "eagleSticksPerBundle": "75",
                     "eagleBundlesPerTruckLoad": "16",
                     "eagleSticksPerTruckload": 1200,
+                    "actualSticksPerTruckLoad": 1200,
                     "length": "20'",
                     "calculatedSticksPerBundle": 75,
-                    "size": "3\"",
-                    "actualSticksPerTruckLoad": 1200
+                    "size": "3\""
                 },
                 "skuId_45": {
                     "skuId": "skuId_45",
@@ -693,10 +693,10 @@ const packingData = {
                     "eagleSticksPerBundle": "76",
                     "eagleBundlesPerTruckLoad": "12",
                     "eagleSticksPerTruckload": 912,
+                    "actualSticksPerTruckLoad": 912,
                     "length": "20'",
                     "calculatedSticksPerBundle": 76,
-                    "size": "4\"",
-                    "actualSticksPerTruckLoad": 912
+                    "size": "4\""
                 },
                 "skuId_46": {
                     "skuId": "skuId_46",
@@ -708,10 +708,10 @@ const packingData = {
                     "eagleSticksPerBundle": "28 / 35",
                     "eagleBundlesPerTruckLoad": "4 / 8",
                     "eagleSticksPerTruckload": 392,
+                    "actualSticksPerTruckLoad": 392,
                     "length": "20'",
                     "calculatedSticksPerBundle": 28,
-                    "size": "6\"",
-                    "actualSticksPerTruckLoad": 392
+                    "size": "6\""
                 },
                 "skuId_47": {
                     "skuId": "skuId_47",
@@ -723,10 +723,10 @@ const packingData = {
                     "eagleSticksPerBundle": "25 / 30",
                     "eagleBundlesPerTruckLoad": "4 / 4",
                     "eagleSticksPerTruckload": 220,
+                    "actualSticksPerTruckLoad": 220,
                     "length": "20'",
                     "calculatedSticksPerBundle": 25,
-                    "size": "8\"",
-                    "actualSticksPerTruckLoad": 220
+                    "size": "8\""
                 },
                 "skuId_48": {
                     "skuId": "skuId_48",
@@ -738,10 +738,10 @@ const packingData = {
                     "eagleSticksPerBundle": "16 / 20",
                     "eagleBundlesPerTruckLoad": "4 / 4",
                     "eagleSticksPerTruckload": 144,
+                    "actualSticksPerTruckLoad": 144,
                     "length": "20'",
                     "calculatedSticksPerBundle": 16,
-                    "size": "10\"",
-                    "actualSticksPerTruckLoad": 144
+                    "size": "10\""
                 },
                 "skuId_49": {
                     "skuId": "skuId_49",
@@ -753,10 +753,10 @@ const packingData = {
                     "eagleSticksPerBundle": "9 / 12 / 12 / 16",
                     "eagleBundlesPerTruckLoad": "2 / 2 / 2 / 2",
                     "eagleSticksPerTruckload": 98,
+                    "actualSticksPerTruckLoad": 98,
                     "length": "20'",
                     "calculatedSticksPerBundle": 12,
-                    "size": "12\"",
-                    "actualSticksPerTruckLoad": 98
+                    "size": "12\""
                 }
             }
         },
@@ -774,10 +774,10 @@ const packingData = {
                     "eagleSticksPerBundle": "60",
                     "eagleBundlesPerTruckLoad": "12",
                     "eagleSticksPerTruckload": 720,
+                    "actualSticksPerTruckLoad": 720,
                     "length": "20'",
                     "calculatedSticksPerBundle": 60,
-                    "size": "4\"",
-                    "actualSticksPerTruckLoad": 720
+                    "size": "4\""
                 },
                 "skuId_51": {
                     "skuId": "skuId_51",
@@ -789,10 +789,10 @@ const packingData = {
                     "eagleSticksPerBundle": "28",
                     "eagleBundlesPerTruckLoad": "12",
                     "eagleSticksPerTruckload": 336,
+                    "actualSticksPerTruckLoad": 336,
                     "length": "20'",
                     "calculatedSticksPerBundle": 28,
-                    "size": "6\"",
-                    "actualSticksPerTruckLoad": 336
+                    "size": "6\""
                 },
                 "skuId_52": {
                     "skuId": "skuId_52",
@@ -804,10 +804,10 @@ const packingData = {
                     "eagleSticksPerBundle": "15",
                     "eagleBundlesPerTruckLoad": "12",
                     "eagleSticksPerTruckload": 180,
+                    "actualSticksPerTruckLoad": 180,
                     "length": "20'",
                     "calculatedSticksPerBundle": 15,
-                    "size": "8\"",
-                    "actualSticksPerTruckLoad": 180
+                    "size": "8\""
                 },
                 "skuId_53": {
                     "skuId": "skuId_53",
@@ -819,10 +819,10 @@ const packingData = {
                     "eagleSticksPerBundle": "16",
                     "eagleBundlesPerTruckLoad": "8",
                     "eagleSticksPerTruckload": 128,
+                    "actualSticksPerTruckLoad": 128,
                     "length": "20'",
                     "calculatedSticksPerBundle": 16,
-                    "size": "10\"",
-                    "actualSticksPerTruckLoad": 128
+                    "size": "10\""
                 },
                 "skuId_54": {
                     "skuId": "skuId_54",
@@ -834,10 +834,10 @@ const packingData = {
                     "eagleSticksPerBundle": "4 / 6",
                     "eagleBundlesPerTruckLoad": "6 / 6",
                     "eagleSticksPerTruckload": 84,
+                    "actualSticksPerTruckLoad": 84,
                     "length": "20'",
                     "calculatedSticksPerBundle": 4,
-                    "size": "12\"",
-                    "actualSticksPerTruckLoad": 84
+                    "size": "12\""
                 },
                 "skuId_55": {
                     "skuId": "skuId_55",
@@ -849,10 +849,10 @@ const packingData = {
                     "eagleSticksPerBundle": "60",
                     "eagleBundlesPerTruckLoad": "12",
                     "eagleSticksPerTruckload": 720,
+                    "actualSticksPerTruckLoad": 720,
                     "length": "20'",
                     "calculatedSticksPerBundle": 60,
-                    "size": "4\"",
-                    "actualSticksPerTruckLoad": 720
+                    "size": "4\""
                 },
                 "skuId_56": {
                     "skuId": "skuId_56",
@@ -864,10 +864,10 @@ const packingData = {
                     "eagleSticksPerBundle": "28",
                     "eagleBundlesPerTruckLoad": "13",
                     "eagleSticksPerTruckload": 364,
+                    "actualSticksPerTruckLoad": 364,
                     "length": "20'",
                     "calculatedSticksPerBundle": 28,
-                    "size": "6\"",
-                    "actualSticksPerTruckLoad": 364
+                    "size": "6\""
                 },
                 "skuId_57": {
                     "skuId": "skuId_57",
@@ -879,10 +879,10 @@ const packingData = {
                     "eagleSticksPerBundle": "15 / 20",
                     "eagleBundlesPerTruckLoad": "8 / 4",
                     "eagleSticksPerTruckload": 200,
+                    "actualSticksPerTruckLoad": 200,
                     "length": "20'",
                     "calculatedSticksPerBundle": 15,
-                    "size": "8\"",
-                    "actualSticksPerTruckLoad": 200
+                    "size": "8\""
                 },
                 "skuId_58": {
                     "skuId": "skuId_58",
@@ -894,10 +894,10 @@ const packingData = {
                     "eagleSticksPerBundle": "16",
                     "eagleBundlesPerTruckLoad": "8",
                     "eagleSticksPerTruckload": 128,
+                    "actualSticksPerTruckLoad": 128,
                     "length": "20'",
                     "calculatedSticksPerBundle": 16,
-                    "size": "10\"",
-                    "actualSticksPerTruckLoad": 128
+                    "size": "10\""
                 },
                 "skuId_59": {
                     "skuId": "skuId_59",
@@ -909,10 +909,10 @@ const packingData = {
                     "eagleSticksPerBundle": "6 / 8 / 9 / 12",
                     "eagleBundlesPerTruckLoad": "4 / 4 / 2 / 2",
                     "eagleSticksPerTruckload": 98,
+                    "actualSticksPerTruckLoad": 98,
                     "length": "20'",
                     "calculatedSticksPerBundle": 8,
-                    "size": "12\"",
-                    "actualSticksPerTruckLoad": 98
+                    "size": "12\""
                 },
                 "skuId_60": {
                     "skuId": "skuId_60",
@@ -924,10 +924,10 @@ const packingData = {
                     "eagleSticksPerBundle": "9",
                     "eagleBundlesPerTruckLoad": "8",
                     "eagleSticksPerTruckload": 72,
+                    "actualSticksPerTruckLoad": 72,
                     "length": "20'",
                     "calculatedSticksPerBundle": 9,
-                    "size": "14\"",
-                    "actualSticksPerTruckLoad": 72
+                    "size": "14\""
                 },
                 "skuId_61": {
                     "skuId": "skuId_61",
@@ -939,10 +939,10 @@ const packingData = {
                     "eagleSticksPerBundle": "4 / 6 / 6 / 9",
                     "eagleBundlesPerTruckLoad": "2 / 2 / 2 / 2",
                     "eagleSticksPerTruckload": 50,
+                    "actualSticksPerTruckLoad": 50,
                     "length": "20'",
                     "calculatedSticksPerBundle": 6,
-                    "size": "16\"",
-                    "actualSticksPerTruckLoad": 50
+                    "size": "16\""
                 },
                 "skuId_62": {
                     "skuId": "skuId_62",
@@ -954,10 +954,10 @@ const packingData = {
                     "eagleSticksPerBundle": "4 / 6",
                     "eagleBundlesPerTruckLoad": "4 / 4",
                     "eagleSticksPerTruckload": 40,
+                    "actualSticksPerTruckLoad": 40,
                     "length": "20'",
                     "calculatedSticksPerBundle": 4,
-                    "size": "18\"",
-                    "actualSticksPerTruckLoad": 40
+                    "size": "18\""
                 },
                 "skuId_63": {
                     "skuId": "skuId_63",
@@ -969,10 +969,10 @@ const packingData = {
                     "eagleSticksPerBundle": "4",
                     "eagleBundlesPerTruckLoad": "8",
                     "eagleSticksPerTruckload": 32,
+                    "actualSticksPerTruckLoad": 32,
                     "length": "20'",
                     "calculatedSticksPerBundle": 4,
-                    "size": "20\"",
-                    "actualSticksPerTruckLoad": 32
+                    "size": "20\""
                 },
                 "skuId_64": {
                     "skuId": "skuId_64",
@@ -984,10 +984,10 @@ const packingData = {
                     "eagleSticksPerBundle": "3",
                     "eagleBundlesPerTruckLoad": "6",
                     "eagleSticksPerTruckload": 18,
+                    "actualSticksPerTruckLoad": 18,
                     "length": "20'",
                     "calculatedSticksPerBundle": 3,
-                    "size": "24\"",
-                    "actualSticksPerTruckLoad": 18
+                    "size": "24\""
                 },
                 "skuId_65": {
                     "skuId": "skuId_65",
@@ -999,10 +999,10 @@ const packingData = {
                     "eagleSticksPerBundle": "60",
                     "eagleBundlesPerTruckLoad": "12",
                     "eagleSticksPerTruckload": 720,
+                    "actualSticksPerTruckLoad": 720,
                     "length": "20'",
                     "calculatedSticksPerBundle": 60,
-                    "size": "4\"",
-                    "actualSticksPerTruckLoad": 720
+                    "size": "4\""
                 },
                 "skuId_66": {
                     "skuId": "skuId_66",
@@ -1014,10 +1014,10 @@ const packingData = {
                     "eagleSticksPerBundle": "28",
                     "eagleBundlesPerTruckLoad": "12",
                     "eagleSticksPerTruckload": 336,
+                    "actualSticksPerTruckLoad": 336,
                     "length": "20'",
                     "calculatedSticksPerBundle": 28,
-                    "size": "6\"",
-                    "actualSticksPerTruckLoad": 336
+                    "size": "6\""
                 },
                 "skuId_67": {
                     "skuId": "skuId_67",
@@ -1029,10 +1029,10 @@ const packingData = {
                     "eagleSticksPerBundle": "15 / 20",
                     "eagleBundlesPerTruckLoad": "8 / 4",
                     "eagleSticksPerTruckload": 200,
+                    "actualSticksPerTruckLoad": 200,
                     "length": "20'",
                     "calculatedSticksPerBundle": 15,
-                    "size": "8\"",
-                    "actualSticksPerTruckLoad": 200
+                    "size": "8\""
                 },
                 "skuId_68": {
                     "skuId": "skuId_68",
@@ -1044,10 +1044,10 @@ const packingData = {
                     "eagleSticksPerBundle": "16",
                     "eagleBundlesPerTruckLoad": "8",
                     "eagleSticksPerTruckload": 128,
+                    "actualSticksPerTruckLoad": 128,
                     "length": "20'",
                     "calculatedSticksPerBundle": 16,
-                    "size": "10\"",
-                    "actualSticksPerTruckLoad": 128
+                    "size": "10\""
                 },
                 "skuId_69": {
                     "skuId": "skuId_69",
@@ -1059,10 +1059,10 @@ const packingData = {
                     "eagleSticksPerBundle": "6 / 8 / 9 / 12",
                     "eagleBundlesPerTruckLoad": "4 / 4 / 2 / 2",
                     "eagleSticksPerTruckload": 98,
+                    "actualSticksPerTruckLoad": 98,
                     "length": "20'",
                     "calculatedSticksPerBundle": 8,
-                    "size": "12\"",
-                    "actualSticksPerTruckLoad": 98
+                    "size": "12\""
                 },
                 "skuId_70": {
                     "skuId": "skuId_70",
@@ -1074,10 +1074,10 @@ const packingData = {
                     "eagleSticksPerBundle": "9",
                     "eagleBundlesPerTruckLoad": "8",
                     "eagleSticksPerTruckload": 72,
+                    "actualSticksPerTruckLoad": 72,
                     "length": "20'",
                     "calculatedSticksPerBundle": 9,
-                    "size": "14\"",
-                    "actualSticksPerTruckLoad": 72
+                    "size": "14\""
                 },
                 "skuId_71": {
                     "skuId": "skuId_71",
@@ -1089,10 +1089,10 @@ const packingData = {
                     "eagleSticksPerBundle": "4 / 6 / 6 / 9",
                     "eagleBundlesPerTruckLoad": "2 / 2 / 2 / 2",
                     "eagleSticksPerTruckload": 50,
+                    "actualSticksPerTruckLoad": 50,
                     "length": "20'",
                     "calculatedSticksPerBundle": 6,
-                    "size": "16\"",
-                    "actualSticksPerTruckLoad": 50
+                    "size": "16\""
                 },
                 "skuId_72": {
                     "skuId": "skuId_72",
@@ -1104,10 +1104,10 @@ const packingData = {
                     "eagleSticksPerBundle": "4 / 6",
                     "eagleBundlesPerTruckLoad": "4 / 4",
                     "eagleSticksPerTruckload": 40,
+                    "actualSticksPerTruckLoad": 40,
                     "length": "20'",
                     "calculatedSticksPerBundle": 4,
-                    "size": "18\"",
-                    "actualSticksPerTruckLoad": 40
+                    "size": "18\""
                 },
                 "skuId_73": {
                     "skuId": "skuId_73",
@@ -1119,10 +1119,10 @@ const packingData = {
                     "eagleSticksPerBundle": "4",
                     "eagleBundlesPerTruckLoad": "8",
                     "eagleSticksPerTruckload": 32,
+                    "actualSticksPerTruckLoad": 32,
                     "length": "20'",
                     "calculatedSticksPerBundle": 4,
-                    "size": "20\"",
-                    "actualSticksPerTruckLoad": 32
+                    "size": "20\""
                 },
                 "skuId_74": {
                     "skuId": "skuId_74",
@@ -1134,10 +1134,10 @@ const packingData = {
                     "eagleSticksPerBundle": "3",
                     "eagleBundlesPerTruckLoad": "9",
                     "eagleSticksPerTruckload": 18,
+                    "actualSticksPerTruckLoad": 18,
                     "length": "20'",
                     "calculatedSticksPerBundle": 3,
-                    "size": "24\"",
-                    "actualSticksPerTruckLoad": 18
+                    "size": "24\""
                 }
             }
         },
@@ -1155,10 +1155,10 @@ const packingData = {
                     "eagleSticksPerBundle": "84",
                     "eagleBundlesPerTruckLoad": "18",
                     "eagleSticksPerTruckload": 1512,
+                    "actualSticksPerTruckLoad": 1512,
                     "length": "14'",
                     "calculatedSticksPerBundle": 84,
-                    "size": "4\"",
-                    "actualSticksPerTruckLoad": 1512
+                    "size": "4\""
                 },
                 "skuId_76": {
                     "skuId": "skuId_76",
@@ -1170,10 +1170,10 @@ const packingData = {
                     "eagleSticksPerBundle": "40",
                     "eagleBundlesPerTruckLoad": "18",
                     "eagleSticksPerTruckload": 720,
+                    "actualSticksPerTruckLoad": 720,
                     "length": "14'",
                     "calculatedSticksPerBundle": 40,
-                    "size": "6\"",
-                    "actualSticksPerTruckLoad": 720
+                    "size": "6\""
                 },
                 "skuId_77": {
                     "skuId": "skuId_77",
@@ -1185,10 +1185,10 @@ const packingData = {
                     "eagleSticksPerBundle": "30 / 36",
                     "eagleBundlesPerTruckLoad": "6 / 6",
                     "eagleSticksPerTruckload": 396,
+                    "actualSticksPerTruckLoad": 396,
                     "length": "14'",
                     "calculatedSticksPerBundle": 30,
-                    "size": "8\"",
-                    "actualSticksPerTruckLoad": 396
+                    "size": "8\""
                 },
                 "skuId_78": {
                     "skuId": "skuId_78",
@@ -1200,10 +1200,10 @@ const packingData = {
                     "eagleSticksPerBundle": "12 / 15",
                     "eagleBundlesPerTruckLoad": "9 / 9",
                     "eagleSticksPerTruckload": 243,
+                    "actualSticksPerTruckLoad": 243,
                     "length": "14'",
                     "calculatedSticksPerBundle": 12,
-                    "size": "10\"",
-                    "actualSticksPerTruckLoad": 243
+                    "size": "10\""
                 },
                 "skuId_79": {
                     "skuId": "skuId_79",
@@ -1215,10 +1215,10 @@ const packingData = {
                     "eagleSticksPerBundle": "12 / 16",
                     "eagleBundlesPerTruckLoad": "6 / 6",
                     "eagleSticksPerTruckload": 168,
+                    "actualSticksPerTruckLoad": 168,
                     "length": "14'",
                     "calculatedSticksPerBundle": 12,
-                    "size": "12\"",
-                    "actualSticksPerTruckLoad": 168
+                    "size": "12\""
                 },
                 "skuId_80": {
                     "skuId": "skuId_80",
@@ -1230,10 +1230,10 @@ const packingData = {
                     "eagleSticksPerBundle": "84",
                     "eagleBundlesPerTruckLoad": "18",
                     "eagleSticksPerTruckload": 1512,
+                    "actualSticksPerTruckLoad": 1512,
                     "length": "14'",
                     "calculatedSticksPerBundle": 84,
-                    "size": "4\"",
-                    "actualSticksPerTruckLoad": 1512
+                    "size": "4\""
                 },
                 "skuId_81": {
                     "skuId": "skuId_81",
@@ -1245,10 +1245,10 @@ const packingData = {
                     "eagleSticksPerBundle": "40",
                     "eagleBundlesPerTruckLoad": "19",
                     "eagleSticksPerTruckload": 720,
+                    "actualSticksPerTruckLoad": 720,
                     "length": "14'",
                     "calculatedSticksPerBundle": 40,
-                    "size": "6\"",
-                    "actualSticksPerTruckLoad": 720
+                    "size": "6\""
                 },
                 "skuId_82": {
                     "skuId": "skuId_82",
@@ -1260,10 +1260,10 @@ const packingData = {
                     "eagleSticksPerBundle": "30 / 36",
                     "eagleBundlesPerTruckLoad": "6 / 6",
                     "eagleSticksPerTruckload": 396,
+                    "actualSticksPerTruckLoad": 396,
                     "length": "14'",
                     "calculatedSticksPerBundle": 30,
-                    "size": "8\"",
-                    "actualSticksPerTruckLoad": 396
+                    "size": "8\""
                 },
                 "skuId_83": {
                     "skuId": "skuId_83",
@@ -1275,10 +1275,10 @@ const packingData = {
                     "eagleSticksPerBundle": "12 / 15",
                     "eagleBundlesPerTruckLoad": "9 / 9",
                     "eagleSticksPerTruckload": 243,
+                    "actualSticksPerTruckLoad": 243,
                     "length": "14'",
                     "calculatedSticksPerBundle": 12,
-                    "size": "10\"",
-                    "actualSticksPerTruckLoad": 243
+                    "size": "10\""
                 },
                 "skuId_84": {
                     "skuId": "skuId_84",
@@ -1290,12 +1290,12 @@ const packingData = {
                     "eagleSticksPerBundle": "12 / 16",
                     "eagleBundlesPerTruckLoad": "6 / 6",
                     "eagleSticksPerTruckload": 168,
+                    "actualSticksPerTruckLoad": 168,
                     "length": "14'",
                     "calculatedSticksPerBundle": 12,
-                    "size": "12\"",
-                    "actualSticksPerTruckLoad": 168
+                    "size": "12\""
                 }
             }
         }
     ]
-};
+}
